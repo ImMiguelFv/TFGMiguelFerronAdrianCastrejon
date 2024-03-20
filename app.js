@@ -1,18 +1,23 @@
-
-/* iMPORTAMOS */
 const express = require('express');
-/* oBJETO para llamar a los metodos */
+const path = require('path');
+
 const app = express();
-/* CONEXION */
-/* VISTAS */
+
+/* Configuración */
 app.set('view engine', 'ejs');
+
+/* Middlewares */
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-/* Rutas estaticas */
-app.get('/',function(req, res) {
+app.use(express.static(path.join(__dirname, 'views', 'styles')));
+
+/* Rutas */
+app.get('/', function(req, res) {
     res.render('index');
 });
-/* Servidor */ 
-app.listen(5000, () => {
-    console.log('Servidor corriendo en http://localhost:5000');
+
+/* Servidor */
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
