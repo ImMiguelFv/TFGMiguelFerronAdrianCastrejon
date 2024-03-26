@@ -6,11 +6,11 @@
         "descripcion": "Caja de Moria para almacenar el deck de cartas",
         "precio": 10.99,
         "imagenes": [
-        "../assets/Moria_Preview.jpg",
-          "../assets/Moria_Back.jpg",
-          "../assets/Moria_Front.jpg",
-          "../assets/Moria_Lado.jpg",
-          "../assets/Moria_Lado1.jpg"
+        "../assets/Productos/MoiraCage/Moria_Preview.jpg",
+          "../assets/Productos/MoiraCage/Moria_Back.jpg",
+          "../assets/Productos/MoiraCage/Moria_Front.jpg",
+          "../assets/Productos/MoiraCage/Moria_Lado.jpg",
+          "../assets/Productos/MoiraCage/Moria_Lado1.jpg"
         ]
       }
     ]
