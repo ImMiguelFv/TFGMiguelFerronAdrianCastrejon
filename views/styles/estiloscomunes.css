@@ -37,7 +37,6 @@
   .cabecera .logo {
     cursor: pointer; /* Cambia el cursor a un puntero al pasar por encima */
     font-size: 40px; /* Tamaño del texto del logo en unidades vw */
-    font-family: logo; /* Uso de la fuente 'logo' */
     text-shadow: 2px 2px 20px 10px black; /* Efecto de sombra al pasar el ratón */
   
   }
@@ -69,7 +68,6 @@
   }
   
   .cabecera .nav_bar .nav-links a {
-    font-family: logo; /* Uso de la fuente 'logo' para los enlaces */
     text-decoration: none; /* Elimina el subrayado de los enlaces */
     color: var(--amarillo); /* Color de los enlaces */
   }
