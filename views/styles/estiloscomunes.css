@@ -1,1 +1,216 @@
 /* HEADERS FOOTERS Y COSAS CONJUNTAS */
+ :root {
+    /* Definición de colores personalizables */
+    --darkRed: hsla(0, 0%, 100%, 0);
+    --lightRed: #ffffff;
+    --darkOrange: #be5905;
+    --lightOrange: #00ffb3;
+    --background: #ececec; /* Color de fondo general */
+    --coral: #FF6347; 
+    --grisclaro: #dfdddd;
+    --tres: #333333;
+    --azul: #000000; /* Color de texto predeterminado para los títulos de sección */
+    --azuloscuro: #000000; 
+    --gris: rgb(185, 184, 184); 
+    --grisaceo: #d8d8d8; 
+    --amarillo: #ffef5b; /* Color de acento para elementos destacados */
+    --azulbrillante: #000000;
+    --rojo: #c70909; /* Color rojo utilizado en algunas secciones */
+    --darkRed: hsl(0, 100%, 12%);
+  }
+  /* Propiedades del header */
+  .cabecera {
+    display: flex; /* Establece el modelo de caja como flexible */
+    justify-content:  space-around; /* Distribuye el espacio alrededor de los elementos hijos */
+    align-items: center; /* Centra los elementos verticalmente */
+    height: 80px; /* Altura del header */
+    background-color: var(--rojo); /* Color de fondo del header */
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    
+  }
+  .cabecera.mostrar {
+    top: 0; /* muestra el header cuando se detiene el scroll */
+  }
+  /* Propiedades del logo */
+  .cabecera .logo {
+    cursor: pointer; /* Cambia el cursor a un puntero al pasar por encima */
+    font-size: 40px; /* Tamaño del texto del logo en unidades vw */
+    font-family: logo; /* Uso de la fuente 'logo' */
+    text-shadow: 2px 2px 20px 10px black; /* Efecto de sombra al pasar el ratón */
+  
+  }
+  
+  .cabecera .logo a {
+    color: var(--amarillo); /* Color del texto del logo */
+      text-decoration: none;/* elimino la decoracion */
+      cursor: pointer; /* Establecemos cursor como puntero */
+    }
+    
+  
+  .cabecera img {
+    color: var(--amarillo); /* Color del texto del logo (se aplica a las imágenes dentro de la cabecera) */
+  }
+  
+  /* Propiedades de la barra de navegación y sus componentes */
+  .cabecera .nav_bar .nav-links {
+    display: flex; /* Establece el modelo de caja como flexible */ 
+    justify-content: space-between; /* Distribuye el espacio entre los elementos de manera uniforme */
+    list-style: none; /* Elimina el estilo de lista de las opciones de navegación */
+    flex-direction: row;
+  
+  }
+  
+  .cabecera .nav_bar .nav-links li {
+    padding: 0 1vw; /* Ajusta el padding horizontal con unidades vw */
+    display: inline-block;
+    font-size: 30px; /* Utiliza unidades vw para hacer el tamaño de la fuente responsivo */
+  }
+  
+  .cabecera .nav_bar .nav-links a {
+    font-family: logo; /* Uso de la fuente 'logo' para los enlaces */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: var(--amarillo); /* Color de los enlaces */
+  }
+  
+/* Menu Desplegable */
+.burger {
+    display: none; /* Inicialmente oculto */
+    position: relative;
+    width: 40px;
+    height: 30px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.burger input {
+    display: none;
+}
+
+.burger span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: black;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+    top: 0px;
+    transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+    top: 100%;
+    transform-origin: left center;
+    transform: translateY(-100%);
+}
+
+.burger input:checked ~ .nav-links {
+    transform: translateX(0%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 5px;
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 28px;
+    left: 5px;
+}
+
+/* Hovers de la cabecera */
+.cabecera .logo a:hover {
+    color: var(--background); /* Cambia el color de los enlaces al pasar el ratón */
+  
+  }
+  
+  .cabecera .nav_bar .nav-links a:hover {
+    color: var(--background); /* Cambia el color de los enlaces al pasar el ratón */
+  }
+  
+  .cabecera .nav_bar .burger:hover {
+    color: var(--background); /* Cambia el color del icono de intercambio al pasar el ratón */
+    transform: scale(1.1); /* Escala el icono al pasar el ratón */
+    transition: 0.3s; /* Transición suave de 0.3 segundos */
+    text-shadow: 0px 0px 10px 10px var(--background); /* Efecto de sombra al pasar el ratón */
+  }
+@media (max-width: 768px) {
+    .cabecera {
+        position: fixed;
+        display: flex; /* Disposición de los elementos en línea */
+        justify-content: space-around; /* Espaciado uniforme de los elementos en el header */
+        align-items: center; /* Alineación central de los elementos en el header */
+        height: 80px; /* Altura del header en dispositivos móviles */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000; /* Índice de apilamiento para estar por encima de otros elementos */
+    }
+  
+    .cabecera .logo {
+        font-size: 35px; /* Tamaño del texto del logo en dispositivos móviles */
+    }
+  
+    .cabecera .nav_bar .burger {
+        display: block; /* Mostrar el icono de intercambio en dispositivos móviles */
+        margin-right: 10px;
+    }
+  
+    .cabecera .nav_bar .nav-links li {
+        line-height: 40px; /* Altura de línea para las opciones de navegación en dispositivos móviles */
+        padding: 0 1vw; /* Ajusta el padding horizontal con unidades vw */
+        display: inline-block;
+        font-size: 5vw; /* Utiliza unidades vw para hacer el tamaño de la fuente responsivo */
+    }
+  
+    .cabecera .nav_bar .nav-links li:hover {
+        padding: 0 1vw; /* Ajusta el padding horizontal con unidades vw */
+        font-size: 5vw; /* Utiliza unidades vw para hacer el tamaño de la fuente responsivo */
+    }
+  
+    .cabecera .nav_bar .nav-links {
+        display: flex;
+        flex-direction: column; /* Cambiar la dirección de las opciones de navegación a columna */
+        position: fixed; /* Fijar la posición de las opciones de navegación */
+        top: -100%; /* Inicialmente fuera de la pantalla */
+        left: 0;
+        width: 100%;
+        align-items: center;
+        padding: 20px 0;
+        background-color: var(--rojo);
+    }
+  
+    .cabecera .nav_bar .nav-links--visible {
+        top: 80px; /* Posición visible de las opciones de navegación */
+        animation: 0.9s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
+    }
+  }
+  @keyframes wipe-in-down {
+    from {
+        clip-path: inset(0 0 100% 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+  }  
