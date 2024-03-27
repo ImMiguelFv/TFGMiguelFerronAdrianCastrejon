@@ -11,6 +11,16 @@
           "../assets/Productos/MoiraCage/Moria_Front.jpg",
           "../assets/Productos/MoiraCage/Moria_Lado.jpg",
           "../assets/Productos/MoiraCage/Moria_Lado1.jpg"
+        ],
+        "colores": [
+          "purple",
+          "pink",
+          "yellow",
+          "green",
+          "orange",
+          "blue",
+          "white",
+          "black"
         ]
       }
     ]
