@@ -18,6 +18,10 @@
     --rojo: #c70909; /* Color rojo utilizado en algunas secciones */
     --darkRed: hsl(0, 100%, 12%);
   }
+  *{
+    margin: 0;
+    padding: 0;
+}
   /* Propiedades del header */
   .cabecera {
     display: flex; /* Establece el modelo de caja como flexible */
