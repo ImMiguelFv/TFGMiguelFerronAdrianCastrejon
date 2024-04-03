@@ -1,18 +1,52 @@
+.producto{
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
 
+}
 #content{
-    margin-top: 50px;
+    margin-top: 100px;
 }
-#preview{
-    width: 600px;
-    height: auto;
-    border: 1px solid black;
-    object-fit: cover;
-}
-
-
-#selector{
+  /* Estilos para la vista previa y las imágenes seleccionables */
+  .imagenes {
+    display: flex;
+    flex-direction: row;
+    height: 800px;
+  }
+  .selecionables {
     width: 100px;
-    height: 100px;
-    border: 1px solid black;
-    object-fit: cover;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 700px;
+    padding-left: 80px;
+  }
+  .selecionables img {
+    width: 75px; /* Ajusta el tamaño según tus necesidades */
+    margin: 5px;
+    cursor: pointer;
+    border: #000000 1px solid;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.51);
+
+
+
+  }
+  #preview {
+    width: 400px;
+
+  }
+
+  .imagenpreview{
+    width: 700px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .formulario{
+    width: 720px;
+  }

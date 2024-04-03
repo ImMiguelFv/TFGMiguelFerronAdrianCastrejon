@@ -18,10 +18,14 @@
     --rojo: #c70909; /* Color rojo utilizado en algunas secciones */
     --darkRed: hsl(0, 100%, 12%);
   }
-  *{
-    margin: 0;
-    padding: 0;
-}
+  * {
+    margin: 0; /* Elimina el margen en todos los elementos */
+    padding: 0; /* Elimina el relleno en todos los elementos */
+    box-sizing: border-box; /* Utiliza el modelo de caja border-box para todos los elementos */
+    scroll-behavior: smooth;
+  
+  
+  }
   /* Propiedades del header */
   .cabecera {
     display: flex; /* Establece el modelo de caja como flexible */
@@ -31,7 +35,6 @@
     background-color: var(--rojo); /* Color de fondo del header */
     width: 100%;
     position: fixed;
-    z-index: 1000;
     
   }
   .cabecera.mostrar {
@@ -66,7 +69,6 @@
   }
   
   .cabecera .nav_bar .nav-links li {
-    padding: 0 1vw; /* Ajusta el padding horizontal con unidades vw */
     display: inline-block;
     font-size: 30px; /* Utiliza unidades vw para hacer el tamaño de la fuente responsivo */
   }
@@ -156,6 +158,15 @@
     transform: scale(1.1); /* Escala el icono al pasar el ratón */
     transition: 0.3s; /* Transición suave de 0.3 segundos */
     text-shadow: 0px 0px 10px 10px var(--background); /* Efecto de sombra al pasar el ratón */
+  }
+
+  /* Valores usados comunes */
+  body {
+    background-color: var(--background); /* Establece el color de fondo del cuerpo utilizando una variable definida previamente */
+    grid-template-rows: auto 1fr auto; /* Define las filas de la cuadrícula del cuerpo */
+    min-height: 100vh; /* Establece la altura mínima del cuerpo como el 100% del viewport height */
+    display: grid; /* Utiliza un layout de grid para organizar el contenido del cuerpo */
+
   }
 @media (max-width: 768px) {
     .cabecera {
