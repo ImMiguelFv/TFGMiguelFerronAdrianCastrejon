@@ -14,3 +14,4 @@ imagenesSeleccionables.forEach(imagen => {
     vistaPrevia.setAttribute('src', nuevaRuta);
   });
 });
+
