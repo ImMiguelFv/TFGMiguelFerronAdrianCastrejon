@@ -53,30 +53,32 @@
             <h2 class="descripcion_producto">Características</h2>
             <p>Caja para el almacenamiento del deck de cartas de One Piece con la tematica de Moira</p>
             <form class="formulario">             
-                <label for="cantidad">Cantidad:</label>
-                <select id="cantidad" name="cantidad">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-                <label for="cantidad">Colores:</label>
-                <select id="cantidad" name="cantidad">
-                  <option value="Rojo">Rojo</option>
-                  <option value="Magenta">Magenta</option>
-                  <option value="Amarillo">Amarillo</option>
-                  <option value="Azul">Azul</option>
-                  <option value="Blanco">Blanco</option>
-                  <option value="Negro">Negro</option>
-
-                </select>
-                <button type="button" onclick="agregarACesta()">Añadir a la cesta</button>
+                <form class="formulario">             
+                    <label for="cantidad">Cantidad:</label>
+                    <select id="cantidad" name="cantidad">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                    <label for="color">Colores:</label>
+                    <select id="color" name="color">
+                      <option value="Rojo">Rojo</option>
+                      <option value="Magenta">Magenta</option>
+                      <option value="Amarillo">Amarillo</option>
+                      <option value="Azul">Azul</option>
+                      <option value="Blanco">Blanco</option>
+                      <option value="Negro">Negro</option>
+                    </select>
+                    <button type="button" onclick="agregarACesta()">Añadir a la cesta</button>
+                </form>
+                
 
               </form>
     
@@ -87,10 +89,21 @@
 <script src="../../../javascript/preview.js" defer></script>
 <script src="../../../javascript/script.js"></script>
 <script>
-    function agregarACesta() {
-      // Aquí puedes agregar la lógica para añadir los elementos a la cesta
-      alert("¡Función aún no implementada!");
-    }
+function agregarACesta() {
+    // Obtener los valores seleccionados de cantidad y color
+    var cantidad = document.getElementById('cantidad').value;
+    var color = document.getElementById('color').value;
+
+    // Simular añadir el producto a la cesta
+    console.log(`Añadido a la cesta: ${cantidad} producto(s) de color ${color}`);
+
+    // Aquí puedes añadir código para actualizar el carrito de compras en la página,
+    // o enviar estos datos al servidor mediante una solicitud AJAX, por ejemplo.
+
+    // Muestra un mensaje simple al usuario (opcional)
+    alert(`Añadido a la cesta: ${cantidad} producto(s) de color ${color}`);
+}
+
     </script>
 </body>
 </html>
