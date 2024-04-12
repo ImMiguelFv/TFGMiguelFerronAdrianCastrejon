@@ -52,3 +52,52 @@
   .formulario{
     width: 420px;
   }
+
+  /* Media query */
+  @media only screen and (max-width: 768px) {
+    .producto {
+      flex-direction: column-reverse;
+      margin: 25px;
+    }
+    #content {
+      margin-top: 50px; /* Ajusta según tus necesidades */
+    }
+    .imagenes {
+      flex-direction: column;
+      height: auto;
+      margin-left: 0; /* Elimina el margen izquierdo */
+    }
+    .selecionables {
+      flex-direction: row; /* Cambia a filas para que las imágenes sean horizontales */
+      align-items: flex-start; /* Ajusta la alineación de los elementos */
+      width: auto;
+      height: auto;
+      margin: 10px 0; /* Ajusta el margen */
+    }
+    .selecionables img {
+      width: 50px; /* Ajusta el tamaño según tus necesidades */
+      height: auto;
+    }
+    #preview {
+      width: auto;
+      max-width: 100%; /* Hace que el ancho máximo sea el tamaño del contenedor */
+      margin: 10px 0; /* Ajusta el margen */
+    }
+    .imagenpreview {
+      width: auto;
+      height: auto;
+    }
+    .datos{
+      height: auto;
+    }
+    .datos, .formulario {
+      width: auto;
+      max-width: 100%; /* Hace que el ancho máximo sea el tamaño del contenedor */
+      margin: 10px 0; /* Ajusta el margen */
+    }
+    .datos .nombre {
+      width: auto;
+      font-size: 20px; /* Ajusta el tamaño de fuente */
+    }
+  }
+  
