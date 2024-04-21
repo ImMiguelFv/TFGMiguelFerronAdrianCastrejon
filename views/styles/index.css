@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    margin:30px  20px;
+    position: relative;
+}
+.cabecera .logo{
+    padding-top: 5px;
+}
+.cabecera::before,
+.cabecera::after {
+    content: '';
+    position: absolute;
+    width: 100%; /* Ancho del 50% para que las barras ocupen la mitad del ancho de la cabecera */
+    height: 5px; /* Altura de las barras */
+    background-color: #ccc; /* Color de las barras grisáceas */
+}
+
+.cabecera::before {
+    top: 0; /* Posición al principio de la cabecera */
+    left: 0; /* Posición al principio de la cabecera */
+}
+
+.cabecera::after {
+    bottom: 0; /* Posición al final de la cabecera */
+    right: 0; /* Posición al final de la cabecera */
+}
+
+.menu {
+    display: inline-block;
+}
+.menu .nav-links{
+    padding-bottom: 15px;
+}
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    display: inline-block;
+    position: relative;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.menu ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 0;
+}
+
+.menu ul li:hover > ul {
+    display: block;
+}
+
+.menu ul li ul li {
+    display: block;
+}
+
+.menu ul li ul li a {
+    padding: 10px 20px;
+}
+
+.menu ul li ul li:hover {
+    background-color: #f0f0f0;
+}
+
+
+.parallax-section {
+    height: 500px; /* Altura de la sección */
+   /* background-color: #222; /* Color de fondo detrás de la imagen */
+    overflow: hidden; /* Para que la imagen no sobresalga de la sección */
+    position: relative;
+    margin: 0 20px; /* Añadimos márgenes a los lados */
+}
+
+.parallax-image {
+    background-image: url('../assets/Productos/MoiraCage/Moria_Front.jpg'); /* Ruta de la imagen */
+    height: 100%;
+    background-attachment:fixed; /* Fijar la imagen para el efecto parallax */
+    background-position: center; /* Posición de la imagen */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-size: cover; /* Ajustar la imagen al tamaño de la sección */
+    position: relative;
+    z-index: -1; /* Colocar detrás del contenido */
+}
+
+.parallax-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.parallax-link {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo del enlace */
+    border-radius: 5px;
+}
+
+.parallax-link:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Color de fondo del enlace al pasar el ratón */
+}
+.product-description{
+    text-align: center;
+
+    max-width: 500px;
+    margin: 20px auto; /* Centra el elemento horizontalmente */
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .grid-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra cuando pasa el ratón */
+    transition: box-shadow 0.3s ease; /* Transición suave */
+  }
+  
+  .grid-item:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el ratón */
+  }
+  .item1 {
+    background-image: url('../assets/Productos/MoiraCage/Moria_Front.jpg'); /* Ruta de la imagen para el primer contenedor */
+  }
+  
+  .item2 {
+    background-image: url('imagen2.jpg'); /* Ruta de la imagen para el segundo contenedor */
+  }
+  
+  .item3 {
+    background-image: url('imagen3.jpg'); /* Ruta de la imagen para el tercer contenedor */
+  }
+  
+  .item4 {
+    background-image: url('imagen4.jpg'); /* Ruta de la imagen para el cuarto contenedor */
+  }
+  
+  .content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .content h2 {
+    margin-bottom: 10px;
+  }
+  
+  .content p {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
