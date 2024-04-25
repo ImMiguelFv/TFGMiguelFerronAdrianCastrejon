@@ -31,53 +31,48 @@ header {
 }
 
 .menu {
-    display: inline-block;
+  background-color: #333;
 }
 .menu .nav-links{
-    padding-bottom: 15px;
+  padding-bottom: 20px;
 }
+
 .menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.menu ul li {
-    display: inline-block;
-    position: relative;
+.menu li {
+  display: inline-block;
+  position: relative;
 }
 
-.menu ul li a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #333;
+.menu a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
 }
 
-.menu ul li ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 0;
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #555;
+  min-width: 200px;
+  z-index: 1;
 }
 
-.menu ul li:hover > ul {
-    display: block;
+.submenu li {
+  display: block;
 }
 
-.menu ul li ul li {
-    display: block;
+.submenu a {
+  padding: 10px;
 }
 
-.menu ul li ul li a {
-    padding: 10px 20px;
-}
-
-.menu ul li ul li:hover {
-    background-color: #f0f0f0;
+.menu li:hover .submenu {
+  display: block;
 }
 
 
@@ -131,16 +126,25 @@ header {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 2fr);
     gap: 20px;
+    height: 800px;
+    justify-items: center;
   }
   
   .grid-item {
-    background-color: #fff;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra cuando pasa el ratón */
     transition: box-shadow 0.3s ease; /* Transición suave */
+    max-width: 600px;
+    max-height: 800px;
+    
+    background-size: cover;
+    background-position: center;
   }
   
   .grid-item:hover {
@@ -151,20 +155,22 @@ header {
   }
   
   .item2 {
-    background-image: url('imagen2.jpg'); /* Ruta de la imagen para el segundo contenedor */
+    background-image: url('../assets/Productos/MoiraCage/Moria_Front.jpg'); /* Ruta de la imagen para el segundo contenedor */
   }
   
   .item3 {
-    background-image: url('imagen3.jpg'); /* Ruta de la imagen para el tercer contenedor */
+    background-image: url('../assets/Productos/MoiraCage/Moria_Front.jpg'); /* Ruta de la imagen para el tercer contenedor */
   }
   
   .item4 {
-    background-image: url('imagen4.jpg'); /* Ruta de la imagen para el cuarto contenedor */
+    background-image: url('../assets/Productos/MoiraCage/Moria_Front.jpg'); /* Ruta de la imagen para el cuarto contenedor */
   }
   
   .content {
     padding: 20px;
     text-align: center;
+    color: aliceblue;
+    width: 700px;
   }
   
   .content h2 {
