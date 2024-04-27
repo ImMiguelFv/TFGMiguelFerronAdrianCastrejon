@@ -1,229 +1,76 @@
-/* HEADERS FOOTERS Y COSAS CONJUNTAS */
- :root {
-    /* Definición de colores personalizables */
-    --darkRed: hsla(0, 0%, 100%, 0);
-    --lightRed: #ffffff;
-    --darkOrange: #be5905;
-    --lightOrange: #00ffb3;
-    --background: #ececec; /* Color de fondo general */
-    --coral: #FF6347; 
-    --grisclaro: #dfdddd;
-    --tres: #333333;
-    --azul: #000000; /* Color de texto predeterminado para los títulos de sección */
-    --azuloscuro: #000000; 
-    --gris: rgb(185, 184, 184); 
-    --grisaceo: #d8d8d8; 
-    --amarillo: #ffef5b; /* Color de acento para elementos destacados */
-    --azulbrillante: #000000;
-    --rojo: #313832; /* Color rojo utilizado en algunas secciones */
-    --darkRed: hsl(0, 100%, 12%);
-  }
-  * {
-    margin: 0; /* Elimina el margen en todos los elementos */
-    padding: 0; /* Elimina el relleno en todos los elementos */
-    box-sizing: border-box; /* Utiliza el modelo de caja border-box para todos los elementos */
-    scroll-behavior: smooth;
-  
-  
-  }
-  /* Propiedades del header */
-  .cabecera {
-    display: flex; /* Establece el modelo de caja como flexible */
-    justify-content:  space-around; /* Distribuye el espacio alrededor de los elementos hijos */
-    align-items: center; /* Centra los elementos verticalmente */
-    height: 80px; /* Altura del header */
-    background-color: var(--rojo); /* Color de fondo del header */
-    width: 100%;
-    position: fixed;
-    
-  }
-  .cabecera.mostrar {
-    top: 0; /* muestra el header cuando se detiene el scroll */
-  }
-  /* Propiedades del logo */
-  .cabecera .logo {
-    cursor: pointer; /* Cambia el cursor a un puntero al pasar por encima */
-    font-size: 40px; /* Tamaño del texto del logo en unidades vw */
-    text-shadow: 2px 2px 20px 10px black; /* Efecto de sombra al pasar el ratón */
-  
-  }
-  
-  .cabecera .logo a {
-    color: var(--amarillo); /* Color del texto del logo */
-      text-decoration: none;/* elimino la decoracion */
-      cursor: pointer; /* Establecemos cursor como puntero */
-    }
-    
-  
-  .cabecera img {
-    color: var(--amarillo); /* Color del texto del logo (se aplica a las imágenes dentro de la cabecera) */
-  }
-  
-  /* Propiedades de la barra de navegación y sus componentes */
-  .cabecera .nav_bar .nav-links {
-    display: flex; /* Establece el modelo de caja como flexible */ 
-    justify-content: space-between; /* Distribuye el espacio entre los elementos de manera uniforme */
-    list-style: none; /* Elimina el estilo de lista de las opciones de navegación */
-    flex-direction: row;
-  
-  }
-  
-  .cabecera .nav_bar .nav-links li {
-    display: inline-block;
-    font-size: 30px; /* Utiliza unidades vw para hacer el tamaño de la fuente responsivo */
-  }
-  
-  .cabecera .nav_bar .nav-links a {
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    color: var(--amarillo); /* Color de los enlaces */
-  }
-  
-/* Menu Desplegable */
-.burger {
-    display: none; /* Inicialmente oculto */
+header {
+    text-align: center;
+    margin:30px  20px;
     position: relative;
-    width: 40px;
-    height: 30px;
-    background: transparent;
-    cursor: pointer;
 }
-
-.burger input {
-    display: none;
+.cabecera .logo{
+    padding-top: 5px;
 }
-
-.burger span {
-    display: block;
+.cabecera::before,
+.cabecera::after {
+    content: '';
     position: absolute;
-    height: 4px;
-    width: 100%;
-    background: black;
-    border-radius: 9px;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: .25s ease-in-out;
+    width: 100%; /* Ancho del 50% para que las barras ocupen la mitad del ancho de la cabecera */
+    height: 5px; /* Altura de las barras */
+    background-color: #ccc; /* Color de las barras grisáceas */
 }
 
-.burger span:nth-of-type(1) {
-    top: 0px;
-    transform-origin: left center;
+.cabecera::before {
+    top: 0; /* Posición al principio de la cabecera */
+    left: 0; /* Posición al principio de la cabecera */
 }
 
-.burger span:nth-of-type(2) {
-    top: 50%;
-    transform: translateY(-50%);
-    transform-origin: left center;
+.cabecera::after {
+    bottom: 0; /* Posición al final de la cabecera */
+    right: 0; /* Posición al final de la cabecera */
 }
 
-.burger span:nth-of-type(3) {
+.menu {
+    display: inline-block;
+}
+.menu .nav-links{
+    padding-bottom: 15px;
+}
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    display: inline-block;
+    position: relative;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.menu ul li ul {
+    display: none;
+    position: absolute;
     top: 100%;
-    transform-origin: left center;
-    transform: translateY(-100%);
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 0;
 }
 
-.burger input:checked ~ .nav-links {
-    transform: translateX(0%);
+.menu ul li:hover > ul {
+    display: block;
 }
 
-.burger input:checked ~ span:nth-of-type(1) {
-    transform: rotate(45deg);
-    top: 0px;
-    left: 5px;
+.menu ul li ul li {
+    display: block;
 }
 
-.burger input:checked ~ span:nth-of-type(2) {
-    width: 0%;
-    opacity: 0;
+.menu ul li ul li a {
+    padding: 10px 20px;
 }
 
-.burger input:checked ~ span:nth-of-type(3) {
-    transform: rotate(-45deg);
-    top: 28px;
-    left: 5px;
+.menu ul li ul li:hover {
+    background-color: #f0f0f0;
 }
-
-/* Hovers de la cabecera */
-.cabecera .logo a:hover {
-    color: var(--background); /* Cambia el color de los enlaces al pasar el ratón */
-  
-  }
-  
-  .cabecera .nav_bar .nav-links a:hover {
-    color: var(--background); /* Cambia el color de los enlaces al pasar el ratón */
-  }
-  
-  .cabecera .nav_bar .burger:hover {
-    color: var(--background); /* Cambia el color del icono de intercambio al pasar el ratón */
-    transform: scale(1.1); /* Escala el icono al pasar el ratón */
-    transition: 0.3s; /* Transición suave de 0.3 segundos */
-    text-shadow: 0px 0px 10px 10px var(--background); /* Efecto de sombra al pasar el ratón */
-  }
-
-  /* Valores usados comunes */
-  body {
-    background-color: var(--background); /* Establece el color de fondo del cuerpo utilizando una variable definida previamente */
-    grid-template-rows: auto 1fr auto; /* Define las filas de la cuadrícula del cuerpo */
-    min-height: 100vh; /* Establece la altura mínima del cuerpo como el 100% del viewport height */
-    display: grid; /* Utiliza un layout de grid para organizar el contenido del cuerpo */
-
-  }
-@media (max-width: 768px) {
-    .cabecera {
-        position: fixed;
-        display: flex; /* Disposición de los elementos en línea */
-        justify-content: space-around; /* Espaciado uniforme de los elementos en el header */
-        align-items: center; /* Alineación central de los elementos en el header */
-        height: 80px; /* Altura del header en dispositivos móviles */
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000; /* Índice de apilamiento para estar por encima de otros elementos */
-    }
-  
-    .cabecera .logo {
-        font-size: 35px; /* Tamaño del texto del logo en dispositivos móviles */
-    }
-  
-    .cabecera .nav_bar .burger {
-        display: block; /* Mostrar el icono de intercambio en dispositivos móviles */
-        margin-right: 10px;
-    }
-  
-    .cabecera .nav_bar .nav-links li {
-        line-height: 40px; /* Altura de línea para las opciones de navegación en dispositivos móviles */
-        padding: 0 1vw; /* Ajusta el padding horizontal con unidades vw */
-        display: inline-block;
-        font-size: 5vw; /* Utiliza unidades vw para hacer el tamaño de la fuente responsivo */
-    }
-  
-    .cabecera .nav_bar .nav-links li:hover {
-        padding: 0 1vw; /* Ajusta el padding horizontal con unidades vw */
-        font-size: 5vw; /* Utiliza unidades vw para hacer el tamaño de la fuente responsivo */
-    }
-  
-    .cabecera .nav_bar .nav-links {
-        display: flex;
-        flex-direction: column; /* Cambiar la dirección de las opciones de navegación a columna */
-        position: fixed; /* Fijar la posición de las opciones de navegación */
-        top: -100%; /* Inicialmente fuera de la pantalla */
-        left: 0;
-        width: 100%;
-        align-items: center;
-        padding: 20px 0;
-        background-color: var(--rojo);
-    }
-  
-    .cabecera .nav_bar .nav-links--visible {
-        top: 80px; /* Posición visible de las opciones de navegación */
-        animation: 0.9s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
-    }
-  }
-  @keyframes wipe-in-down {
-    from {
-        clip-path: inset(0 0 100% 0);
-    }
-    to {
-        clip-path: inset(0 0 0 0);
-    }
-  }  
