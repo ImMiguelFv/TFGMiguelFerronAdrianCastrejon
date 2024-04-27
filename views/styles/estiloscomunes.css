@@ -1,4 +1,4 @@
-header {
+.cabecera {
     text-align: center;
     margin:30px  20px;
     position: relative;
@@ -25,31 +25,25 @@ header {
     right: 0; /* Posición al final de la cabecera */
 }
 
-.menu {
+.cabecera .menu {
     display: inline-block;
 }
-.menu .nav-links{
+.cabecera .menu .nav-links{
     padding-bottom: 15px;
 }
-.menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menu ul li {
+.cabecera .menu .link {
     display: inline-block;
     position: relative;
 }
 
-.menu ul li a {
+.cabecera .menu .link a {
     display: block;
     padding: 10px 20px;
     text-decoration: none;
     color: #333;
 }
 
-.menu ul li ul {
+.cabecera.menu .link {
     display: none;
     position: absolute;
     top: 100%;
@@ -57,20 +51,4 @@ header {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 0;
-}
-
-.menu ul li:hover > ul {
-    display: block;
-}
-
-.menu ul li ul li {
-    display: block;
-}
-
-.menu ul li ul li a {
-    padding: 10px 20px;
-}
-
-.menu ul li ul li:hover {
-    background-color: #f0f0f0;
 }
