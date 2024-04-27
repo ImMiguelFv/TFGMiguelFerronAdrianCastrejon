@@ -1,76 +1,76 @@
 header {
-  text-align: center;
-  margin:30px  20px;
-  position: relative;
+    text-align: center;
+    margin:30px  20px;
+    position: relative;
 }
 .cabecera .logo{
-  padding-top: 5px;
+    padding-top: 5px;
 }
 .cabecera::before,
 .cabecera::after {
-  content: '';
-  position: absolute;
-  width: 100%; /* Ancho del 50% para que las barras ocupen la mitad del ancho de la cabecera */
-  height: 5px; /* Altura de las barras */
-  background-color: #ccc; /* Color de las barras grisáceas */
+    content: '';
+    position: absolute;
+    width: 100%; /* Ancho del 50% para que las barras ocupen la mitad del ancho de la cabecera */
+    height: 5px; /* Altura de las barras */
+    background-color: #ccc; /* Color de las barras grisáceas */
 }
 
 .cabecera::before {
-  top: 0; /* Posición al principio de la cabecera */
-  left: 0; /* Posición al principio de la cabecera */
+    top: 0; /* Posición al principio de la cabecera */
+    left: 0; /* Posición al principio de la cabecera */
 }
 
 .cabecera::after {
-  bottom: 0; /* Posición al final de la cabecera */
-  right: 0; /* Posición al final de la cabecera */
+    bottom: 0; /* Posición al final de la cabecera */
+    right: 0; /* Posición al final de la cabecera */
 }
 
 .menu {
-  display: inline-block;
+    display: inline-block;
 }
 .menu .nav-links{
-  padding-bottom: 15px;
+    padding-bottom: 15px;
 }
 .menu ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .menu ul li {
-  display: inline-block;
-  position: relative;
+    display: inline-block;
+    position: relative;
 }
 
 .menu ul li a {
-  display: block;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #333;
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
 }
 
 .menu ul li ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 0;
 }
 
 .menu ul li:hover > ul {
-  display: block;
+    display: block;
 }
 
 .menu ul li ul li {
-  display: block;
+    display: block;
 }
 
 .menu ul li ul li a {
-  padding: 10px 20px;
+    padding: 10px 20px;
 }
 
 .menu ul li ul li:hover {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
