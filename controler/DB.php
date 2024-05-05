@@ -71,6 +71,5 @@ class DB {
         $resultado = self::$conexion->query($consulta);
         return $resultado->num_rows > 0;
     }
-    
 }
 ?>
