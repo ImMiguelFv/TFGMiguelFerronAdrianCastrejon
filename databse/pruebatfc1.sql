@@ -1,8 +1,0 @@
-CREATE TABLE Usuario (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    correo VARCHAR(255) UNIQUE NOT NULL,
-    contraseña VARCHAR(255) NOT NULL,
-    dirección VARCHAR(255),
-    Nombre VARCHAR(255) NOT NULL,
-    Apellidos VARCHAR(255) NOT NULL
-);
