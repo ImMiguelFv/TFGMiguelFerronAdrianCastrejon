@@ -20,16 +20,13 @@ if (isset($_POST['enviar'])) {
     }
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!-- Desarrollo Web en Entorno Servidor -->
-<!-- Tema 7 : Aplicaciones web dinámicas: PHP y Javascript -->
-<!-- Tarea: Cesta de la compra con Xajax: login.php -->
+<!DOCTYPE html PUBLIC>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Ejemplo Tema 7: Login Tienda Web</title>
 <link href="tienda.css" rel="stylesheet" type="text/css">
-<link rel='stylesheet' type='text/css' media='screen' href='styles/estiloscomunes.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
 </head>
 
 <body>
