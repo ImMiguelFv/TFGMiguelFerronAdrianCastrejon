@@ -15,6 +15,23 @@ class DB {
         }
     }
 
+    public static function registrarUsuario($nombre, $apellidos, $correo, $contraseña) {
+        self::conectar();
+        $nombre = self::$conexion->real_escape_string($nombre);
+        $apellidos = self::$conexion->real_escape_string($apellidos);
+        $correo = self::$conexion->real_escape_string($correo);
+        $contraseña = self::$conexion->real_escape_string($contraseña);
+
+        $consulta = "INSERT INTO Usuario (nombre, apellidos, correo, contraseña) VALUES ('$nombre', '$apellidos', '$correo', '$contraseña')";
+        $resultado = self::$conexion->query($consulta);
+
+        if ($resultado) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static function verificaCliente($usuario, $contraseña) {
         self::conectar();
         $usuario = self::$conexion->real_escape_string($usuario);

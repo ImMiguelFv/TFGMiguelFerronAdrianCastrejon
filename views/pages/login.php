@@ -83,6 +83,7 @@ if (isset($_POST['enviar'])) {
         </div>
     </fieldset>
     </form>
+    <h2><a href="registro.php">¿No tienes cuenta? Registrarse"></a></h2>
     </div>
 </body>
 </html>
