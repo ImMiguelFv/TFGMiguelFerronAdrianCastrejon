@@ -25,7 +25,6 @@ if (isset($_POST['enviar'])) {
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Ejemplo Tema 7: Login Tienda Web</title>
-<link href="tienda.css" rel="stylesheet" type="text/css">
 <link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
 </head>
 
@@ -63,7 +62,6 @@ if (isset($_POST['enviar'])) {
 </header> 
     <div id='login'>
     <form action='login.php' method='post'>
-    <fieldset >
         <legend>Login</legend>
         <div><span class='error'><?php echo $error; ?></span></div>
         <div class='campo'>
@@ -78,9 +76,8 @@ if (isset($_POST['enviar'])) {
         <div class='campo'>
             <input type='submit' name='enviar' value='Enviar' />
         </div>
-    </fieldset>
     </form>
-    <h2><a href="registro.php">¿No tienes cuenta? Registrarse"></a></h2>
+    <h2><a href="registro.php">¿No tienes cuenta? Registrate></a></h2>
     </div>
 </body>
 </html>

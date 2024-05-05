@@ -27,11 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mensajeError = "La contraseña debe contener al menos un número y una mayúscula.";
     } else {
         // Intentar registrar al usuario
-        $registroExitoso = DB::registrarUsuario($nombre, $apellidos, $correo, $contraseña);
+        $registroExitoso = DB::registrarUsuario($nombre, $apellidos, $correo, $contraseña, $verificarContraseña);
         if ($registroExitoso) {
-            $mensajeError = "Usuario registrado correctamente.";
-            // Limpiar los campos del formulario después de un registro exitoso
-            $nombre = $apellidos = $correo = $contraseña = $verificarContraseña = "";
+            header("Location: index.php");
         } else {
             $mensajeError = "Error al registrar el usuario. Por favor, inténtalo de nuevo.";
         }
@@ -44,8 +42,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Registro de Usuario</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
 </head>
 <body>
+<header class='cabecera'>
+        <div class='logo'> <a href="index.php">
+            <p>3Dax</p> </a>
+        </div>
+        
+    <nav class="menu">
+        <ul class='nav-links' id='nav-links'>
+            <li class="link"><a href="Deckbox.php">Deckbox</a></li>
+            <li class="link"><a href="Gadgets.php">Gadgets</a></li>
+            <li class="link"><a href="Llaveros.php">Llaveros</a></li>
+            <li class="link"><a href="Servicio.php">Servicio de impresión </a></li>
+            <li class="link"><a href="Contacto.php">CONTACTO</a></li>
+            <?php
+            // Verificar si hay una sesión iniciada
+            if (isset($_SESSION['usuario'])) {
+                // Si hay una sesión iniciada, mostrar el enlace al perfil del usuario
+                echo "<li class='link'><a href='index.php?perfil'><svg class='w-6 h-6 text-gray-800 dark:text-white' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='currentColor' viewBox='0 0 24 24'>
+                <path fill-rule='evenodd' d='M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z' clip-rule='evenodd'/>
+                </svg></a></li>";
+            } else {
+                // Si no hay una sesión iniciada, mostrar el enlace de iniciar sesión
+                echo "<li class='link'><a href='login.php'><svg class='w-6 h-6 text-gray-800 dark:text-white' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='currentColor' viewBox='0 0 24 24'>
+                <path fill-rule='evenodd' d='M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z' clip-rule='evenodd'/>
+                </svg></a></li>";
+            }
+            ?>
+        </ul>
+        
+    </nav>
+    
+</header> 
     <h2>Registro de Usuario</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <label for="nombre">Nombre:</label><br>
