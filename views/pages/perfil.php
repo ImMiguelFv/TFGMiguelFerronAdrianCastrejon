@@ -6,7 +6,7 @@ if (isset($_SESSION['usuario'])) {
     // Si hay una sesión iniciada y se hace clic en el enlace del perfil, redirigir al perfil del usuario
     if (isset($_GET['perfil'])) {
         header("Location: perfil.php");
-        exit(); // Asegúrate de detener la ejecución del resto del código
+        exit(); // Asegura de detener la ejecución del resto del código
     }
 } else {
     // Si no hay una sesión iniciada, redirigir a la página de inicio de sesión
