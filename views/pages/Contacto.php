@@ -8,10 +8,6 @@ if (isset($_SESSION['usuario'])) {
         header("Location: perfil.php");
         exit(); // Asegúrate de detener la ejecución del resto del código
     }
-} else {
-    // Si no hay una sesión iniciada, redirigir a la página de inicio de sesión
-    header("Location: login.php");
-    exit();
 }
 ?>
 <!DOCTYPE html>
