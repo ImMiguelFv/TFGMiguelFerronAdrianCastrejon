@@ -36,11 +36,11 @@ if (isset($_POST['enviar'])) {
         
     <nav class="menu">
         <ul class='nav-links' id='nav-links'>
-            <li class="link"><a href="pages/Deckbox.php">Deckbox</a></li>
-            <li class="link"><a href="pages/Gadgets.php">Gadgets</a></li>
-            <li class="link"><a href="pages/Llaveros.php">Llaveros</a></li>
-            <li class="link"><a href="pages/Servicio.php">Servicio de impresión </a></li>
-            <li class="link"><a href="pages/Contacto.php">CONTACTO</a></li>
+            <li class="link"><a href="Deckbox.php">Deckbox</a></li>
+            <li class="link"><a href="Gadgets.php">Gadgets</a></li>
+            <li class="link"><a href="Llaveros.php">Llaveros</a></li>
+            <li class="link"><a href="Servicio.php">Servicio de impresión </a></li>
+            <li class="link"><a href="Contacto.php">CONTACTO</a></li>
             <?php
             // Verificar si hay una sesión iniciada
             if (isset($_SESSION['usuario'])) {
