@@ -15,22 +15,7 @@ class DB {
         }
     }
 
-    public static function registrarUsuario($nombre, $apellidos, $correo, $contraseña) {
-        self::conectar();
-        $nombre = self::$conexion->real_escape_string($nombre);
-        $apellidos = self::$conexion->real_escape_string($apellidos);
-        $correo = self::$conexion->real_escape_string($correo);
-        $contraseña = self::$conexion->real_escape_string($contraseña);
-
-        $consulta = "INSERT INTO Usuario (nombre, apellidos, correo, contraseña) VALUES ('$nombre', '$apellidos', '$correo', '$contraseña')";
-        $resultado = self::$conexion->query($consulta);
-
-        if ($resultado) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    
 
     public static function verificaCliente($usuario, $contraseña) {
         self::conectar();
@@ -45,6 +30,31 @@ class DB {
         }
     }
 
-    // Aquí podrías agregar más funciones para interactuar con la base de datos según sea necesario
-}
+    public static function registrarUsuario($nombre, $apellidos, $correo, $contraseña) {
+        self::conectar();
+        $nombre = self::$conexion->real_escape_string($nombre);
+        $apellidos = self::$conexion->real_escape_string($apellidos);
+        $correo = self::$conexion->real_escape_string($correo);
+        $contraseña = self::$conexion->real_escape_string($contraseña);
+    
+        // Verificar si el correo ya está registrado
+        if (self::correoRegistrado($correo)) {
+            return "El correo electrónico ya está registrado.";
+        }
+    
+        // Verificar si la contraseña es segura
+        if (strlen($contraseña) < 8 || !preg_match('/[0-9]/', $contraseña) || !preg_match('/[A-Z]/', $contraseña)) {
+            return "La contraseña debe tener al menos 8 caracteres y contener al menos un número y una mayúscula.";
+        }
+    
+        $consulta = "INSERT INTO Usuario (nombre, apellidos, correo, contraseña) VALUES ('$nombre', '$apellidos', '$correo', '$contraseña')";
+        $resultado = self::$conexion->query($consulta);
+    
+        if ($resultado) {
+            return true; // Registro exitoso
+        } else {
+            return "Error al registrar el usuario. Por favor, inténtalo de nuevo.";
+        }
+    }
+    }
 ?>

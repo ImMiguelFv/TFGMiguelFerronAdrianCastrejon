@@ -1,6 +1,6 @@
 <?php
 // Incluir la clase DB
-require_once('../controler/DB.php');
+require_once('../../controler/DB.php');
 
 // Inicializar la variable para almacenar mensajes de error
 $mensajeError = "";
@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
     $verificarContraseña = $_POST['verificar_contraseña'];
-
     // Verificar si el correo ya está registrado
     if (DB::correoRegistrado($correo)) {
         $mensajeError = "El correo electrónico ya está registrado.";
