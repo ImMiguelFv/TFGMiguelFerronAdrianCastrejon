@@ -20,14 +20,16 @@ if (isset($_SESSION['usuario'])) {
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/index.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
 </head>
-<body>
+<body class='cuerpo'>
+
+
 <header class='cabecera'>
-        <div class='logo'> <a href="index.php">
-            <p>3Dax</p> </a>
-        </div>
         
+<div class='logo'></div>    
     <nav class="menu">
+    
         <ul class='nav-links' id='nav-links'>
+        
             <li class="link"><a href="Deckbox.php">Deckbox</a></li>
             <li class="link"><a href="Gadgets.php">Gadgets</a></li>
             <li class="link"><a href="Llaveros.php">Llaveros</a></li>
@@ -78,30 +80,30 @@ if (isset($_SESSION['usuario'])) {
 <div class="grid-container">
     <div class="grid-item item1">
       <div class="content">
-        <h2>Contenedor 1</h2>
-        <p>Texto de prueba</p>
-        <button onclick="window.location.href='pages/cajas/Moria.html'"> ¡Más info!</button>
+        <h2>Caja de Moria</h2>
+        <p>Shishishishi</p>
+        <button onclick="window.location.href='cajas/Moria.php'"> ¡Más info!</button>
       </div>
     </div>
     <div class="grid-item item2">
       <div class="content">
-        <h2>Contenedor 2</h2>
-        <p>Texto de prueba</p>
-        <button>¡Más info!</button>
+        <h2>Yamato chuan</h2>
+        <p>Exclusivo!!!</p>
+        <button onclick="window.location.href='cajas/Yamato.php'"> ¡Más info!</button>
       </div>
     </div>
     <div class="grid-item item3">
       <div class="content">
-        <h2>Contenedor 3</h2>
-        <p>Texto de prueba</p>
-        <button>¡Más info!</button>
+        <h2>Cajita de peronitaaa!!!</h2>
+        <p>Exclusivo!!!</p>
+        <button onclick="window.location.href='cajas/Perona.php'"> ¡Más info!</button>
       </div>
     </div>
     <div class="grid-item item4">
       <div class="content">
-        <h2>Contenedor 4</h2>
-        <p>Texto de prueba</p>
-        <button>¡Más info!</button>
+        <h2>Caja de dados </h2>
+        <p>Sorprende a tu rival!</p>
+        <button onclick="window.location.href='cajas/Dados.php'"> ¡Más info!</button>
       </div>
     </div>
   </div>

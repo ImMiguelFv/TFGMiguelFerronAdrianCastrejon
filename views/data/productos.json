@@ -4,13 +4,82 @@
         "id": 1,
         "nombre": "Caja Moria",
         "descripcion": "Caja de Moria para almacenar el deck de cartas",
-        "precio": 10.99,
+        "precio": 30,
         "imagenes": [
         "../assets/Productos/MoiraCage/Moria_Preview.jpg",
           "../assets/Productos/MoiraCage/Moria_Back.jpg",
           "../assets/Productos/MoiraCage/Moria_Front.jpg",
           "../assets/Productos/MoiraCage/Moria_Lado.jpg",
           "../assets/Productos/MoiraCage/Moria_Lado1.jpg"
+        ],
+        "colores": [
+          "purple",
+          "pink",
+          "yellow",
+          "green",
+          "orange",
+          "blue",
+          "white",
+          "black"
+        ]
+      },
+      {
+        "id": 2,
+        "nombre": "Caja Yamato",
+        "descripcion": "Caja de Yamato para almacenar el deck de cartas",
+        "precio": 30,
+        "imagenes": [
+        "../assets/Productos/YamatoCage/Preview.jpg",
+          "../assets/Productos/YamatoCage/Back.jpg",
+          "../assets/Productos/YamatoCage/Front.jpg",
+          "../assets/Productos/YamatoCage/lateral1.jpg",
+          "../assets/Productos/YamatoCage/lateral2.jpg",
+          "../assets/Productos/YamatoCage/open.jpg"
+        ],
+        "colores": [
+          "purple",
+          "pink",
+          "yellow",
+          "green",
+          "orange",
+          "blue",
+          "white",
+          "black"
+        ]
+      },
+      {
+        "id": 3,
+        "nombre": "Caja Perona",
+        "descripcion": "Caja de Perona para almacenar el deck de cartas",
+        "precio": 30,
+        "imagenes": [
+        "../assets/Productos/PeronaCage/preview.jpg",
+          "../assets/Productos/MoiraCage/Moria_Back.jpg",
+          "../assets/Productos/MoiraCage/Moria_Front.jpg",
+          "../assets/Productos/MoiraCage/Moria_Lado.jpg",
+          "../assets/Productos/MoiraCage/Moria_Lado1.jpg"
+        ],
+        "colores": [
+          "purple",
+          "pink",
+          "yellow",
+          "green",
+          "orange",
+          "blue",
+          "white",
+          "black"
+        ]
+      }
+      ,
+      {
+        "id": 4,
+        "nombre": "Caja Dados",
+        "descripcion": "Caja de Dados para almacenar tu set de dados",
+        "precio": 15,
+        "imagenes": [
+        "../assets/Productos/CajaDados/preview1.jpg",
+          "../assets/Productos/CajaDados/preview2.jpg",
+          "../assets/Productos/CajaDados/preview3.jpg"
         ],
         "colores": [
           "purple",
