@@ -1,6 +1,6 @@
 <?php
 // Incluir la clase DB
-require_once('../../controler/DB.php');
+require_once('../../modelo/DB.php');
 
 // Inicializar la variable para almacenar mensajes de error
 $mensajeError = "";

@@ -1,5 +1,5 @@
 <?php
-require_once('../../controler/DB.php');
+require_once('../../modelo/DB.php');
 $error="";
 // Comprobamos si ya se ha enviado el formulario
 if (isset($_POST['enviar'])) {
