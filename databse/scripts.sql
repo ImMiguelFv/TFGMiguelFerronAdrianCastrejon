@@ -30,11 +30,12 @@ CREATE TABLE `pedido` (
 
 -- Tabla de detalles del pedido
 CREATE TABLE `detalle_pedido` (
-  `id` int(11) NOT NULL,             -- Identificador único del detalle del pedido
-  `pedido_id` int(11) NOT NULL,      -- ID del pedido al que pertenece este detalle
-  `producto_id` int(11) NOT NULL,    -- ID del producto en este detalle
-  `cantidad` int(11) NOT NULL,       -- Cantidad del producto en este detalle
-  PRIMARY KEY (`id`),                 -- Clave primaria
+  `id` int(11) NOT NULL,                 -- Identificador único del detalle del pedido
+  `pedido_id` int(11) NOT NULL,          -- ID del pedido al que pertenece este detalle
+  `producto_id` int(11) NOT NULL,        -- ID del producto en este detalle
+  `cantidad` int(11) NOT NULL,           -- Cantidad del producto en este detalle
+  `direccion_usuario` varchar(255) NULL, -- Dirección del usuario asociada al pedido
+  PRIMARY KEY (`id`),                    -- Clave primaria
   FOREIGN KEY (`pedido_id`) REFERENCES `pedido` (`id`),    -- Clave foránea que referencia al pedido
   FOREIGN KEY (`producto_id`) REFERENCES `producto` (`id`) -- Clave foránea que referencia al producto
 );
