@@ -56,5 +56,8 @@ if (isset($_SESSION['usuario'])) {
     
 </header> 
 <a href="cajas/Moria.php">Moira</a>
+<a href="cajas/Perona.php">Perona</a>
+<a href="cajas/Yamato.php">Yamato</a>
+<a href="cajas/Dados.php">Dados</a>
 </body>
 </html>

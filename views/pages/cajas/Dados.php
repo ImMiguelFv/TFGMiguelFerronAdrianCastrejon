@@ -7,7 +7,7 @@ if (isset($_SESSION['usuario'])) {
     if (isset($_GET['perfil'])) {
         header("Location: perfil.php");
         exit(); // Asegura de detener la ejecución del resto del código
-    }
+    
 }
 ?>
 <!DOCTYPE html>
