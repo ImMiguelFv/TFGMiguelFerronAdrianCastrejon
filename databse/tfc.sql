@@ -55,8 +55,11 @@ CREATE TABLE `pedido` (
 
 CREATE TABLE `producto` (
   `id` int(11) NOT NULL,
+  `codigo` varchar(255) NOT NULL,
   `nombre` varchar(255) NOT NULL,
-  `precio` decimal(10,2) NOT NULL
+  `precio` decimal(10,2) NOT NULL,
+  `imagen` varchar(255) NOT NULL,
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -145,3 +148,35 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+/**** AÑADIR PRODUCTOS A LA BASE DE DATOS*****/
+
+
+-- Esto es lo mismo que esta más arriba pero lo adjunto para que veas los cambios
+-- Solo he añadido la fila de "codigo" en la tabla del xampp y luego le pones que sea unique y ya
+CREATE TABLE `producto` (
+  `id` int(11) NOT NULL,
+  `codigo` varchar(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `imagen` varchar(255) NOT NULL,
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Te pongo el sql por tenerlo aqui pero realmente lo hice a mano por el xampp
+ALTER TABLE `producto`
+  ADD UNIQUE KEY `codigo producto` (`codigo`);
+
+
+-- Los productos que he usado de ejemplo
+  INSERT INTO `producto` (`id`, `codigo`, `nombre`, `imagen`, `precio`) VALUES
+(1, 'Caja Moria', 'CM1','../assets/Productos/MoiraCage/Moria_Front.jpg', 30.00),
+(2, 'Caja Yamato', 'CY1', '../assets/Productos/YamatoCage/preview.jpg', 31.00),
+(3, 'Caja Perona', 'CP1', '../assets/Productos/PeronaCage/preview.jpg', 32.00),
+(4, 'Caja Dados', 'CD1', '../assets/Productos/CajaDados/preview2.jpg', 33.00);
+
+
+

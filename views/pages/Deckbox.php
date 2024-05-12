@@ -1,14 +1,51 @@
 <?php
-session_start(); // Iniciar la sesión
-
-// Verificar si hay una sesión iniciada
-if (isset($_SESSION['usuario'])) {
-    // Si hay una sesión iniciada y se hace clic en el enlace del perfil, redirigir al perfil del usuario
-    if (isset($_GET['perfil'])) {
-        header("Location: perfil.php");
-        exit(); // Asegura de detener la ejecución del resto del código
+session_start();
+require_once("../../modelo/DB.php");
+$db_handle = new DB();
+if(!empty($_GET["action"])) {
+    switch($_GET["action"]) {
+        case "add":
+            if (!empty($_POST["cantidad"])) {
+            
+                $productByCode = $db_handle->ejecutarConsulta("SELECT * FROM producto WHERE codigo='" . $_GET["codigo"] . "'");
+                $itemArray = array($productByCode[0]["codigo"] => array(
+                    'nombre' => $productByCode[0]["nombre"],
+                    'codigo' => $productByCode[0]["codigo"],
+                    'cantidad' => $_POST["cantidad"],
+                    'precio' => $productByCode[0]["precio"],
+                    'imagen' => $productByCode[0]["imagen"]
+                ));
+        
+                if (!empty($_SESSION["cart_item"])) {
+                    if (array_key_exists($productByCode[0]["codigo"], $_SESSION["cart_item"])) {
+                        // El producto ya está en el carrito
+                        $_SESSION["cart_item"][$productByCode[0]["codigo"]]["cantidad"] += $_POST["cantidad"];
+                    } else {
+                        // El producto no está en el carrito, se agrega
+                        $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
+                    }
+                } else {
+                    // No hay productos en el carrito todavía
+                    $_SESSION["cart_item"] = $itemArray;
+                }
+            }
+            break;
+        
+        case "remove":
+            if(!empty($_SESSION["cart_item"])) {
+                foreach($_SESSION["cart_item"] as $k => $v) {
+                        if($_GET["codigo"] == $k)
+                            unset($_SESSION["cart_item"][$k]);				
+                        if(empty($_SESSION["cart_item"]))
+                            unset($_SESSION["cart_item"]);
+                }
+            }
+        break;
+        case "empty":
+            unset($_SESSION["cart_item"]);
+        break;	
     }
-}
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,47 +54,93 @@ if (isset($_SESSION['usuario'])) {
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>3dax</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../styles/index.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../styles/deckbox.css'>
 </head>
 <body>
-<header class='cabecera'>
-        <div class='logo'> <a href="index.php">
-            <p>3Dax</p> </a>
-        </div>
-        
-    <nav class="menu">
-        <ul class='nav-links' id='nav-links'>
-            <li class="link"><a href="Deckbox.php">Deckbox</a></li>
-            <li class="link"><a href="Gadgets.php">Gadgets</a></li>
-            <li class="link"><a href="Llaveros.php">Llaveros</a></li>
-            <li class="link"><a href="Servicio.php">Servicio de impresión </a></li>
-            <li class="link"><a href="Contacto.php">CONTACTO</a></li>
-            <?php
-            // Verificar si hay una sesión iniciada
-            if (isset($_SESSION['usuario'])) {
-                // Si hay una sesión iniciada, mostrar el enlace al perfil del usuario y el botón de logout
-                echo "<li class='link'><a href='index.php?perfil'><svg class='w-6 h-6 text-gray-800 dark:text-white' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='currentColor' viewBox='0 0 24 24'>
-                <path fill-rule='evenodd' d='M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z' clip-rule='evenodd'/>
-                </svg></a></li>";
-                echo "<li class='link'><a href='logout.php'><svg class='w-6 h-6 text-gray-800 dark:text-white' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='currentColor' viewBox='0 0 24 24'>
-                <path fill-rule='evenodd' d='M9 3a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V4a1 1 0 0 1 1-1Zm1 4a1 1 0 0 0-1 1v13a1 1 0 0 0 2 0V8a1 1 0 0 0-1-1Zm4-1a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM7 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM5 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm14-4a1 1 0 0 1-1-1V4a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1Zm-1-4a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm-4-1a1 1 0 0 1 0-2 1 1 0 0 1 0 2Zm-2 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm-2-1a1 1 0 0 1 0-2 1 1 0 0 1 0 2Zm-2 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm-2-1a1 1 0 0 1 0-2 1 1 0 0 1 0 2Zm-2 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm-2-1a1 1 0 0 1 0-2 1 1 0 0 1 0 2Zm-2 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm-1 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm14-4a1 1 0 0 1-1-1V4a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1Zm-1-4a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1ZM5 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm14-4a1 1 0 0 1-1-1V4a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1Zm-1-4a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1ZM5 23a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 2a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm14-4a1 1 0 0 1-1-1V4a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1Zm-1-4a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Z' clip-rule='evenodd'/>
-                </svg></a></li>";
-            } else {
-                // Si no hay una sesión iniciada, mostrar el enlace de iniciar sesión
-                echo "<li class='link'><a href='login.php'><svg class='w-6 h-6 text-gray-800 dark:text-white' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='currentColor' viewBox='0 0 24 24'>
-                <path fill-rule='evenodd' d='M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z' clip-rule='evenodd'/>
-                </svg></a></li>";
-            }
-            ?>
-        </ul>
-        
-    </nav>
-    
-</header> 
-<a href="cajas/Moria.php">Moira</a>
-<a href="cajas/Perona.php">Perona</a>
-<a href="cajas/Yamato.php">Yamato</a>
-<a href="cajas/Dados.php">Dados</a>
+<!-- Incluyendo el header -->
+<div id="header">
+        <!-- El código incluido del archivo header.html -->
+        <!-- Puedes modificarlo según necesites -->
+        <?php include 'header.php'; ?>
+    </div>
+<div id="shopping-cart">
+<div class="txt-heading">Carro</div>
+
+<a id="btnEmpty" href="deckbox.php?action=empty">Vaciar</a>
+<?php
+if(isset($_SESSION["cart_item"])){
+    $total_quantity = 0;
+    $total_price = 0;
+?>	
+<table class="tbl-cart" cellpadding="10" cellspacing="1">
+<tbody>
+<tr>
+<th style="text-align:left;">Nombre</th>
+<th style="text-align:right;" width="5%">Cantidad</th>
+<th style="text-align:right;" width="10%">Precio unidad</th>
+<th style="text-align:right;" width="10%">Precio</th>
+<th style="text-align:center;" width="5%">Quitar</th>
+</tr>	
+<?php		
+    foreach ($_SESSION["cart_item"] as $item){
+        $item_price = $item["cantidad"]*$item["precio"];
+		?>
+				<tr>
+				<td><img src="<?php echo $item["imagen"]; ?>" class="cart-item-image" /><?php echo $item["nombre"]; ?></td>
+				<td style="text-align:right;"><?php echo $item["cantidad"]; ?></td>
+				<td  style="text-align:right;"><?php echo "$ ".$item["precio"]; ?></td>
+				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
+				<td style="text-align:center;"><a href="deckbox.php?action=remove&codigo=<?php echo $item["codigo"]; ?>" class="btnRemoveAction"><img src="../assets/icons/trash.svg" alt="Remove Item" width="20" height="20"/></a></td>
+				</tr>
+				<?php
+				$total_quantity += $item["cantidad"];
+				$total_price += ($item["precio"]*$item["cantidad"]);
+		}
+		?>
+
+<tr>
+<td colspan="2" align="right">Total:</td>
+<td align="right"><?php echo $total_quantity; ?></td>
+<td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>		
+  <?php
+} else {
+?>
+<div class="no-records">El carro está vacío</div>
+<?php 
+}
+?>
+</div>
+
+
+
+<div id="product-grid">
+	<div class="txt-heading">Productos</div>
+	<?php
+	$product_array = $db_handle->ejecutarConsulta("SELECT * FROM producto ORDER BY id ASC");
+	if (!empty($product_array)) { 
+		foreach($product_array as $key=>$value){
+	?>
+		<div class="product-item">
+			<form method="post" action="deckbox.php?action=add&codigo=<?php echo $product_array[$key]["codigo"]; ?>">
+			<div class="product-image"><img class="image" src="<?php echo $product_array[$key]["imagen"]; ?>"></div>
+			<div class="product-tile-footer">
+			<div class="product-title"><?php echo $product_array[$key]["nombre"]; ?></div>
+			<div class="product-price"><?php echo "$".$product_array[$key]["precio"]; ?></div>
+			<div class="cart-action">
+                <input type="text" class="product-quantity" name="cantidad" value="1" size="2" />
+                <input type="submit" value="Añadir al carro" class="btnAddAction" /></div>
+			</div>
+			</form>
+		</div>
+	<?php
+		}
+	}
+	?>
+</div>
 </body>
 </html>

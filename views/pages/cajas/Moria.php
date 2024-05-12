@@ -1,14 +1,52 @@
 <?php
 session_start(); // Iniciar la sesión
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Verificar si hay una sesión iniciada
+
+
+/* Verificar si hay una sesión iniciada
 if (isset($_SESSION['usuario'])) {
     // Si hay una sesión iniciada y se hace clic en el enlace del perfil, redirigir al perfil del usuario
     if (isset($_GET['perfil'])) {
         header("Location: perfil.php");
         exit(); // Asegura de detener la ejecución del resto del código
     }
+}*/
+
+
+// Verificar si se ha enviado el formulario
+if (isset($_POST['enviar'])) {
+    // Variables del producto
+    $nombre = "Caja Moria";
+    $cantidad = $_POST['cantidad']; // Suponiendo que obtienes la cantidad del producto del formulario
+    $color = $_POST['color']; // Suponiendo que obtienes el color del producto del formulario
+
+    // Objeto que representa el producto
+    $producto = array(
+        'nombre' => $nombre,
+        'cantidad' => $cantidad,
+        'color' => $color
+    );
+
+    // Verificar si ya existe un array de productos en la sesión
+    if (isset($_SESSION['productos'])) {
+        // Si existe, agregar el nuevo producto al array
+        $_SESSION['productos'][] = $producto;
+    } else {
+        // Si no existe, crear un nuevo array con el producto
+        $_SESSION['productos'] = array($producto);
+    }
+
+     // Mostrar la información del producto agregado
+     echo '<div>';
+     echo '<h3>Producto Agregado:</h3>';
+     echo '<p>Nombre: ' . $nombre . '</p>';
+     echo '<p>Cantidad: ' . $cantidad . '</p>';
+     echo '<p>Color: ' . $color . '</p>';
+     echo '</div>';
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -79,7 +117,7 @@ if (isset($_SESSION['usuario'])) {
         </div>
     </div>
 
-            <form class="formulario">             
+                       
                 <form class="formulario">             
                     <label for="cantidad">Cantidad:</label>
                     <select id="cantidad" name="cantidad">
@@ -103,9 +141,10 @@ if (isset($_SESSION['usuario'])) {
                       <option value="Blanco">Blanco</option>
                       <option value="Negro">Negro</option>
                     </select>
-                    <button type="button" onclick="agregarACesta()">Añadir a la cesta</button>
-                </form>
-                
+                    <div class='campo'>
+                        <input type='submit' name='enviar' value='Enviar'  /> Añadir a la cesta
+                    </div>
+                    <button id="mostrarInfo">Mostrar Información de la session</button>
 
               </form>
     
@@ -114,20 +153,20 @@ if (isset($_SESSION['usuario'])) {
 
 <script src="../../javascript/preview.js" defer></script>
 <script>
-function agregarACesta() {
-    // Obtener los valores seleccionados de cantidad y color
-    var cantidad = document.getElementById('cantidad').value;
-    var color = document.getElementById('color').value;
 
-    // Simular añadir el producto a la cesta
-    console.log(`Añadido a la cesta: ${cantidad} producto(s) de color ${color}`);
+document.getElementById('mostrarInfo').addEventListener('click', function() {
+    // Obtener la información de la sesión
+    var productos = <?php echo json_encode($productos); ?>;
 
-    // Aquí puedes añadir código para actualizar el carrito de compras en la página,
-    // o enviar estos datos al servidor mediante una solicitud AJAX, por ejemplo.
+    // Crear un mensaje con la información de los productos
+    var mensaje = "Productos en la sesión:\n";
+    for (var i = 0; i < productos.length; i++) {
+        mensaje += "Nombre: " + productos[i]['nombre'] + ", Cantidad: " + productos[i]['cantidad'] + ", Color: " + productos[i]['color'] + "\n";
+    }
 
-    // Muestra un mensaje simple al usuario (opcional)
-    alert(`Añadido a la cesta: ${cantidad} producto(s) de color ${color}`);
-}
+    // Mostrar la alerta con la información de los productos
+    alert(mensaje);
+});
 
     </script>
 </body>

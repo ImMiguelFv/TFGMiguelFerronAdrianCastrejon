@@ -8,14 +8,16 @@ if (isset($_POST['enviar'])) {
         $error = "Debes introducir un nombre de usuario y una contraseña";
     else {
         // Comprobamos las credenciales con la base de datos
-        if (DB::verificaCliente($_POST['usuario'], $_POST['password'])) {
+        if (($usuario_id = DB::verificaCliente($_POST['usuario'], $_POST['password'])) !== false) {
             session_start();
             $_SESSION['usuario']=$_POST['usuario'];
+            $_SESSION['id']=$usuario_id;
             header("Location: index.php");                    
         }
         else {
             // Si las credenciales no son válidas, se vuelven a pedir
-            $error = "Usuario o contraseña no válidos!";
+            $error = "Usuario o contraseña no válidos! " . $_POST['usuario'] . $_POST['password'];
+    
         }
     }
 }
@@ -40,8 +42,8 @@ if (isset($_POST['enviar'])) {
             <li class="link"><a href="Gadgets.php">Gadgets</a></li>
             <li class="link"><a href="Llaveros.php">Llaveros</a></li>
             <li class="link"><a href="Servicio.php">Servicio de impresión </a></li>
-            <li class="link"><a href="Contacto.php">CONTACTO</a></li>            <?php
-            
+            <li class="link"><a href="Contacto.php">CONTACTO</a></li>            
+          
         </ul>
         
     </nav>

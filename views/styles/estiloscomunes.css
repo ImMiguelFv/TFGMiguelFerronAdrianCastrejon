@@ -1,37 +1,31 @@
 .cabecera {
-    text-align: center;
-    margin:30px  20px;
-    height: 120px;
-    position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.cabecera .header-top {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    padding: 10px;
+    /* Aquí puedes añadir más estilos según sea necesario */
 }
-.cabecera .logo{
-    padding-top: 5px;
+a{
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto de su contenedor */
 }
-.cabecera::before,
-.cabecera::after {
-    content: '';
-    position: absolute;
-    width: 100%; /* Ancho del 100% para que las barras el ancho de la cabecera */
-    height: 5px; /* Altura de las barras */
-    background-color: #ccc; /* Color de las barras grisáceas */
+.cabecera  .icons-container{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none; /* Elimina los puntos de la lista */
 }
-
-.cabecera::before {
-    top: 0; /* Posición al principio de la cabecera */
-    left: 0; /* Posición al principio de la cabecera */
-}
-
-.cabecera::after {
-    bottom: 0; /* Posición al final de la cabecera */
-    right: 0; /* Posición al final de la cabecera */
+.cabecera  .icons-container .link{
+    padding: 10px;
 }
 
 .cabecera .menu {
     display: inline-block;
+    text-align: center;
 }
 .cabecera .menu .nav-links{
     padding-bottom: 15px;

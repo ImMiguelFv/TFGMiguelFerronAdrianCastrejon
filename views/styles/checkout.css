@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+	font-family: Arial, sans-serif;
+	padding: 0;
+}
+
+header {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-bottom: 1px solid #E0E0E0;
+}
+a{
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto de su contenedor */
+}
+
+.contenido {
+    display: flex;
+    height: calc(100% - 40px); /* Restamos la altura del encabezado */
+}
+
+.columna {
+    flex: 1;
+    padding: 20px;
+    border-right: 2px solid #E0E0E0;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/***** TODO COPIADO DE CESTA.CSS ***/
+
+
+#shopping-cart {
+	margin: 40px;
+}
+
+
+#shopping-cart table {
+	width: 100%;
+	background-color: #F0F0F0;
+}
+
+#shopping-cart table td {
+	background-color: #ffffff;
+}
+
+.txt-heading {
+	color: #211a1a;
+	border-bottom: 1px solid #E0E0E0;
+	overflow: auto;
+    margin-bottom: 5px;
+}
+
+
+
+.tbl-cart {
+	font-size: 0.9em;
+}
+
+.tbl-cart th {
+	font-weight: normal;
+}
+
+.product-title {
+	margin-bottom: 20px;
+}
+
+
+.cart-item-image {
+	width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: #E0E0E0 1px solid;
+    padding: 5px;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+/***
+
