@@ -66,7 +66,7 @@ if (isset($_POST['enviar'])) {
             <input type='submit' name='enviar' value='Enviar' />
         </div>
     </form>
-    <h2><a href="registro.php">¿No tienes cuenta? Registrate></a></h2>
+    <h2><a href="registro.php">¿No tienes cuenta? Registrate</a></h2>
     </div>
 </body>
 </html>

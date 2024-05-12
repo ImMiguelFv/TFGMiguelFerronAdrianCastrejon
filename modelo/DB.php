@@ -3,10 +3,10 @@ class DB {
     private static $conexion;
 
     public static function conectar() {
-        $host = "localhost"; // Cambia esto si tu base de datos está en un servidor diferente
-        $usuario = "root2"; // Cambia esto por el nombre de usuario de tu base de datos
-        $contraseña = "test"; // Cambia esto por la contraseña de tu base de datos
-        $base_datos = "tfg"; // Cambia esto por el nombre de tu base de datos
+        $host = "localhost"; 
+        $usuario = "root2";
+        $contraseña = "test"; 
+        $base_datos = "tfg"; 
 
         self::$conexion = new mysqli($host, $usuario, $contraseña, $base_datos);
 

@@ -49,19 +49,6 @@ CREATE TABLE `pedido` (
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `producto`
---
-
-CREATE TABLE `producto` (
-  `id` int(11) NOT NULL,
-  `codigo` varchar(255) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `precio` decimal(10,2) NOT NULL,
-  `imagen` varchar(255) NOT NULL,
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
