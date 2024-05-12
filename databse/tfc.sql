@@ -82,8 +82,8 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `correo`, `contraseña`, `dirección`, `Nombre`, `Apellidos`, `telefono`) VALUES
-(1, 'usuario_prueba@example.com', '1234', NULL, 'Nombre Prueba', 'Apellidos Prueba', NULL);
+INSERT INTO `usuario`(`id`, `correo`, `contraseña`, `telefono`, `direccion`, `nombre`, `apellidos`, `region`, `codigo_postal`, `ciudad`) 
+VALUES ('1','usuario_prueba@example.com','1234','123123123','alli','Nombre Prueba','apellidosxd','Madri','111111','Madri')
 
 --
 -- Índices para tablas volcadas
@@ -154,6 +154,28 @@ COMMIT;
 
 /**** AÑADIR PRODUCTOS A LA BASE DE DATOS*****/
 
+-- Para la conexion a la base de datos tambien he cambiado el usuario root, a uno que habia creado yo porque no me funcionaba
+--  estos script que te voy a adjuntar son relativos porque hay alguna cosa que he ido cambiando desde el xampp xd
+--
+-- IMPORTANTE: en la tabla de usuario he creado un monton de columnas
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `correo` varchar(255) NOT NULL,
+  `contraseña` varchar(255) NOT NULL,
+  `dirección` varchar(255) DEFAULT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `apellidos` varchar(255) NOT NULL,
+  `region` varchar(255) NOT NULL,
+  `codigo_postal` varchar(255) NOT NULL,
+  `ciudad` varchar(255) NOT NULL,
+  `telefono` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Este es un usuario de prueba pa que sepa con la nueva tabla de usuarios
+INSERT INTO `usuario`(`id`, `correo`, `contraseña`, `telefono`, `direccion`, `nombre`, `apellidos`, `region`, `codigo_postal`, `ciudad`) 
+VALUES ('1','usuario_prueba@example.com','1234','123123123','alli','Nombre Prueba','apellidosxd','Madri','111111','Madri')
+
+
 
 -- Esto es lo mismo que esta más arriba pero lo adjunto para que veas los cambios
 -- Solo he añadido la fila de "codigo" en la tabla del xampp y luego le pones que sea unique y ya
@@ -176,7 +198,7 @@ ALTER TABLE `producto`
 (1, 'Caja Moria', 'CM1','../assets/Productos/MoiraCage/Moria_Front.jpg', 30.00),
 (2, 'Caja Yamato', 'CY1', '../assets/Productos/YamatoCage/preview.jpg', 31.00),
 (3, 'Caja Perona', 'CP1', '../assets/Productos/PeronaCage/preview.jpg', 32.00),
-(4, 'Caja Dados', 'CD1', '../assets/Productos/CajaDados/preview2.jpg', 33.00);
+(4, 'Caja Dados', 'CD1', '../assets/Productos/CajaDados/preview2.jpg', 33.00)
 
 
 
