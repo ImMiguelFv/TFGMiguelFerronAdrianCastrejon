@@ -1,30 +1,38 @@
+/* Estilos generales */
 body {
     margin: 0;
-	font-family: Arial, sans-serif;
-	padding: 0;
+    font-family: Arial, sans-serif;
+    padding: 0;
 }
 
-header {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    border-bottom: 1px solid #E0E0E0;
-}
-a{
+a {
     text-decoration: none; /* Elimina el subrayado del enlace */
     color: inherit; /* Hereda el color del texto de su contenedor */
 }
 
+/* Estilos para el encabezado */
+header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid #E0E0E0;
+}
+
+/* Estilos para el contenido */
 .contenido {
     display: flex;
     height: calc(100% - 40px); /* Restamos la altura del encabezado */
 }
 
+/* Estilos para las columnas */
 .columna {
     flex: 1;
     padding: 20px;
     border-right: 2px solid #E0E0E0;
 }
 
+/* Estilos para los formularios */
 form {
     margin-top: 20px;
 }
@@ -55,47 +63,44 @@ button[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-/***** TODO COPIADO DE CESTA.CSS ***/
-
-
+/* Estilos para el carrito de compras */
 #shopping-cart {
-	margin: 40px;
+    margin: 40px;
+    width: 50%;
+    float: right;
+    padding: 20px;
 }
 
-
 #shopping-cart table {
-	width: 100%;
-	background-color: #F0F0F0;
+    width: 100%;
+    background-color: #F0F0F0;
 }
 
 #shopping-cart table td {
-	background-color: #ffffff;
+    background-color: #ffffff;
 }
 
 .txt-heading {
-	color: #211a1a;
-	border-bottom: 1px solid #E0E0E0;
-	overflow: auto;
+    color: #211a1a;
+    border-bottom: 1px solid #E0E0E0;
+    overflow: auto;
     margin-bottom: 5px;
 }
 
-
-
 .tbl-cart {
-	font-size: 0.9em;
+    font-size: 0.9em;
 }
 
 .tbl-cart th {
-	font-weight: normal;
+    font-weight: normal;
 }
 
 .product-title {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
-
 .cart-item-image {
-	width: 30px;
+    width: 30px;
     height: 30px;
     border-radius: 50%;
     border: #E0E0E0 1px solid;
@@ -103,6 +108,3 @@ button[type="submit"] {
     vertical-align: middle;
     margin-right: 15px;
 }
-
-/***
-

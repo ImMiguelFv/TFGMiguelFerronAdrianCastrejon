@@ -31,24 +31,11 @@ if (isset($_POST['enviar'])) {
 </head>
 
 <body>
-<header class='cabecera'>
-        <div class='logo'> <a href="index.php">
-            <p>3Dax</p> </a>
-        </div>
-        
-    <nav class="menu">
-        <ul class='nav-links' id='nav-links'>
-            <li class="link"><a href="Deckbox.php">Deckbox</a></li>
-            <li class="link"><a href="Gadgets.php">Gadgets</a></li>
-            <li class="link"><a href="Llaveros.php">Llaveros</a></li>
-            <li class="link"><a href="Servicio.php">Servicio de impresión </a></li>
-            <li class="link"><a href="Contacto.php">CONTACTO</a></li>            
-          
-        </ul>
-        
-    </nav>
-    
-</header> 
+<div id="header">
+        <!-- El código incluido del archivo header.html -->
+        <!-- Puedes modificarlo según necesites -->
+        <?php include 'header.php'; ?>
+    </div>
     <div id='login'>
     <form action='login.php' method='post'>
         <legend>Login</legend>

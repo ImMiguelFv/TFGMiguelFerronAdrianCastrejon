@@ -3,9 +3,6 @@ session_start(); // Iniciar la sesión
 
 // Verificar si hay una sesión iniciada
 if (isset($_SESSION['usuario'])) {
-  $id = $_SESSION['id'];
-  $usuario = $_SESSION['usuario'];
-  echo "Hola, " . $usuario . " con el id: " . $id;
     // Si hay una sesión iniciada y se hace clic en el enlace del perfil, redirigir al perfil del usuario
     if (isset($_GET['perfil'])) {
         header("Location: perfil.php");

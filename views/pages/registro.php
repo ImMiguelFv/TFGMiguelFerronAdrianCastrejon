@@ -45,23 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
 </head>
 <body>
-<header class='cabecera'>
-        <div class='logo'> <a href="index.php">
-            <p>3Dax</p> </a>
-        </div>
-        
-    <nav class="menu">
-        <ul class='nav-links' id='nav-links'>
-            <li class="link"><a href="Deckbox.php">Deckbox</a></li>
-            <li class="link"><a href="Gadgets.php">Gadgets</a></li>
-            <li class="link"><a href="Llaveros.php">Llaveros</a></li>
-            <li class="link"><a href="Servicio.php">Servicio de impresión </a></li>
-            <li class="link"><a href="Contacto.php">CONTACTO</a></li>
-        </ul>
-        
-    </nav>
-    
-</header> 
+<div id="header">
+
+        <?php include 'header.php'; ?>
+    </div> 
     <h2>Registro de Usuario</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <label for="nombre">Nombre:</label><br>

@@ -7,7 +7,7 @@ if (isset($_SESSION['usuario'])) {
   $id = $_SESSION['id'];
   $usuario_info = $db_handle->ejecutarConsulta("SELECT * FROM usuario WHERE id = '$id'");
 
-  echo "Hola1, " . $usuario_info[0]["nombre"] ;
+  echo $usuario_info[0]["nombre"] ;
   // Verificar si se encontraron resultados
   if (!empty($usuario_info)) { 
     // Obtener los datos del usuario
@@ -20,8 +20,6 @@ if (isset($_SESSION['usuario'])) {
         $ciudad = $usuario_info[0]["ciudad"];
         $telefono = $usuario_info[0]["telefono"];
 
-}else{
-    echo "Esta mal";
 }
 }
 ?>
@@ -35,9 +33,11 @@ if (isset($_SESSION['usuario'])) {
 </head>
 <body>
     <!-- Encabezado -->
-    <header>
-    <div class='logo'> <a href="index.php"><h1>3Dax</h1></a></div>   
-    </header>
+    <div id="header">
+        <!-- El código incluido del archivo header.html -->
+        <!-- Puedes modificarlo según necesites -->
+        <?php include 'header.php'; ?>
+    </div>
 
     <!-- Contenido principal -->
     <div class="contenido">
@@ -80,39 +80,39 @@ if (isset($_SESSION['usuario'])) {
 if(isset($_SESSION["cart_item"])){
     $total_quantity = 0;
     $total_price = 0;
-?>	
+?>  
 <table class="tbl-cart" cellpadding="10" cellspacing="1">
 <tbody>
 <tr>
 <th style="text-align:left;">Nombre</th>
-<th style="text-align:right;" width="5%">Cantidad</th>
-<th style="text-align:right;" width="10%">Precio unidad</th>
-<th style="text-align:right;" width="10%">Precio</th>
-</tr>	
-<?php		
+<th>Cantidad</th>
+<th>Precio unidad</th>
+<th>Precio</th>
+</tr>   
+<?php       
     foreach ($_SESSION["cart_item"] as $item){
         $item_price = $item["cantidad"]*$item["precio"];
-		?>
-				<tr>
-				<td><img src="<?php echo $item["imagen"]; ?>" class="cart-item-image" /><?php echo $item["nombre"]; ?></td>
-				<td style="text-align:right;"><?php echo $item["cantidad"]; ?></td>
-				<td  style="text-align:right;"><?php echo "$ ".$item["precio"]; ?></td>
-				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
-				</tr>
-				<?php
-				$total_quantity += $item["cantidad"];
-				$total_price += ($item["precio"]*$item["cantidad"]);
-		}
-		?>
+        ?>
+                <tr>
+                <td><img src="<?php echo $item["imagen"]; ?>" class="cart-item-image" /><?php echo $item["nombre"]; ?></td>
+                <td><?php echo $item["cantidad"]; ?></td>
+                <td><?php echo "$ ".$item["precio"]; ?></td>
+                <td><?php echo "$ ". number_format($item_price,2); ?></td>
+                </tr>
+                <?php
+                $total_quantity += $item["cantidad"];
+                $total_price += ($item["precio"]*$item["cantidad"]);
+        }
+        ?>
 
 <tr>
-<td colspan="2" align="right">Total:</td>
-<td align="right"><?php echo $total_quantity; ?></td>
-<td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+<td>Total:</td>
+<td><?php echo $total_quantity; ?></td>
+<td><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
 <td></td>
 </tr>
 </tbody>
-</table>		
+</table>      
   <?php
 } else {
 ?>
