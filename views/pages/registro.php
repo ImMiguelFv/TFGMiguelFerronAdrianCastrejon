@@ -1,5 +1,7 @@
 <?php
 require_once '../../controler/controlregistro.php';
+require_once("../../modelo/DB.php");
+
 ?>
 
 <!DOCTYPE html>
