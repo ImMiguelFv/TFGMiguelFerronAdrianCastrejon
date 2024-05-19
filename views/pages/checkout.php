@@ -1,7 +1,6 @@
 <?php
 require_once '../../controler/checkoutcontroler.php';
-require_once("../../modelo/DB.php");
-$db_handle = new DB();
+
 
 ?>
 <!DOCTYPE html>
