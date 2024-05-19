@@ -1,27 +1,5 @@
 <?php
-session_start(); // Iniciar la sesión
-require_once("../../modelo/DB.php");
-$db_handle = new DB();
-// Verificar si hay una sesión iniciada
-if (isset($_SESSION['usuario'])) {
-  $id = $_SESSION['id'];
-  $usuario_info = $db_handle->ejecutarConsulta("SELECT * FROM usuario WHERE id = '$id'");
-
-  echo $usuario_info[0]["nombre"] ;
-  // Verificar si se encontraron resultados
-  if (!empty($usuario_info)) { 
-    // Obtener los datos del usuario
-        $nombre = $usuario_info[0]["nombre"];
-        $apellido = $usuario_info[0]["apellidos"];
-        $correo = $usuario_info[0]["correo"];
-        $direccion = $usuario_info[0]["direccion"];
-        $region = $usuario_info[0]["region"];
-        $codigo_postal = $usuario_info[0]["codigo_postal"];
-        $ciudad = $usuario_info[0]["ciudad"];
-        $telefono = $usuario_info[0]["telefono"];
-
-}
-}
+require_once '../../controler/checkoutcontroler.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -35,7 +13,6 @@ if (isset($_SESSION['usuario'])) {
     <!-- Encabezado -->
     <div id="header">
         <!-- El código incluido del archivo header.html -->
-        <!-- Puedes modificarlo según necesites -->
         <?php include 'header.php'; ?>
     </div>
 
@@ -44,7 +21,7 @@ if (isset($_SESSION['usuario'])) {
         <!-- Columna izquierda con formulario de pago -->
         <div class="columna">
             <h2>Formulario de Pago</h2>
-            <form action="#" method="POST">
+            <form action="procesarPago.php" method="POST">
                 <label for="metodo-pago">Seleccione un método de pago:</label>
                 <select name="metodo-pago" id="metodo-pago">
                     <option value="visa">Visa</option>
@@ -73,54 +50,38 @@ if (isset($_SESSION['usuario'])) {
 
         <!-- Columna derecha con objetos en el carrito -->
         <div class="columna">
-        <div id="shopping-cart">
-<div class="txt-heading">Carro</div>
-
-<?php
-if(isset($_SESSION["cart_item"])){
-    $total_quantity = 0;
-    $total_price = 0;
-?>  
-<table class="tbl-cart" cellpadding="10" cellspacing="1">
-<tbody>
-<tr>
-<th style="text-align:left;">Nombre</th>
-<th>Cantidad</th>
-<th>Precio unidad</th>
-<th>Precio</th>
-</tr>   
-<?php       
-    foreach ($_SESSION["cart_item"] as $item){
-        $item_price = $item["cantidad"]*$item["precio"];
-        ?>
-                <tr>
-                <td><img src="<?php echo $item["imagen"]; ?>" class="cart-item-image" /><?php echo $item["nombre"]; ?></td>
-                <td><?php echo $item["cantidad"]; ?></td>
-                <td><?php echo "$ ".$item["precio"]; ?></td>
-                <td><?php echo "$ ". number_format($item_price,2); ?></td>
-                </tr>
-                <?php
-                $total_quantity += $item["cantidad"];
-                $total_price += ($item["precio"]*$item["cantidad"]);
-        }
-        ?>
-
-<tr>
-<td>Total:</td>
-<td><?php echo $total_quantity; ?></td>
-<td><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
-<td></td>
-</tr>
-</tbody>
-</table>      
-  <?php
-} else {
-?>
-<div class="no-records">El carro está vacío</div>
-<?php 
-}
-?>
-</div>
+            <div id="shopping-cart">
+                <div class="txt-heading">Carro</div>
+                <?php if(!empty($cart_items)) { ?>
+                    <table class="tbl-cart" cellpadding="10" cellspacing="1">
+                    <tbody>
+                    <tr>
+                        <th style="text-align:left;">Nombre</th>
+                        <th>Cantidad</th>
+                        <th>Precio unidad</th>
+                        <th>Precio</th>
+                    </tr>
+                    <?php foreach ($cart_items as $item) { ?>
+                        <tr>
+                            <td><img src="<?php echo $item["imagen"]; ?>" class="cart-item-image" /><?php echo $item["nombre"]; ?></td>
+                            <td><?php echo $item["cantidad"]; ?></td>
+                            <td><?php echo "$ ".$item["precio"]; ?></td>
+                            <td><?php echo "$ ".number_format($item["cantidad"] * $item["precio"], 2); ?></td>
+                        </tr>
+                    <?php } ?>
+                    <tr>
+                        <td>Total:</td>
+                        <td><?php echo $total_quantity; ?></td>
+                        <td><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                <?php } else { ?>
+                    <div class="no-records"><?php echo $mensajeCarroVacio; ?></div>
+                <?php } ?>
+            </div>
+        </div>
     </div>
 </body>
 </html>
