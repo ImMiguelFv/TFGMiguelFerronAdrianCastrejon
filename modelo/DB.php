@@ -28,15 +28,14 @@ class DB {
 
     
 
-    public static function verificaCliente($usuario, $contraseña) {
+    public static function verificaCliente($correo, $contraseña) {
         self::conectar();
-        $usuario = self::$conexion->real_escape_string($usuario);
+        $correo = self::$conexion->real_escape_string($correo);
         $contraseña = self::$conexion->real_escape_string($contraseña);
-        $consulta = "SELECT id FROM Usuario WHERE nombre='$usuario' AND contraseña='$contraseña'";
+        $consulta = "SELECT * FROM usuario WHERE correo='$correo' AND contraseña='$contraseña'";
         $resultado = self::$conexion->query($consulta);
-        if ($resultado !== null) {
-            $fila = $resultado->fetch_assoc();
-            return $fila['id'];;
+        if ($resultado !== false && $resultado->num_rows > 0) {
+            return true;
         } else {
             return false;
         }

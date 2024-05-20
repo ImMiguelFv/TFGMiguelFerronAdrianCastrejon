@@ -3,9 +3,9 @@ session_start(); // Iniciar la sesión
 require_once("../../modelo/DB.php");
 $db_handle = new DB();
 // Verificar si hay una sesión iniciada
-if (isset($_SESSION['usuario'])) {
-  $id = $_SESSION['id'];
-  $usuario_info = $db_handle->ejecutarConsulta("SELECT * FROM usuario WHERE id = '$id'");
+if (isset($_SESSION['correo'])) {
+  $correo = $_SESSION['correo'];
+  $usuario_info = $db_handle->ejecutarConsulta("SELECT * FROM usuario WHERE correo = '$correo'");
 
   echo $usuario_info[0]["nombre"] ;
   // Verificar si se encontraron resultados

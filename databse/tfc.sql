@@ -149,7 +149,7 @@ CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `correo` varchar(255) NOT NULL,
   `contraseña` varchar(255) NOT NULL,
-  `dirección` varchar(255) DEFAULT NULL,
+  `direccion` varchar(255) DEFAULT NULL,
   `nombre` varchar(255) NOT NULL,
   `apellidos` varchar(255) NOT NULL,
   `region` varchar(255) NOT NULL,

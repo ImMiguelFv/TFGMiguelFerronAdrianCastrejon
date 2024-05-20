@@ -20,7 +20,7 @@
     <div class="icons-container">
   <?php
             // Verificar si hay una sesión iniciada
-            if (isset($_SESSION['usuario'])) {
+            if (isset($_SESSION['correo'])) {
                 echo  "<li class='link '><a href='cesta.php'><img src='../assets/icons/cesta.svg' alt='Icono de cesta' width='25' height='25'></a></li>";
                 // Si hay una sesión iniciada, mostrar el enlace al perfil del usuario y el botón de logout
                 echo "<li class='link '><a href='index.php?perfil'><img src='../assets/icons/perfil.svg' alt='Icono de perfil' width='25' height='25'></a></li>";
