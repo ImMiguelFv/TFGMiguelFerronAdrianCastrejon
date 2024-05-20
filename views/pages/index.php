@@ -24,8 +24,7 @@ if (isset($_SESSION['correo'])) {
 <body class='cuerpo'>
 <!-- Incluyendo el header -->
 <div id="header">
-        <!-- El código incluido del archivo header.html -->
-        <!-- Puedes modificarlo según necesites -->
+
         <?php include 'header.php'; ?>
     </div>
 

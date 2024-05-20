@@ -7,21 +7,7 @@ if (isset($_SESSION['correo'])) {
   $correo = $_SESSION['correo'];
   $usuario_info = $db_handle->ejecutarConsulta("SELECT * FROM usuario WHERE correo = '$correo'");
 
-  echo $usuario_info[0]["nombre"] ;
-  // Verificar si se encontraron resultados
-  if (!empty($usuario_info)) { 
-    // Obtener los datos del usuario
-        $nombre = $usuario_info[0]["nombre"];
-        $apellido = $usuario_info[0]["apellidos"];
-        $correo = $usuario_info[0]["correo"];
-        $direccion = $usuario_info[0]["direccion"];
-        $region = $usuario_info[0]["region"];
-        $codigo_postal = $usuario_info[0]["codigo_postal"];
-        $ciudad = $usuario_info[0]["ciudad"];
-        $telefono = $usuario_info[0]["telefono"];
 
-}
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">

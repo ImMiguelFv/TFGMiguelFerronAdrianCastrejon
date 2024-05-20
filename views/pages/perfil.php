@@ -1,19 +1,5 @@
-<?php
-session_start(); // Iniciar la sesión
+<?php include '../../controler/verificarsesion.php'; ?>
 
-// Verificar si hay una sesión iniciada
-if (isset($_SESSION['usuario'])) {
-    // Si hay una sesión iniciada y se hace clic en el enlace del perfil, redirigir al perfil del usuario
-    if (isset($_GET['perfil'])) {
-        header("Location: perfil.php");
-        exit(); // Asegura de detener la ejecución del resto del código
-    }
-} else {
-    // Si no hay una sesión iniciada, redirigir a la página de inicio de sesión
-    header("Location: login.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>

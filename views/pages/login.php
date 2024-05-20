@@ -31,8 +31,6 @@ if (isset($_POST['enviar'])) {
 
 <body id='cuerpo'>
 <div id="header">
-        <!-- El código incluido del archivo header.html -->
-        <!-- Puedes modificarlo según necesites -->
         <?php include 'header.php'; ?>
     </div>
     <div class="card">

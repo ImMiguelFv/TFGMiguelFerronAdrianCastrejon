@@ -1,15 +1,4 @@
-<?php
-session_start(); // Iniciar la sesión
-
-// Verificar si hay una sesión iniciada
-if (isset($_SESSION['usuario'])) {
-    // Si hay una sesión iniciada y se hace clic en el enlace del perfil, redirigir al perfil del usuario
-    if (isset($_GET['perfil'])) {
-        header("Location: perfil.php");
-        exit(); // Asegura de detener la ejecución del resto del código
-    }
-}
-?>
+<?php include '../../controler/verificarsesion.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +11,7 @@ if (isset($_SESSION['usuario'])) {
 </head>
 <body>
 <div id="header">
-        <!-- El código incluido del archivo header.html -->
-        <!-- Puedes modificarlo según necesites -->
+
         <?php include 'header.php'; ?>
     </div>
 </body>
