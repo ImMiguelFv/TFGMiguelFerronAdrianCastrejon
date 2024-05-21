@@ -1,13 +1,5 @@
 <?php
-session_start(); // Iniciar la sesión
-require_once("../../modelo/DB.php");
-$db_handle = new DB();
-// Verificar si hay una sesión iniciada
-if (isset($_SESSION['correo'])) {
-  $correo = $_SESSION['correo'];
-  $usuario_info = $db_handle->ejecutarConsulta("SELECT * FROM usuario WHERE correo = '$correo'");
-
-
+require_once '../../controler/checkoutcontroler.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,8 +12,6 @@ if (isset($_SESSION['correo'])) {
 <body>
     <!-- Encabezado -->
     <div id="header">
-        <!-- El código incluido del archivo header.html -->
-        <!-- Puedes modificarlo según necesites -->
         <?php include 'header.php'; ?>
     </div>
 
@@ -70,7 +60,7 @@ if(isset($_SESSION["cart_item"])){
 <table class="tbl-cart" cellpadding="10" cellspacing="1">
 <tbody>
 <tr>
-<th style="text-align:left;">Nombre</th>
+<th>Nombre</th>
 <th>Cantidad</th>
 <th>Precio unidad</th>
 <th>Precio</th>
