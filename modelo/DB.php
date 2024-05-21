@@ -32,16 +32,33 @@ class DB {
         self::conectar();
         $correo = self::$conexion->real_escape_string($correo);
         $contraseña = self::$conexion->real_escape_string($contraseña);
-        $consulta = "SELECT * FROM usuario WHERE correo='$correo' AND contraseña='$contraseña'";
+
+        // Lo que va a hacer es obtener la contraseña que este asignada a ese correo/ usuario
+        $consulta = "SELECT contraseña FROM usuario WHERE correo = '$correo'";
         $resultado = self::$conexion->query($consulta);
+        
         if ($resultado !== false && $resultado->num_rows > 0) {
-            return true;
+            // Para poder comparar las contraseñas, cifrada y no cifrada necesitaremos usar el password verify
+            $fila = $resultado->fetch_assoc();
+            $hashedPassword = $fila['contraseña'];
+            // Verifica la contraseña proporcionada por el usuario con la contraseña obtenida de la base de datos encriptada hash
+            if (password_verify($contraseña, $hashedPassword)) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
+            // No se ha encontrado el correo en la base de datos
             return false;
         }
+
+
+
+
+   
     }
     
-    public static function registrarUsuario($nombre, $apellidos, $correo, $contraseña, $verificarContraseña) {
+    public static function registrarUsuario($nombre, $apellidos, $correo, $contraseña) {
         self::conectar();
 
         // Verificar si el correo ya está registrado
@@ -55,11 +72,6 @@ class DB {
         // Verificar la longitud y seguridad de la contraseña
         if (strlen($contraseña) < 8 || !preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $contraseña)) {
             return "La contraseña debe tener al menos 8 caracteres y contener letras y números.";
-        }
-
-        // Verificar si las contraseñas coinciden
-        if ($contraseña !== $verificarContraseña) {
-            return "Las contraseñas no coinciden.";
         }
 
         // Encriptar la contraseña antes de almacenarla en la base de datos

@@ -9,27 +9,58 @@ require_once("../../modelo/DB.php");
 <head>
     <meta charset="UTF-8">
     <title>Registro de Usuario</title>
-    <link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../styles/registro.css'>
 </head>
 <body>
 <div id="header">
 
         <?php include 'header.php'; ?>
     </div> 
-    <h2>Registro de Usuario</h2>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" value="<?php echo isset($nombre) ? $nombre : ''; ?>" required><br>
-        <label for="apellidos">Apellidos:</label><br>
-        <input type="text" id="apellidos" name="apellidos" value="<?php echo isset($apellidos) ? $apellidos : ''; ?>" required><br>
-        <label for="correo">Correo Electrónico:</label><br>
-        <input type="email" id="correo" name="correo" value="<?php echo isset($correo) ? $correo : ''; ?>" required><br>
-        <label for="contraseña">Contraseña:</label><br>
-        <input type="password" id="contraseña" name="contraseña" required><br>
-        <label for="verificar_contraseña">Verificar Contraseña:</label><br>
-        <input type="password" id="verificar_contraseña" name="verificar_contraseña" required><br><br>
-        <input type="submit" value="Registrar">
-    </form>
-    <p style="color: red;"><?php echo $mensajeError; ?></p>
+
+    <div class="card">
+        <h1 class="card_title">Registrar Usuario</h1>
+
+        <form class="card_form" action='registro.php' method='post'>
+            
+            <div class="input">
+                <input type="text" class="input_field" name='nombre' required />
+                <label class="input_label">Nombre</label>
+            </div>
+            <div class="input">
+                <input type="text" class="input_field" name='apellidos' required />
+                <label class="input_label">Apellidos</label>
+            </div>
+            <div class="input">
+                <input type="email" class="input_field" name='correo' required />
+                <label class="input_label">Correo</label>
+            </div>
+
+
+            <div class="input">
+                <input type="password" class="input_field" id="password_field" name='contraseña' required />
+                <label class="input_label">Contraseña</label>
+                
+            </div>
+            <div class="input">
+                <input type="password" class="input_field" id="password_field" name='verificar_contraseña' required />
+                <label class="input_label">Verificar Contraseña</label>
+                
+            </div>
+            <button class="card_button" name='enviar'>Registrar</button>
+
+        </form>
+        <div class="card_info">
+            <p>Ya estás registrado? <a href="login.php">Inicia Sesión</a></p>
+        </div>
+        <p style="color: red;"><?php echo $mensajeError; ?></p>
+    </div>
+
+
+
+
+
+
+
+    
 </body>
 </html>

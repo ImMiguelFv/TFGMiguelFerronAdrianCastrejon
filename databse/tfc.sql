@@ -182,10 +182,10 @@ ALTER TABLE `producto`
 
 -- Los productos que he usado de ejemplo
   INSERT INTO `producto` (`id`, `codigo`, `nombre`, `imagen`, `precio`) VALUES
-(1, 'Caja Moria', 'CM1','../assets/Productos/MoiraCage/Moria_Front.jpg', 30.00),
-(2, 'Caja Yamato', 'CY1', '../assets/Productos/YamatoCage/preview.jpg', 31.00),
-(3, 'Caja Perona', 'CP1', '../assets/Productos/PeronaCage/preview.jpg', 32.00),
-(4, 'Caja Dados', 'CD1', '../assets/Productos/CajaDados/preview2.jpg', 33.00)
+(1,  'CM1', 'Caja Moria','../assets/Productos/MoiraCage/Moria_Front.jpg', 30.00),
+(2, 'CY1',  'Caja Yamato','../assets/Productos/YamatoCage/preview.jpg', 31.00),
+(3,  'CP1', 'Caja Perona','../assets/Productos/PeronaCage/preview.jpg', 32.00),
+(4,  'CD1', 'Caja Dados','../assets/Productos/CajaDados/preview2.jpg', 33.00)
 
 
 
