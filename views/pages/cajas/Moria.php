@@ -1,20 +1,6 @@
-<?php include '../../controler/verificarsesion.php'; ?>
+<?php include '../../../controler/verificarsesion.php'; ?>
 
 <?php
-session_start(); // Iniciar la sesión
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-
-
-/* Verificar si hay una sesión iniciada
-if (isset($_SESSION['usuario'])) {
-    // Si hay una sesión iniciada y se hace clic en el enlace del perfil, redirigir al perfil del usuario
-    if (isset($_GET['perfil'])) {
-        header("Location: perfil.php");
-        exit(); // Asegura de detener la ejecución del resto del código
-    }
-}*/
 
 
 // Verificar si se ha enviado el formulario
@@ -62,9 +48,8 @@ if (isset($_POST['enviar'])) {
 </head>
 <body>
 <header class='cabecera'>
-        <div class='logo'> <a href="index.php">
-            <p>3Dax</p> </a>
-        </div>
+       
+        <div class='logo'> <a href="index.php"><h1>3Dax</h1></div>
         
     <nav class="menu">
         <ul class='nav-links' id='nav-links'>

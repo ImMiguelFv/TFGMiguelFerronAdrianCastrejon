@@ -52,7 +52,7 @@ require_once("../../modelo/DB.php");
         <div class="card_info">
             <p>Ya estás registrado? <a href="login.php">Inicia Sesión</a></p>
         </div>
-        <p style="color: red;"><?php echo $mensajeError; ?></p>
+        <p><?php echo $mensajeError; ?></p>
     </div>
 
 
