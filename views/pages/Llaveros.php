@@ -14,5 +14,7 @@
 
         <?php include 'header.php'; ?>
     </div>
+    <h1 class="No-Items">3DAX Actualmente no tiene productos en esta categoría pero pronto seguró qué encontraras nuevos prductos.</h1>
+
 </body>
 </html>

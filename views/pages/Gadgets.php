@@ -13,8 +13,6 @@
 <div id="header">
         <?php include 'header.php'; ?>
     </div>
-<a href="gadgets/carrot.php">Carrrot Knife</a>
-<a href="gadgets/spinner.php">Spinner</a>
-
+<h1 class="No-Items">3DAX Actualmente no tiene productos en esta categoría pero pronto seguró qué encontraras nuevos prductos.</h1>
 </body>
 </html>
