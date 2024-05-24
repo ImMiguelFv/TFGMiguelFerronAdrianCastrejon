@@ -13,10 +13,9 @@ require_once '../../controler/deckboxcontroler.php';
 	<link rel="stylesheet" href="../styles/style.css"> <!-- Gem style -->
 </head>
 <body>
-<!-- Incluyendo el header -->
+
 <div id="header">
-        <!-- El código incluido del archivo header.html -->
-        <!-- Puedes modificarlo según necesites -->
+
         <?php include 'header.php'; ?>
     </div>
 
@@ -93,6 +92,13 @@ if(isset($_SESSION["cart_item"])){
 				$total_price += ($item["precio"]*$item["cantidad"]);
 		}
 		?>
+
+<tr>
+<td colspan="2" align="right">Total:</td>
+<td align="right"><?php echo $total_quantity; ?></td>
+<td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+<td></td>
+</tr>
 </tbody>
 </table>		
   <?php

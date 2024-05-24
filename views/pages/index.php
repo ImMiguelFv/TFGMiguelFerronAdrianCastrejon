@@ -22,7 +22,6 @@ if (isset($_SESSION['correo'])) {
     <script src="../javascript/index.js"></script>
 </head>
 <body class='cuerpo'>
-<!-- Incluyendo el header -->
 <div id="header">
 
         <?php include 'header.php'; ?>
@@ -32,8 +31,7 @@ if (isset($_SESSION['correo'])) {
 <section class="parallax-section">
     <div class="parallax-image">
         <div class="parallax-content">
-        <h1 style="font-size: 48px;">Bienvenido a 3Dax</h1>
-        <a href="pages/cajas/Moria.html" class="parallax-link">¡Más Info!</a>
+        <h1>Bienvenido a 3Dax</h1>
         </div>
     </div>
 </section>
