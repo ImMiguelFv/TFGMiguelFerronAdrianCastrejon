@@ -13,10 +13,9 @@ require_once '../../controler/deckboxcontroler.php';
 	<link rel="stylesheet" href="../styles/style.css"> <!-- Gem style -->
 </head>
 <body>
-<!-- Incluyendo el header -->
+
 <div id="header">
-        <!-- El código incluido del archivo header.html -->
-        <!-- Puedes modificarlo según necesites -->
+
         <?php include 'header.php'; ?>
     </div>
 
@@ -61,11 +60,11 @@ if(isset($_SESSION["cart_item"])){
 <table class="tbl-cart" cellpadding="10" cellspacing="1">
 <tbody>
 <tr>
-<th style="text-align:left;">Nombre</th>
-<th style="text-align:right;" width="5%">Cantidad</th>
-<th style="text-align:right;" width="10%">Precio unidad</th>
-<th style="text-align:right;" width="10%">Precio</th>
-<th style="text-align:center;" width="5%">Quitar</th>
+<th>Nombre</th>
+<th>Cantidad</th>
+<th>Precio unidad</th>
+<th>Precio</th>
+<th>Quitar</th>
 </tr>	
 <?php		
     foreach ($_SESSION["cart_item"] as $item){
@@ -73,10 +72,10 @@ if(isset($_SESSION["cart_item"])){
 		?>
 				<tr>
 				<td><img src="<?php echo $item["imagen"]; ?>" class="cart-item-image" /><?php echo $item["nombre"]; ?></td>
-				<td style="text-align:right;"><?php echo $item["cantidad"]; ?></td>
-				<td  style="text-align:right;"><?php echo "$ ".$item["precio"]; ?></td>
-				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
-				<td style="text-align:center;"><a href="deckbox.php?action=remove&codigo=<?php echo $item["codigo"]; ?>" class="btnRemoveAction"><img src="../assets/icons/trash.svg" alt="Remove Item" width="20" height="20"/></a></td>
+				<td><?php echo $item["cantidad"]; ?></td>
+				<td><?php echo "$ ".$item["precio"]; ?></td>
+				<td><?php echo "$ ". number_format($item_price,2); ?></td>
+				<td><a href="deckbox.php?action=remove&codigo=<?php echo $item["codigo"]; ?>" class="btnRemoveAction"><img src="../assets/icons/trash.svg" alt="Remove Item" width="20" height="20"/></a></td>
 				</tr>
 				<?php
 				$total_quantity += $item["cantidad"];
