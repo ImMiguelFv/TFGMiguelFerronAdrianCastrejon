@@ -19,6 +19,7 @@ jQuery(document).ready(function($){
 	$cart_trigger.on('click', function(event){
 		event.preventDefault();
 		//close lateral menu (if it's open)
+		console.log('Cart trigger clicked');
 		$menu_navigation.removeClass('speed-in');
 		toggle_panel_visibility($lateral_cart, $shadow_layer, $('body'));
 	});
@@ -57,6 +58,7 @@ jQuery(document).ready(function($){
 
 function toggle_panel_visibility ($lateral_panel, $background_layer, $body) {
 	if( $lateral_panel.hasClass('speed-in') ) {
+		console.log('Se ha tenido que quitar la clase speed-in');
 		// firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden
 		$lateral_panel.removeClass('speed-in').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
 			$body.removeClass('overflow-hidden');
@@ -64,6 +66,7 @@ function toggle_panel_visibility ($lateral_panel, $background_layer, $body) {
 		$background_layer.removeClass('is-visible');
 
 	} else {
+		console.log('Se ha tenido que añadir la clase speed-in');
 		$lateral_panel.addClass('speed-in').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
 			$body.addClass('overflow-hidden');
 		});
@@ -82,11 +85,19 @@ function move_navigation( $navigation, $MQ) {
 }
 
 
-function updateQuantity(change) {
-    var quantityInput = document.getElementById("quantity");
+
+function updateQuantity(button, change) {
+    // Buscamos el contenedor padre que tiene la clase 'quantity-control'
+    var container = button.parentNode;
+    
+    // Buscamos el input de cantidad dentro del contenedor
+    var quantityInput = container.querySelector("#quantity");
+	
+
+
     var currentQuantity = parseInt(quantityInput.value);
     var newQuantity = currentQuantity + change;
-
+	console.log(currentQuantity);
     if (newQuantity > 0) {
         quantityInput.value = newQuantity;
         quantityInput.form.submit();

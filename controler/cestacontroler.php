@@ -1,6 +1,8 @@
 <?php
-session_start(); // Iniciar la sesión
-
+// Verificar si una sesión ya está iniciada
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 // Verificar si hay una sesión iniciada
 if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];

@@ -44,8 +44,7 @@ if (!empty($_GET["action"])) {
                     $_SESSION["cart_item"] = $itemArray;
                 }
             }
-            // Redirigir a la misma página sin parámetros
-            safeRedirect('deckbox.php');
+
             break;
 
         case "remove":
@@ -57,8 +56,7 @@ if (!empty($_GET["action"])) {
                         unset($_SESSION["cart_item"]);
                 }
             }
-            // Redirigir a la misma página sin parámetros
-            safeRedirect('deckbox.php');
+
             break;
             case "cambiar":
                 if (!empty($_POST["cantidad"]) && !empty($_GET["codigo"])) {

@@ -56,7 +56,11 @@ header {
 }
 #cd-cart.speed-in {
   right: 0;
+  transform: translateX(0); /* Asegúrate de que el valor de translateX es correcto */
+  transition: transform 0.3s ease-in-out;
+  /* Otros estilos necesarios para que el panel sea visible */
 }
+
 #cd-cart > * {
   padding: 0 1em;
 }
@@ -70,5 +74,24 @@ header {
   background: #7dcf85;
   color: #FFF;
   text-align: center;
+}
+#cd-shadow-layer {
+	position: fixed;
+	min-height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(#435779, .6);
+	cursor: pointer;
+
+	z-index: 2;
+
+	display: none;
+
+	
+}
+.menu.is-visible {
+	display: block;
+	animation: cd-fade-in 0.3s;
 }
 
