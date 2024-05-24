@@ -1,5 +1,5 @@
 <?php
-require_once '../../controler/deckboxcontroler.php';
+require_once '../../controler/productosController.php';
 
 // Definir la URL de acción para los formularios en la cesta
 $form_action = "gadgets.php";
@@ -11,9 +11,7 @@ $form_action = "gadgets.php";
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>3dax</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../styles/deckbox.css'>
-	<link rel="stylesheet" href="../styles/style.css"> <!-- Gem style -->
+    <link rel='stylesheet' type='text/css' media='screen' href='../styles/productos.css'>
 </head>
 <body>
 
