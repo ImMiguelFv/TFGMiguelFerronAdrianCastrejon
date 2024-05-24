@@ -80,3 +80,15 @@ function move_navigation( $navigation, $MQ) {
 		$navigation.insertAfter('header');
 	}
 }
+
+
+function updateQuantity(change) {
+    var quantityInput = document.getElementById("quantity");
+    var currentQuantity = parseInt(quantityInput.value);
+    var newQuantity = currentQuantity + change;
+
+    if (newQuantity > 0) {
+        quantityInput.value = newQuantity;
+        quantityInput.form.submit();
+    }
+}

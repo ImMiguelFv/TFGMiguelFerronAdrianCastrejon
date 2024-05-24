@@ -60,36 +60,39 @@ if(isset($_SESSION["cart_item"])){
 ?>	
 <table class="tbl-cart" cellpadding="10" cellspacing="1">
 <tbody>
-<tr>
-<th style="text-align:left;">Nombre</th>
-<th style="text-align:right;" width="5%">Cantidad</th>
-<th style="text-align:right;" width="10%">Precio unidad</th>
-<th style="text-align:right;" width="10%">Precio</th>
-<th style="text-align:center;" width="5%">Quitar</th>
-</tr>	
+
 <?php		
     foreach ($_SESSION["cart_item"] as $item){
         $item_price = $item["cantidad"]*$item["precio"];
 		?>
-				<tr>
-				<td><img src="<?php echo $item["imagen"]; ?>" class="cart-item-image" /><?php echo $item["nombre"]; ?></td>
-				<td style="text-align:right;"><?php echo $item["cantidad"]; ?></td>
-				<td  style="text-align:right;"><?php echo "$ ".$item["precio"]; ?></td>
-				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
-				<td style="text-align:center;"><a href="deckbox.php?action=remove&codigo=<?php echo $item["codigo"]; ?>" class="btnRemoveAction"><img src="../assets/icons/trash.svg" alt="Remove Item" width="20" height="20"/></a></td>
+				<tr class="product-details">
+				<td>
+					<img src="<?php echo $item["imagen"]; ?>" class="cart-item-image" />
+				</td>
+				<td >
+					<form method="POST" action="deckbox.php?action=cambiar&codigo=<?php echo $item['codigo']; ?>">
+					<h2>Deckbox</h2>
+					<p><?php echo $item["nombre"]; ?></p>
+					<p><?php echo $item["precio"]; ?> €</p>
+					<div class = "quantity-control">
+						<a class="selector" id="restar" onclick="updateQuantity(-1)"> -</a>
+						<input type="number" id="quantity" name="cantidad" value="<?php echo $item['cantidad'] ?>">
+						
+						<a class="selector" id="añadir" onclick="updateQuantity(+1)"> +</a>
+						<a href="deckbox.php?action=remove&codigo=<?php echo $item["codigo"]; ?>" class="btnRemoveAction"><img src="../assets/icons/trash.svg" alt="Remove Item" width="20" height="20"/></a>
+					</div>
+					</form>
+						
+					
+				</td>
+
+				
 				</tr>
 				<?php
 				$total_quantity += $item["cantidad"];
 				$total_price += ($item["precio"]*$item["cantidad"]);
 		}
 		?>
-
-<tr>
-<td colspan="2" align="right">Total:</td>
-<td align="right"><?php echo $total_quantity; ?></td>
-<td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
-<td></td>
-</tr>
 </tbody>
 </table>		
   <?php
@@ -101,7 +104,7 @@ if(isset($_SESSION["cart_item"])){
 ?>
 </div>
 
-		<a href='cesta.php' class="checkout-btn">Checkout</a>
+		<a href='cesta.php' class="checkout-btn">Checkout - <strong><?php echo "$ ".number_format($total_price, 2); ?></strong></a>
 	</div> <!-- cd-cart -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="../javascript/cesta.js"></script> <!-- Gem jQuery -->

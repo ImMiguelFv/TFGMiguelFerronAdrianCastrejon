@@ -3,6 +3,24 @@ session_start();
 require_once("../../modelo/DB.php");
 $db_handle = new DB();
 
+
+// utils.php
+function safeRedirect($url, $params = [])
+{
+    // Construir la URL sin parámetros
+    $cleanUrl = strtok($url, '?');
+
+    // Construir la URL con los nuevos parámetros si los hay
+    if (!empty($params)) {
+        $query = http_build_query($params);
+        $cleanUrl .= '?' . $query;
+    }
+
+    header("Location: $cleanUrl");
+    exit();
+}
+
+
 if (!empty($_GET["action"])) {
     switch ($_GET["action"]) {
         case "add":
@@ -26,6 +44,8 @@ if (!empty($_GET["action"])) {
                     $_SESSION["cart_item"] = $itemArray;
                 }
             }
+            // Redirigir a la misma página sin parámetros
+            safeRedirect('deckbox.php');
             break;
 
         case "remove":
@@ -37,10 +57,27 @@ if (!empty($_GET["action"])) {
                         unset($_SESSION["cart_item"]);
                 }
             }
+            // Redirigir a la misma página sin parámetros
+            safeRedirect('deckbox.php');
             break;
+            case "cambiar":
+                if (!empty($_POST["cantidad"]) && !empty($_GET["codigo"])) {
+                    $cantidad = intval($_POST["cantidad"]);
+                    $codigo = $_GET["codigo"];
+                    // Actualizar la cantidad del producto en la sesión del carrito
+                    if ($cantidad > 0 && isset($_SESSION["cart_item"][$codigo])) {
+                        $_SESSION["cart_item"][$codigo]["cantidad"] = $cantidad;
+                    }
+            
+                }
+                // Redirigir a la misma página sin parámetros
+                //safeRedirect('deckbox.php');
+                break;
         case "empty":
             unset($_SESSION["cart_item"]);
             break;
     }
 }
+
+
 ?>
