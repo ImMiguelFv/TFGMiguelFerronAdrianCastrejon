@@ -29,6 +29,7 @@ header {
   width: 260px;
   /* header height */
   padding-top: 170px;
+  margin-right: 0px;
 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   z-index: 3;
@@ -95,3 +96,71 @@ header {
 	animation: cd-fade-in 0.3s;
 }
 
+
+
+#shopping-cart {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.txt-heading {
+  color: #211a1a;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.tbl-cart {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+.tbl-cart th,
+.tbl-cart td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.tbl-cart th {
+  font-weight: bold;
+}
+
+.cart-item-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #e0e0e0;
+  padding: 5px;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+.no-records {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.checkout-btn {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: #5cb85c;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background-color: #4cae4c;
+}

@@ -1,18 +1,30 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#content{
+  display: flex;
+  margin-top: 100px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;     /* Alinea los elementos verticalmente en el centro */
+  padding: 20px;           /* Espaciado interno */
+  background-color: #f8f8f8;
+}
 .producto{
     display: flex;
     flex-direction: row;
-    margin: 50px;
+    
 
 }
-#content{
-    margin-top: 100px;
-}
+
   /* Estilos para la vista previa y las imágenes seleccionables */
   .imagenes {
     display: flex;
     flex-direction: row;
     height: 800px;
-    margin-left: 200px; ;
 
   }
   .selecionables {

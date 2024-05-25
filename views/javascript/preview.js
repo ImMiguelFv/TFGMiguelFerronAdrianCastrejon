@@ -1,5 +1,8 @@
 // Obtener todas las imágenes seleccionables
 const imagenesSeleccionables = document.querySelectorAll('.selecionables .selector');
+const vistaPrevia = document.getElementById('preview');
+
+
 
 // Agregar un evento clic a cada imagen seleccionable
 imagenesSeleccionables.forEach(imagen => {
@@ -14,4 +17,13 @@ imagenesSeleccionables.forEach(imagen => {
     vistaPrevia.setAttribute('src', nuevaRuta);
   });
 });
+// Verificar si la imagen de vista previa no tiene una ruta y hay al menos una imagen seleccionable
+if (!vistaPrevia.getAttribute('src')) {
+  // Obtener la ruta de la primera imagen seleccionable
+  const primeraRuta = imagenesSeleccionables[0].getAttribute('src');
+  // Establecer la ruta de la imagen de vista previa
+  vistaPrevia.setAttribute('src', primeraRuta);
+}
+
+
 

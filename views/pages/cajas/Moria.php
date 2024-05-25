@@ -70,15 +70,15 @@ if (isset($_POST['enviar'])) {
 
         <div class="imagenes">
         <div class="selecionables">
-            <img src="../../assets/Productos/MoiraCage/Moria_Preview.jpg" alt="" class="selector">
-            <img src="../../assets/Productos/MoiraCage/Moria_Front.jpg" alt="" class="selector">
-            <img src="../../assets/Productos/MoiraCage/Moria_Back.jpg" alt="" class="selector">
-            <img src="../../assets/Productos/MoiraCage/Moria_Lado.jpg" alt="" class="selector">
-            <img src="../../assets/Productos/MoiraCage/Moria_Lado1.jpg" alt="" class="selector">
+            <img src="../../assets/Productos/MoriaCage/Moria_Preview.jpg" alt="" class="selector">
+            <img src="../../assets/Productos/MoriaCage/Moria_Front.jpg" alt="" class="selector">
+            <img src="../../assets/Productos/MoriaCage/Moria_Back.jpg" alt="" class="selector">
+            <img src="../../assets/Productos/MoriaCage/Moria_Lado.jpg" alt="" class="selector">
+            <img src="../../assets/Productos/MoriaCage/Moria_Lado1.jpg" alt="" class="selector">
         </div>
         
             <div class="imagenpreview">
-            <img src="../../assets/Productos/MoiraCage/Moria_Preview.jpg" alt="" id="preview">
+            <img src="../../assets/Productos/MoriaCage/Moria_Preview.jpg" alt="" id="preview">
         </div>
           </div>
           <div class="datos">

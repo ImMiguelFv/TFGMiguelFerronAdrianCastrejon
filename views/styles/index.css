@@ -14,7 +14,7 @@
 }
 
 .parallax-image {
-    background-image: url('../assets/Productos/MoiraCage/Moria_Front.jpg'); /* Ruta de la imagen */
+    background-image: url('../assets/Productos/MoriaCage/Moria_Front.jpg'); /* Ruta de la imagen */
     height: 100%;
     background-attachment:fixed; /* Fijar la imagen para el efecto parallax */
     background-position: center; /* Posición de la imagen */
@@ -80,7 +80,7 @@
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el ratón */
   }
   .item1 {
-    background-image: url('../assets/Productos/MoiraCage/Moria_Front.jpg'); /* Ruta de la imagen para el primer contenedor */
+    background-image: url('../assets/Productos/MoriaCage/Moria_Front.jpg'); /* Ruta de la imagen para el primer contenedor */
   }
   
   .item2 {

@@ -2,6 +2,14 @@
 require_once '../../controler/controlregistro.php';
 require_once("../../modelo/DB.php");
 
+
+// pagina_error.php
+session_start();
+
+// Recoger la variable de error de la sesión
+$error = isset($_SESSION['error']) ? $_SESSION['error'] : "";
+// Limpiar el mensaje de error después de mostrarlo
+unset($_SESSION['error']);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +24,12 @@ require_once("../../modelo/DB.php");
 
         <?php include 'header.php'; ?>
     </div> 
-
+    <script>
+        console.log($error);
+        </script>
+    <?php if ($error): ?>
+                <p style="color: red;"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
+            <?php endif; ?>
     <div class="card">
         <h1 class="card_title">Registrar Usuario</h1>
 
@@ -42,17 +55,19 @@ require_once("../../modelo/DB.php");
                 
             </div>
             <div class="input">
-                <input type="password" class="input_field" id="password_field" name='verificar_contraseña' required />
+                <input type="password" class="input_field" id="password_field_check" name='verificar_contraseña' required />
                 <label class="input_label">Verificar Contraseña</label>
                 
             </div>
             <button class="card_button" name='enviar'>Registrar</button>
 
+            
+
         </form>
         <div class="card_info">
             <p>Ya estás registrado? <a href="login.php">Inicia Sesión</a></p>
         </div>
-        <p><?php echo $mensajeError; ?></p>
+        
     </div>
 
 

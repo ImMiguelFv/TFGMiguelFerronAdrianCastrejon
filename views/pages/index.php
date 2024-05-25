@@ -52,28 +52,28 @@ if (isset($_SESSION['correo'])) {
       <div class="content">
         <h2>Caja de Moria</h2>
         <p>Shishishishi</p>
-        <button onclick="window.location.href='cajas/Moria.php'"> ¡Más info!</button>
+        <button onclick="window.location.href='cajas/producto.php?codigo=CM1'"> ¡Más info!</button>
       </div>
     </div>
     <div class="grid-item item2">
       <div class="content">
         <h2>Yamato chuan</h2>
         <p>Exclusivo!!!</p>
-        <button onclick="window.location.href='cajas/Yamato.php'"> ¡Más info!</button>
+        <button onclick="window.location.href='cajas/producto.php?codigo=CY1'"> ¡Más info!</button>
       </div>
     </div>
     <div class="grid-item item3">
       <div class="content">
         <h2>Cajita de peronitaaa!!!</h2>
         <p>Exclusivo!!!</p>
-        <button onclick="window.location.href='cajas/Perona.php'"> ¡Más info!</button>
+        <button onclick="window.location.href='cajas/producto.php?codigo=CP1'"> ¡Más info!</button>
       </div>
     </div>
     <div class="grid-item item4">
       <div class="content">
         <h2>Caja de dados </h2>
         <p>Sorprende a tu rival!</p>
-        <button onclick="window.location.href='cajas/Dados.php'"> ¡Más info!</button>
+        <button onclick="window.location.href='cajas/producto.php?codigo=CD1'"> ¡Más info!</button>
       </div>
     </div>
   </div>

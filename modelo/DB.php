@@ -4,7 +4,7 @@ class DB {
 
     public static function conectar() {
         $host = "localhost"; 
-        $usuario = "root2";
+        $usuario = "root3";
         $contraseña = "test"; 
         $base_datos = "tfg"; 
 
@@ -90,7 +90,7 @@ class DB {
     public static function correoRegistrado($correo) {
         self::conectar();
         $correo = self::$conexion->real_escape_string($correo);
-        $consulta = "SELECT id FROM Usuario WHERE correo='$correo'";
+        $consulta = "SELECT id FROM usuario WHERE correo='$correo'";
         $resultado = self::$conexion->query($consulta);
         return $resultado->num_rows > 0;
     }

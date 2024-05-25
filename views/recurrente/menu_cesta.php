@@ -6,7 +6,7 @@
     <title>3dax</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <link rel="stylesheet" href="../styles/style.css"> <!-- Gem style -->
+    <link rel="stylesheet" href="/TFGMIGUELFERRONADRIANCASTREJON/views/styles/style.css"> <!-- Gem style -->
     
 </head>
 <body class='cuerpo'>
@@ -78,7 +78,7 @@ if(isset($_SESSION["cart_item"])){
 		<a href='cesta.php' class="checkout-btn">Checkout - <strong><?php echo "$ ".number_format($total_price, 2); ?></strong></a>
 	</div> <!-- cd-cart -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="../javascript/cesta.js"></script> <!-- Gem jQuery -->
+<script src="/TFGMIGUELFERRONADRIANCASTREJON/views/javascript/cesta.js"></script> <!-- Gem jQuery -->
 
 
 
