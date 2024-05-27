@@ -12,17 +12,19 @@ $form_action = "llaveros.php";
     <title>3dax</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/productos.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='/TFGMIGUELFERRONADRIANCASTREJON/views/styles/estiloscomunes.css'>
+
 </head>
 <body>
 
 <div id="header">
 
-        <?php include 'header.php'; ?>
+<?php include '../recurrente/header.php'; ?>
     </div>
 
 
 <div id="product-grid">
-	<div class="txt-heading">Productos</div>
+ 
 	<?php
 	$product_array = $db_handle->ejecutarConsulta("SELECT * FROM producto WHERE `codigo` LIKE 'l%' ORDER BY id ASC");
 	if (!empty($product_array)) { 

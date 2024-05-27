@@ -12,7 +12,7 @@ require_once '../../controler/checkoutcontroler.php';
 <body>
     <!-- Encabezado -->
     <div id="header">
-        <?php include 'header.php'; ?>
+    <?php include '../recurrente/header.php'; ?>
     </div>
 
     <!-- Contenido principal -->

@@ -13,7 +13,7 @@
 <body>
 <div id="header">
 
-        <?php include 'header.php'; ?>
+<?php include '../recurrente/header.php'; ?>
     </div> 
 
 </body>

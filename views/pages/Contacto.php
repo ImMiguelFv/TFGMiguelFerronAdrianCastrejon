@@ -14,7 +14,7 @@
 <div id="header">
         <!-- El código incluido del archivo header.html -->
         <!-- Puedes modificarlo según necesites -->
-        <?php include 'header.php'; ?>
+        <?php include '../recurrente/header.php'; ?>
     </div>
 
 </body>

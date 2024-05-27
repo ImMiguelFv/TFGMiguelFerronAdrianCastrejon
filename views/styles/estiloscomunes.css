@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
 }
+.logolink{
+    color: #000;
+}
 
 .cabecera .header-top {
     display: flex;

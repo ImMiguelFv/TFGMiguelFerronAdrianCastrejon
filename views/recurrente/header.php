@@ -15,7 +15,7 @@
   <div class="header-top">    
     <div class="icons-container">
           </div> 
-    <div class='logo'> <a href="/TFGMIGUELFERRONADRIANCASTREJON/views/pages/index.php"><h1>3Dax</h1></div>    
+    <div class='logo'> <a class="logolink" href="/TFGMIGUELFERRONADRIANCASTREJON/views/pages/index.php"><h1>3Dax</h1></div>    
 
     <div class="icons-container">
   <?php

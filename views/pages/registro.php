@@ -22,7 +22,7 @@ unset($_SESSION['error']);
 <body>
 <div id="header">
 
-        <?php include 'header.php'; ?>
+<?php include '../recurrente/header.php'; ?>
     </div> 
     <script>
         console.log($error);

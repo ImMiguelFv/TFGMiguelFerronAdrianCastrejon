@@ -13,7 +13,7 @@ require_once '../../controler/cestacontroler.php';
 <body class='cuerpo'>
 <!-- Incluyendo el header -->
 <div id="header">
-    <?php include 'header.php'; ?>
+    <?php include '../recurrente/header.php'; ?>
 </div>
 
 <div id="shopping-cart">

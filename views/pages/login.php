@@ -25,14 +25,14 @@ if (isset($_POST['enviar'])) {
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>Ejemplo Tema 7: Login Tienda Web</title>
+<title>Login</title>
 <link rel='stylesheet' type='text/css' media='screen' href='../styles/login.css'>
 
 </head>
 
 <body id='cuerpo'>
 <div id="header">
-        <?php include 'header.php'; ?>
+<?php include '../recurrente/header.php'; ?>
     </div>
     <div class="card">
         <h1 class="card_title">Iniciar Sesión</h1>

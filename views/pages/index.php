@@ -24,7 +24,7 @@ if (isset($_SESSION['correo'])) {
 <body class='cuerpo'>
 <div id="header">
 
-        <?php include 'header.php'; ?>
+<?php include '../recurrente/header.php'; ?>
     </div>
 
 
