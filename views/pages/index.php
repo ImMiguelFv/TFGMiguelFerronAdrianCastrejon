@@ -22,10 +22,10 @@ if (isset($_SESSION['correo'])) {
     <script src="../javascript/index.js"></script>
 </head>
 <body class='cuerpo'>
-<div id="header">
 
-<?php include '../recurrente/header.php'; ?>
-    </div>
+<div id="header">
+  <?php include '../recurrente/header.php'; ?>
+</div>
 
 
 <section class="parallax-section">
