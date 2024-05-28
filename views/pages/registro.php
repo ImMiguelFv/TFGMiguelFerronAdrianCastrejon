@@ -18,7 +18,6 @@ unset($_SESSION['error']);
     <meta charset="UTF-8">
     <title>Registro de Usuario</title>
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/registro.css'>
-    <script defer src="../javascript/login.js"></script>
     
 </head>
 <body>
@@ -52,12 +51,10 @@ unset($_SESSION['error']);
 
 
             <div class="input">
-                <input type="password" class="input_field" id="password_field" name='password' required />
+                <input type="password" class="input_field" id="password_field" name='contraseña' required />
                 <label class="input_label">Contraseña</label>
-                <span class="input_eye" id="input_eye">
-
-                    <img  id="eye_icon" src='../assets/icons/ojoCerrado.svg' alt='Icono de ojo' width='25' height='25'>
-                </span>
+                
+                
             </div>
             <div class="input">
                 <input type="password" class="input_field" id="password_field_check" name='verificar_contraseña' required />
