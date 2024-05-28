@@ -20,7 +20,7 @@
         <h1>Contacto</h1>
         
         <!-- Formulario de contacto -->
-        <form action="../controler/process_contact.php" method="POST">
+        <form id="contactForm" action="3DAX">
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="name" required>
 
@@ -33,15 +33,8 @@
             <label for="message">Mensaje:</label>
             <textarea id="message" name="message" required></textarea>
 
-            <button type="submit">Enviar</button>
+            <button type="submit" class="button" name="submit">Enviar</button>
         </form>
-
-        <!-- Mensaje de confirmación -->
-        <?php
-        if (isset($_GET['status']) && $_GET['status'] == 'success') {
-            echo "<p>Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.</p>";
-        }
-        ?>
 
         <!-- Información de contacto adicional -->
         <div id="additional-contact">
@@ -53,12 +46,13 @@
         <div id="social-media">
             <h2>Síguenos en nuestras redes sociales</h2>
             <ul>
+                <li><a href="https://facebook.com/3dax" target="_blank">Facebook</a></li>
                 <li><a href="https://twitter.com/3dax" target="_blank">Twitter</a></li>
                 <li><a href="https://instagram.com/3dax" target="_blank">Instagram</a></li>
             </ul>
         </div>
     </div>
-        <div class="foo"></div>
 
+<script src="../javascript/contacto.js"></script>
 </body>
 </html>
