@@ -31,7 +31,7 @@ if(isset($_GET['codigo'])) {
 <body>
 <div id="header">
 
-        <?php include '../header.php'; ?>
+        <?php include '../../recurrente/header.php'; ?>
     </div>
     
 <div id="content">

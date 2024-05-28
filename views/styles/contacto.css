@@ -1,0 +1,105 @@
+
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+
+#content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+form textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+form button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5cb85c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #4cae4c;
+}
+
+/* Estilos adicionales */
+#additional-contact, #social-media {
+    margin-top: 30px;
+}
+
+#additional-contact h2, #social-media h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#additional-contact p {
+    font-size: 16px;
+}
+
+#additional-contact a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+#additional-contact a:hover {
+    text-decoration: underline;
+}
+
+#social-media ul {
+    list-style: none;
+    padding: 0;
+}
+
+#social-media ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+#social-media ul li a {
+    text-decoration: none;
+    color: #337ab7;
+    font-size: 16px;
+}
+
+#social-media ul li a:hover {
+    text-decoration: underline;
+}
