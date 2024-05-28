@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,7 @@
                 //echo  "<li class='link '><a href='cesta.php'><img src='../assets/icons/cesta.svg' alt='Icono de cesta' width='25' height='25'></a></li>";
                 echo  "<li class='link ' id='cd-cart-trigger'><a class='cd-img-replace' href='#0'><img src='/TFGMIGUELFERRONADRIANCASTREJON/views/assets/icons/cesta.svg' alt='Icono de cesta' width='25' height='25'></a></li>";
                 // Si hay una sesión iniciada, mostrar el enlace al perfil del usuario y el botón de logout
-                echo "<li class='link '><a href='/TFGMIGUELFERRONADRIANCASTREJON/views/pages/index.php'><img src='/TFGMIGUELFERRONADRIANCASTREJON/views/assets/icons/perfil.svg' alt='Icono de perfil' width='25' height='25'></a></li>";
+                echo "<li class='link '><a href='/TFGMIGUELFERRONADRIANCASTREJON/views/pages/perfil.php'><img src='/TFGMIGUELFERRONADRIANCASTREJON/views/assets/icons/perfil.svg' alt='Icono de perfil' width='25' height='25'></a></li>";
                 echo "<li class='link'><a href='/TFGMIGUELFERRONADRIANCASTREJON/views/pages/logout.php'><img src='/TFGMIGUELFERRONADRIANCASTREJON/views/assets/icons/logout.svg' alt='Icono de logout' width='25' height='25'></a></li>";
             } else {
                 // Si no hay una sesión iniciada, mostrar el enlace de iniciar sesión
