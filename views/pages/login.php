@@ -27,6 +27,8 @@ if (isset($_POST['enviar'])) {
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Login</title>
 <link rel='stylesheet' type='text/css' media='screen' href='../styles/login.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
+
 
 </head>
 
