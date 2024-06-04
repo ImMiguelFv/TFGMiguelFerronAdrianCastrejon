@@ -1,0 +1,18 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+/* Estilos para el contenido */
+.contenido {
+    margin-top: 10%;
+    text-align: center; /* Centra el contenido verticalmente */
+}
+
+.No-Items {
+    font-size: 24px;
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Espacio inferior entre los elementos */
+}
+
+

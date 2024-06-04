@@ -23,7 +23,7 @@ require_once("../../modelo/DB.php");
 
     <!-- Mostrar mensaje de error si existe -->
     <?php if (!empty($_SESSION['error'])): ?>
-        <p style="color: red;"><?php echo htmlspecialchars($_SESSION['error'], ENT_QUOTES, 'UTF-8'); ?></p>
+        <p><?php echo htmlspecialchars($_SESSION['error'], ENT_QUOTES, 'UTF-8'); ?></p>
         <?php unset($_SESSION['error']); ?>
     <?php endif; ?>
 
