@@ -8,6 +8,9 @@ require_once '../../controler/checkoutcontroler.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="../styles/checkout.css">
+    <link rel="stylesheet" href="../styles/estiloscomunes.css">
+    
+    <script src="../javascript/checkout.js"></script>
 </head>
 <body>
     <!-- Encabezado -->
@@ -20,31 +23,32 @@ require_once '../../controler/checkoutcontroler.php';
         <!-- Columna izquierda con formulario de pago -->
         <div class="columna">
             <h2>Formulario de Pago</h2>
-            <form action="#" method="POST">
-                <label for="metodo-pago">Seleccione un método de pago:</label>
-                <select name="metodo-pago" id="metodo-pago">
-                    <option value="visa">Visa</option>
-                    <option value="paypal">Paypal</option>
-                    <option value="mastercard">Mastercard</option>
-                </select>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required value="<?php echo $correo; ?>">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required value="<?php echo $nombre; ?>">
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido" required value="<?php echo $apellido; ?>">
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion" name="direccion" required value="<?php echo $direccion; ?>">
-                <label for="region">Región:</label>
-                <input type="text" id="region" name="region" required value="<?php echo $region; ?>">
-                <label for="codigo-postal">Código Postal:</label>
-                <input type="text" id="codigo-postal" name="codigo-postal" required value="<?php echo $codigo_postal; ?>">
-                <label for="ciudad">Ciudad:</label>
-                <input type="text" id="ciudad" name="ciudad" required value="<?php echo $ciudad; ?>">
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" required value="<?php echo $telefono; ?>">
-                <button type="submit">Finalizar Pedido</button>
-            </form>
+            <form id="contactForm" action="#" method="POST">
+    <label for="metodo-pago">Seleccione un método de pago:</label>
+    <select name="metodo-pago" id="metodo-pago">
+        <option value="visa">Visa</option>
+        <option value="paypal">Paypal</option>
+        <option value="mastercard">Mastercard</option>
+    </select>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required value="<?php echo $correo; ?>">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required value="<?php echo $nombre; ?>">
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" name="apellido" required value="<?php echo $apellido; ?>">
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion" name="direccion" required value="<?php echo $direccion; ?>">
+    <label for="region">Región:</label>
+    <input type="text" id="region" name="region" required value="<?php echo $region; ?>">
+    <label for="codigo-postal">Código Postal:</label>
+    <input type="text" id="codigo-postal" name="codigo-postal" required value="<?php echo $codigo_postal; ?>">
+    <label for="ciudad">Ciudad:</label>
+    <input type="text" id="ciudad" name="ciudad" required value="<?php echo $ciudad; ?>">
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" required value="<?php echo $telefono; ?>">
+    <button type="submit">Finalizar Pedido</button>
+</form>
+
         </div>
 
         <!-- Columna derecha con objetos en el carrito -->
