@@ -4,7 +4,7 @@ class DB {
 
     public static function conectar() {
         $host = "localhost"; 
-        $usuario = "root3";
+        $usuario = "root2";
         $contraseña = "test"; 
         $base_datos = "tfg"; 
 
