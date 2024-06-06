@@ -9,6 +9,7 @@ require_once '../../controler/cestacontroler.php';
     <title>3dax</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/cesta.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
 </head>
 <body class='cuerpo'>
 <!-- Incluyendo el header -->

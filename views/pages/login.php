@@ -15,7 +15,7 @@ if (isset($_POST['enviar'])) {
         }
         else {
             // Si las credenciales no son válidas, se vuelven a pedir
-            $error = "Correo o contraseña no válidos! " . $_POST['correo'] . $_POST['password'];
+            $error = "Correo o contraseña no válidos!";
     
         }
     }
@@ -27,6 +27,8 @@ if (isset($_POST['enviar'])) {
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Login</title>
 <link rel='stylesheet' type='text/css' media='screen' href='../styles/login.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
+
 
 </head>
 
@@ -53,6 +55,9 @@ if (isset($_POST['enviar'])) {
             </div>
             <button class="card_button" name='enviar'>Iniciar Sesión</button>
         </form>
+        <?php if($error): ?>
+        <p class="error"><?php echo $error; ?></p>
+        <?php endif; ?>
         <div class="card_info">
             <p>No estás registrado? <a href="registro.php">Create una cuenta</a></p>
         </div>

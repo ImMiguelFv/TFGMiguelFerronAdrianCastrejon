@@ -19,6 +19,7 @@ if (isset($_SESSION['correo'])) {
     <title>3dax</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/index.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
     <script src="../javascript/index.js"></script>
 </head>
 <body class='cuerpo'>
@@ -77,5 +78,8 @@ if (isset($_SESSION['correo'])) {
       </div>
     </div>
   </div>
+  <div>
+<?php include '../recurrente/menu_cesta.php'; ?>
+</div>
 </body>
 </html>
