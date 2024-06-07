@@ -35,7 +35,7 @@
 
             <button type="submit" class="button" name="submit">Enviar</button>
         </form>
-
+        </div>
         <!-- Información de contacto adicional -->
         <div id="additional-contact">
             <h2>Contacto Adicional</h2>
@@ -51,7 +51,7 @@
                 <li><a href="https://instagram.com/3dax" target="_blank">Instagram</a></li>
             </ul>
         </div>
-    </div>
+    
 
 <script src="../javascript/contacto.js"></script>
 </body>

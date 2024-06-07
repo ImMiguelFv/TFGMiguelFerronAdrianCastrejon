@@ -1,9 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+        font-family: Roboto, sans-serif;
+
+}
+
 .cabecera {
     display: flex;
     flex-direction: column;
     background-color: #f8f9fa; /* Color de fondo suave */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra para darle profundidad */
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .logolink {
@@ -18,6 +29,7 @@
     align-items: center;
     padding: 10px 20px; /* Espaciado interno */
     width: 100%; /* Ocupa todo el ancho del contenedor */
+
 }
 
 a {
@@ -30,6 +42,8 @@ a {
     list-style-type: none; /* Elimina los puntos de la lista */
     padding: 0;
     margin: 0;
+    z-index: 5;
+
 }
 
 .icons-container .link {
@@ -45,6 +59,8 @@ a {
     text-align: center;
     border-top: 1px solid #ddd; /* Línea separadora */
     padding-top: 10px; /* Espaciado superior */
+    z-index: 1;
+
 }
 
 .nav-links {
