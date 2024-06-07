@@ -57,7 +57,7 @@ a {
 
 .menu {
     text-align: center;
-    border-top: 1px solid #ddd; /* Línea separadora */
+    border-top: 1px solid #dddddd28; /* Línea separadora */
     padding-top: 10px; /* Espaciado superior */
     z-index: 1;
 
