@@ -5,17 +5,7 @@
 xheader 
 
 -------------------------------- */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100px;
-  width: 100%;
-  background-color: #FFF;
-  text-align: center;
-  box-shadow: 0 2px 0 rgba(155, 0, 0, 0.1);
-  z-index: 4;
-}
+
 #product-grid{
   background-color: blanchedalmond;
   margin-top: 150px;

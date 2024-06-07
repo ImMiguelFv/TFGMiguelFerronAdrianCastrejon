@@ -1,44 +1,109 @@
-.cabecera {
-    display: flex;
-    flex-direction: row;
-}
-.logolink{
-    color: #000;
-}
-
-.cabecera .header-top {
+/* Reset de márgenes y paddings para evitar inconsistencias entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo general para el cuerpo de la página */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Estilo principal del header */
+  .cabecera {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Contenedor superior del header */
+  .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-}
-a{
-    text-decoration: none; /* Elimina el subrayado del enlace */
-}
-.cabecera  .icons-container{
+  }
+  
+  /* Estilo para el logo */
+  .logo h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  /* Estilo para el contenedor de iconos */
+  .icons-container {
     display: flex;
-    flex-direction: row;
-    list-style-type: none; /* Elimina los puntos de la lista */
-}
-.cabecera  .icons-container .link{
+    align-items: center;
+  }
+  
+  /* Estilo para los enlaces de iconos */
+  .icons-container .link {
+    list-style: none;
+    margin-left: 15px;
+  }
+  
+  /* Estilo para el menú de navegación */
+  .menu {
+    background-color: #444;
+  }
+  
+  /* Lista de navegación */
+  .nav-links {
+    display: flex;
+    justify-content: center;
     padding: 10px;
-}
-
-.cabecera .menu {
-    display: inline-block;
-    text-align: center;
-}
-.cabecera .menu .nav-links{
-    padding-bottom: 15px;
-}
-.cabecera .menu .link {
-    display: inline-block;
-    position: relative;
-}
-
-.cabecera .menu .link a {
-    display: block;
-    padding: 10px 20px;
+  }
+  
+  /* Estilo para cada enlace del menú */
+  .nav-links .link {
+    list-style: none;
+    margin: 0 10px;
+  }
+  
+  /* Estilo para los enlaces */
+  .nav-links .link a {
     text-decoration: none;
-    color: #000000;
-}
+    color: #fff;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+  }
+  
+  /* Efecto hover para los enlaces */
+  .nav-links .link a:hover {
+    background-color: #555;
+    border-radius: 5px;
+  }
+  
+  /* Estilo responsivo para pantallas pequeñas */
+  @media (max-width: 768px) {
+    /* Cambia el layout del header superior a columnas en lugar de filas */
+    .header-top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    /* Alinea el logo al centro */
+    .logo {
+      align-self: center;
+      margin-bottom: 10px;
+    }
+  
+    /* Estilo para el contenedor de iconos en pantallas pequeñas */
+    .icons-container {
+      width: 100%;
+      justify-content: space-around;
+    }
+  
+    /* Cambia el layout del menú de navegación a columnas */
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    /* Margen inferior para cada enlace del menú en pantallas pequeñas */
+    .nav-links .link {
+      margin: 5px 0;
+    }
+  }
+  
