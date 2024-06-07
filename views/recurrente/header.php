@@ -1,5 +1,4 @@
 
-<link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
 <header class='cabecera'>
   <div class="header-top">    
     <div class="icons-container">
