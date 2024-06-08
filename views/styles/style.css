@@ -2,23 +2,15 @@
 
 /* -------------------------------- 
 
-xheader 
 
 -------------------------------- */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100px;
-  width: 100%;
-  background-color: #FFF;
-  text-align: center;
-  box-shadow: 0 2px 0 rgba(155, 0, 0, 0.1);
+header{
   z-index: 4;
 }
 #product-grid{
   background-color: blanchedalmond;
   margin-top: 150px;
+
 }
 
 
@@ -28,7 +20,7 @@ header {
   height: 100%;
   width: 260px;
   /* header height */
-  padding-top: 170px;
+  margin-top: 50px;
   margin-right: 0px;
 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);

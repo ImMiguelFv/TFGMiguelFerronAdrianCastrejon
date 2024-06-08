@@ -15,8 +15,6 @@
 }
 #content{
   display: flex;
-  justify-content: center;
-  margin-top: 100px;
   flex-direction: row;
     /* Alinea los elementos verticalmente en el centro */
   padding: 20px;           /* Espaciado interno */

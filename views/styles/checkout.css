@@ -10,19 +10,12 @@ a {
     color: inherit; /* Hereda el color del texto de su contenedor */
 }
 
-/* Estilos para el encabezado */
-header {
-    background-color: #f4f4f4;
-    padding: 20px;
-    text-align: center;
-    color: rgb(0, 0, 0);
-    border-bottom: 1px solid #E0E0E0;
-}
+
 
 /* Estilos para el contenido */
 .contenido {
     display: flex;
-    height: calc(100% - 40px); /* Restamos la altura del encabezado */
+    
 }
 
 /* Estilos para las columnas */

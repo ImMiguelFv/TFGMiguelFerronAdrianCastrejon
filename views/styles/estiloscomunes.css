@@ -1,54 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+        font-family: Roboto, sans-serif;
+
+}
+
 .cabecera {
     display: flex;
-    flex-direction: column; /* Cambiado a columna */
-    align-items: center; /* Centrar contenido horizontalmente */
+    flex-direction: column;
+    background-color: #f8f9fa; /* Color de fondo suave */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra para darle profundidad */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .logolink {
     color: #000;
+    font-weight: bold; /* Resalta el logo */
+    font-size: 1.5em; /* Tamaño de fuente mayor */
 }
 
-.cabecera .header-top {
+.header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px; /* Espaciado interno */
     width: 100%; /* Ocupa todo el ancho del contenedor */
-    padding: 10px;
+
 }
 
 a {
     text-decoration: none; /* Elimina el subrayado del enlace */
 }
 
-.cabecera .icons-container {
+.icons-container {
     display: flex;
     flex-direction: row;
     list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    z-index: 5;
+
 }
 
-.cabecera .icons-container .link {
+.icons-container .link {
     padding: 10px;
+    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
 }
 
-.cabecera .menu {
-    display: flex;
-    justify-content: center; /* Centrar el menú horizontalmente */
-    width: 100%; /* Ocupa todo el ancho del contenedor */
+.icons-container .link:hover {
+    background-color: #e9ecef; /* Color de fondo al pasar el ratón */
+}
+
+.menu {
     text-align: center;
+    border-top: 1px solid #dddddd28; /* Línea separadora */
+    padding-top: 10px; /* Espaciado superior */
+    z-index: 1;
+
 }
 
-.cabecera .menu .nav-links {
-    padding-bottom: 15px;
+.nav-links {
+    padding: 0;
+    margin: 0;
+    list-style-type: none; /* Elimina los puntos de la lista */
 }
 
-.cabecera .menu .link {
+.nav-links .link {
     display: inline-block;
     position: relative;
 }
 
-.cabecera .menu .link a {
+.nav-links .link a {
     display: block;
     padding: 10px 20px;
     text-decoration: none;
     color: #000000;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave para color y fondo */
+}
+
+.nav-links .link a:hover {
+    color: #007bff; /* Color de texto al pasar el ratón */
+    background-color: #e9ecef; /* Fondo al pasar el ratón */
 }

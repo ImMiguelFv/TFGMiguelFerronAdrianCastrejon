@@ -13,7 +13,7 @@ $form_action = "llaveros.php";
     <title>3dax</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/productos.css'>
-	<link rel='stylesheet' type='text/css' media='screen' href='/TFGMIGUELFERRONADRIANCASTREJON/views/styles/estiloscomunes.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
 
 </head>
 <body>
