@@ -44,7 +44,7 @@ if(isset($_SESSION["cart_item"])){
 						<input type="number" id="quantity" name="cantidad" value="<?php echo $item['cantidad'] ?>">
 						
 						<a class="selector" id="añadir" onclick="updateQuantity(this, +1)"> +</a>
-						<a href="<?php echo $form_action; ?>?action=remove&codigo=<?php echo $item["codigo"]; ?>" class="btnRemoveAction"><img src="../assets/icons/trash.svg" alt="Remove Item" width="20" height="20"/></a>
+						<a href="<?php echo $form_action; ?>?action=remove&codigo=<?php echo $item["codigo"]; ?>" class="btnRemoveAction"><img src="/TFGMIGUELFERRONADRIANCASTREJON/views/assets/icons/trash.svg" alt="Remove Item" width="20" height="20"/></a>
 					</div>
 					</form>
 						

@@ -1,4 +1,5 @@
 <?php
+require_once("../../modelo/DB.php");
 require_once '../../controler/productosController.php';
 
 // Definir la URL de acción para los formularios en la cesta
@@ -12,6 +13,7 @@ $form_action = "deckbox.php";
     <title>3dax</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/productos.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
 
 	
 </head>
@@ -52,6 +54,7 @@ $form_action = "deckbox.php";
 <div>
 <?php include '../recurrente/menu_cesta.php'; ?>
 </div>
+
 
 
 

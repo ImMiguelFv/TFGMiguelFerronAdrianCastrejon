@@ -1,4 +1,5 @@
 <?php
+require_once("../../modelo/DB.php");
 require_once '../../controler/productosController.php';
 
 // Definir la URL de acción para los formularios en la cesta
@@ -32,7 +33,11 @@ $form_action = "llaveros.php";
 	?>
 		<div class="product-item">
 			<form method="post" action="<?php echo $form_action; ?>?action=add&codigo=<?php echo $product_array[$key]["codigo"]; ?>">
-			<div class="product-image"><img class="image" src="<?php echo $product_array[$key]["imagen"]; ?>"></div>
+			<div class="product-image">
+				<a href="cajas/producto.php?codigo=<?php echo $product_array[$key]["codigo"]; ?>">
+					<img class="image" src="<?php echo $product_array[$key]["imagen"]; ?>" alt="Product Image">
+				</a>
+			</div>
 			<div class="product-tile-footer">
 			<div class="product-title"><?php echo $product_array[$key]["nombre"]; ?></div>
 			<div class="product-price"><?php echo "$".$product_array[$key]["precio"]; ?></div>

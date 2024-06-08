@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../../modelo/DB.php");
+
 $db_handle = new DB();
 
 

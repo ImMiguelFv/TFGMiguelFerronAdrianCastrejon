@@ -1,17 +1,28 @@
 
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  
 }
 #content{
   display: flex;
+  justify-content: center;
   margin-top: 100px;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;     /* Alinea los elementos verticalmente en el centro */
+    /* Alinea los elementos verticalmente en el centro */
   padding: 20px;           /* Espaciado interno */
-  background-color: #f8f8f8;
+  background-color: #fdf5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 .producto{
     display: flex;
@@ -57,13 +68,64 @@
     width: 400px;
     height: 700px;
   }
-  .datos .nombre{
+  .datos .titulo{
     font-size: 30px;
     width: 400px;
   }
-  .formulario{
-    width: 420px;
+  .datos .precio{
+    color: #524f4f;
+    padding: 15px;
+    padding-left: 0px;
+    font-size: 30px;
   }
+  .datos .descripcion{
+    padding-bottom: 15px;
+  }
+
+
+ .contenedor{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+ /* Colores Container Styling */
+.colores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Espacio entre los elementos */
+  padding: 20px;
+  
+}
+
+/* Color Item Styling */
+.color-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 4px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Color Cube Styling */
+.color-cube {
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid #000; /* Optional: Border around color cube for better visibility */
+}
+.contenedor .product-grid{
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 4px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
 
   /* Media query */
   @media only screen and (max-width: 768px) {
