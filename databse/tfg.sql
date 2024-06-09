@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2024 a las 00:01:59
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 7.4.33
+-- Tiempo de generación: 09-06-2024 a las 19:24:55
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -80,6 +80,36 @@ INSERT INTO `color` (`id`, `nombre`, `hex`, `disponible`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `detalle_pedido`
+--
+
+CREATE TABLE `detalle_pedido` (
+  `id_detalle` int(11) NOT NULL,
+  `id_pedido` int(11) DEFAULT NULL,
+  `id_producto` int(11) DEFAULT NULL,
+  `cantidad` int(11) NOT NULL,
+  `precio_unitario` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `direcciones`
+--
+
+CREATE TABLE `direcciones` (
+  `id_direccion` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `direccion` varchar(255) NOT NULL,
+  `ciudad` varchar(100) NOT NULL,
+  `estado` varchar(100) NOT NULL,
+  `codigo_postal` varchar(20) NOT NULL,
+  `pais` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `imagenes`
 --
 
@@ -148,8 +178,10 @@ INSERT INTO `imagenes` (`id`, `producto_codigo`, `ruta_imagen`) VALUES
 
 CREATE TABLE `pedido` (
   `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `fecha` datetime NOT NULL DEFAULT current_timestamp(),
-  `precio_total` decimal(10,2) NOT NULL
+  `precio_total` decimal(10,2) NOT NULL,
+  `estado` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -171,17 +203,17 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id`, `codigo`, `nombre`, `precio`, `imagen`) VALUES
-(1, 'CM1', 'Caja de Gecko Moria', '50.00', '../assets/Productos/MoriaCage/Moria_Front.jpg'),
-(2, 'CY1', 'Caja de Yamato', '31.00', '../assets/Productos/YamatoCage/preview.jpg'),
-(3, 'CP1', 'Caja de Perona', '32.00', '../assets/Productos/PeronaCage/preview.jpg'),
-(4, 'CD1', 'Caja de Dados', '33.00', '../assets/Productos/CajaDados/preview2.jpg'),
-(5, 'CDF1', 'Caja de Doflamingo', '30.00', '../assets/productos/DoflamingoCage/Preview.jpg'),
-(6, 'CCK1', 'Caja de Captain Kid', '30.00', '../assets/productos/KidCage/Preview.jpg'),
-(7, 'CRE1', 'Caja de Reijuu', '30.00', '../assets/productos/ReijuuCage/Preview.jpg'),
-(8, 'CEX1', 'Caja del Exploding  Kittens', '35.00', '../assets/productos/ExplodingCage/Preview.jpg'),
-(9, 'GCK', 'Carrot Knife', '5.00', '../assets/productos/CarrotKnife/Preview.jpg'),
-(10, 'LLD1', 'Llavero', '2.00', '../assets/productos/LlaveroDefault/Preview.jpg'),
-(12, 'GDM1', 'Set de dados Mugiwara', '10.00', '../assets/productos/DadosMugiwara/Preview.jpg');
+(1, 'CM1', 'Caja de Gecko Moria', 50.00, '/TFGMIGUELFERRONADRIANCASTREJON/views/assets/Productos/MoriaCage/Moria_Front.jpg'),
+(2, 'CY1', 'Caja de Yamato', 31.00, '/TFGMIGUELFERRONADRIANCASTREJON/views/assets/Productos/YamatoCage/preview.jpg'),
+(3, 'CP1', 'Caja de Perona', 32.00, '/TFGMIGUELFERRONADRIANCASTREJON/views/assets/Productos/PeronaCage/preview.jpg'),
+(4, 'CD1', 'Caja de Dados', 33.00, '/TFGMIGUELFERRONADRIANCASTREJON/views/assets/Productos/CajaDados/preview2.jpg'),
+(5, 'CDF1', 'Caja de Doflamingo', 30.00, '/TFGMIGUELFERRONADRIANCASTREJON/views/assets/productos/DoflamingoCage/Preview.jpg'),
+(6, 'CCK1', 'Caja de Captain Kid', 30.00, '/TFGMIGUELFERRONADRIANCASTREJON/views/assets/productos/KidCage/Preview.jpg'),
+(7, 'CRE1', 'Caja de Reijuu', 30.00, '/TFGMIGUELFERRONADRIANCASTREJON/views/assets/productos/ReijuuCage/Preview.jpg'),
+(8, 'CEX1', 'Caja del Exploding  Kittens', 35.00, '/TFGMIGUELFERRONADRIANCASTREJON/views/assets/productos/ExplodingCage/Preview.jpg'),
+(9, 'GCK', 'Carrot Knife', 5.00, '/TFGMIGUELFERRONADRIANCASTREJON/views/assets/productos/CarrotKnife/Preview.jpg'),
+(10, 'LLD1', 'Llavero', 2.00, '/TFGMIGUELFERRONADRIANCASTREJON/views/assets/productos/LlaveroDefault/Preview.jpg'),
+(12, 'GDM1', 'Set de dados Mugiwara', 10.00, '/TFGMIGUELFERRONADRIANCASTREJON/views/assets/productos/DadosMugiwara/Preview.jpg');
 
 -- --------------------------------------------------------
 
@@ -194,23 +226,21 @@ CREATE TABLE `usuario` (
   `correo` varchar(255) NOT NULL,
   `contraseña` varchar(255) NOT NULL,
   `telefono` varchar(20) DEFAULT NULL,
-  `direccion` varchar(255) DEFAULT NULL,
   `nombre` varchar(255) NOT NULL,
-  `apellidos` varchar(255) NOT NULL,
-  `region` varchar(255) NOT NULL,
-  `codigo_postal` varchar(255) NOT NULL,
-  `ciudad` varchar(255) NOT NULL
+  `apellidos` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `correo`, `contraseña`, `telefono`, `direccion`, `nombre`, `apellidos`, `region`, `codigo_postal`, `ciudad`) VALUES
-(1, 'usuario_prueba@example.com', '1234', '659997641', 'calle armas n11', 'Nombre Prueba', 'Apellidos Prueba', 'Madrid', '28048', 'Madrid'),
-(2, 'usuario@correo.com', '$2y$10$xt2IeG8cBHjC2KCATumqquQ1YRqwYQesaTKxkQTHRO/6zqOUVOblO', NULL, NULL, 'Usuario', 'Usuario', '', '0', ''),
-(3, 'prueba@c.c', '1234', NULL, NULL, 'Usuario', 'Usuario', '', '', ''),
-(4, 'usuario_prueba3@example.com', '$2y$10$y0kJFGilE.riPfQL9UK0b.uO6DYHpaql6UYQ4/4JPm9EQc/PC/lca', NULL, NULL, 'Usuario3', 'Usuario3', '', '', '');
+INSERT INTO `usuario` (`id`, `correo`, `contraseña`, `telefono`, `nombre`, `apellidos`) VALUES
+(1, 'usuario_prueba@example.com', '1234', '659997641', 'Nombre Prueba', 'Apellidos Prueba'),
+(2, 'usuario@correo.com', '$2y$10$xt2IeG8cBHjC2KCATumqquQ1YRqwYQesaTKxkQTHRO/6zqOUVOblO', NULL, 'Usuario', 'Usuario'),
+(3, 'prueba@c.c', '1234', NULL, 'Usuario', 'Usuario'),
+(4, 'usuario_prueba3@example.com', '$2y$10$y0kJFGilE.riPfQL9UK0b.uO6DYHpaql6UYQ4/4JPm9EQc/PC/lca', NULL, 'Usuario3', 'Usuario3'),
+(5, 'usuario_prueba4@example.com', '$2y$10$qjexZcfM6JgzrhAyKnrzFulf2eoxgoEJT.RDpYMhOQKRmoXeNjiKG', NULL, 'asd', '1'),
+(6, 'usuario_prueba5@example.com', '$2y$10$rTK2DfW.bKAaDqaYgjFnKu9py.Ip2pPQsYV1wK6Z2wpF/E9A0PtC.', NULL, 'asd', 'Usuario');
 
 --
 -- Índices para tablas volcadas
@@ -230,11 +260,33 @@ ALTER TABLE `color`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `detalle_pedido`
+--
+ALTER TABLE `detalle_pedido`
+  ADD PRIMARY KEY (`id_detalle`),
+  ADD KEY `fk_producto` (`id_producto`),
+  ADD KEY `fk_pedido` (`id_pedido`);
+
+--
+-- Indices de la tabla `direcciones`
+--
+ALTER TABLE `direcciones`
+  ADD PRIMARY KEY (`id_direccion`),
+  ADD KEY `fk_usuario_dir` (`id_usuario`);
+
+--
 -- Indices de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `producto_codigo` (`producto_codigo`);
+
+--
+-- Indices de la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `producto`
@@ -266,10 +318,28 @@ ALTER TABLE `color`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de la tabla `detalle_pedido`
+--
+ALTER TABLE `detalle_pedido`
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `direcciones`
+--
+ALTER TABLE `direcciones`
+  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT de la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -281,7 +351,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
@@ -294,10 +364,29 @@ ALTER TABLE `caracteristicas_producto`
   ADD CONSTRAINT `caracteristicas_producto_ibfk_1` FOREIGN KEY (`producto_codigo`) REFERENCES `producto` (`codigo`) ON DELETE CASCADE;
 
 --
+-- Filtros para la tabla `detalle_pedido`
+--
+ALTER TABLE `detalle_pedido`
+  ADD CONSTRAINT `fk_pedido` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id`),
+  ADD CONSTRAINT `fk_producto` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`);
+
+--
+-- Filtros para la tabla `direcciones`
+--
+ALTER TABLE `direcciones`
+  ADD CONSTRAINT `fk_usuario_dir` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
+
+--
 -- Filtros para la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
   ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`producto_codigo`) REFERENCES `producto` (`codigo`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
