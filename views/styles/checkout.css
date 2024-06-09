@@ -15,7 +15,7 @@ a {
 /* Estilos para el contenido */
 .contenido {
     display: flex;
-    
+    margin-top: 140px;
 }
 
 /* Estilos para las columnas */

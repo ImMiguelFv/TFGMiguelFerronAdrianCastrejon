@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Intentar registrar al usuario
         $registroExitoso = DB::registrarUsuario($nombre, $apellidos, $correo, $contraseña);
         if ($registroExitoso) {
-            header("Location: index.php");
+            header("Location: login.php");
             exit();
         } else {
             $_SESSION['error'] = "Error al registrar el usuario. Por favor, inténtalo de nuevo.";

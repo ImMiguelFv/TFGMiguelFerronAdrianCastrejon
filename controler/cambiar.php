@@ -1,19 +1,19 @@
 <?php
 include __DIR__ . '/verificarsesion.php';
-include __DIR__ . '/../model/DB.php';
+include __DIR__ . '/../modelo/DB.php';
 
-session_start();
 
-if (!isset($_SESSION['user_id'])) {
+
+if (!isset($_SESSION['correo'])) {
     die("No has iniciado sesión.");
 }
 
-$user_id = $_SESSION['user_id']; // Asumiendo que el ID de usuario está almacenado en la sesión
+$correo = $_SESSION['correo']; // Asumiendo que el ID de usuario está almacenado en la sesión
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $new_password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
-    $new_direccion = $_POST['direccion'];
+    //$new_direccion = $_POST['direccion'];
 
     // Validar la contraseña
     if ($new_password !== $confirm_password) {
@@ -27,19 +27,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Actualizar la contraseña
     if (!empty($new_password)) {
         $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
-        $consulta_password = "UPDATE Usuario SET contraseña = '$hashed_password' WHERE id = $user_id";
+        $consulta_password = "UPDATE Usuario SET contraseña = '$hashed_password' WHERE correo = $correo";
         
         DB::conectar();
-        if (DB::$conexion->query($consulta_password) === TRUE) {
+        if (DB::$conexion->ejecutarConsulta($consulta_password) === TRUE) {
             echo "Contraseña actualizada correctamente.";
         } else {
             echo "Error al actualizar la contraseña: " . DB::$conexion->error;
         }
     }
 
-    // Validar y actualizar la dirección
+    /* Validar y actualizar la dirección
     if (!empty($new_direccion)) {
-        $consulta_direccion = "UPDATE Usuario SET direccion = '$new_direccion' WHERE id = $user_id";
+        $consulta_direccion = "UPDATE Usuario SET direccion = '$new_direccion' WHERE correo = $correo";
         
         if (DB::$conexion->query($consulta_direccion) === TRUE) {
             echo "Dirección actualizada correctamente.";
@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Error al actualizar la dirección: " . DB::$conexion->error;
         }
     }
+        */
 
     DB::$conexion->close();
 }

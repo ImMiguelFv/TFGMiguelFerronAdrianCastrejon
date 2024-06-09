@@ -9,7 +9,9 @@
 #product-grid {
 	margin: 40px;
 }
-
+#shopping-cart{
+	margin-top: 140px;
+}
 #shopping-cart table {
 	width: 100%;
 	background-color: #F0F0F0;

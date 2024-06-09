@@ -7,8 +7,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>3dax</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../styles/login.css'>
+    
     <link rel='stylesheet' type='text/css' media='screen' href='../styles/estiloscomunes.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../styles/login.css'>
     <script defer src="../javascript/login.js"></script>
 </head>
 <body>
@@ -16,7 +17,7 @@
     <?php include '../recurrente/header.php'; ?>
 </div> 
 
-<div id="main">
+<div class="card">
     <h1>Cambiar Contraseña</h1>
     <form action="../../controler/cambiar.php" method="post">
         <div class="input">
@@ -33,14 +34,14 @@
                 <img id="eye_icon" src='../assets/icons/ojoCerrado.svg' alt='Icono de ojo' width='25' height='25'>
             </span>
         </div>
-
+<!--
         <h1>Añadir o Cambiar Dirección</h1>
         <div class="input">
             <input type="text" class="input_field" id="password_field" name='direccion' />
             <label class="input_label">Direccion</label>
 
         </div>
-
+-->
         <input type="submit" value="Cambiar">
     </form>
 </div>
