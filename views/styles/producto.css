@@ -14,11 +14,14 @@
   
 }
 #content{
+  margin: 110px 0 0 0;
   display: flex;
   flex-direction: row;
-    /* Alinea los elementos verticalmente en el centro */
+  align-items: center;
+  justify-content: center;
+  
   padding: 20px;           /* Espaciado interno */
-  background-color: #fdf5f5;
+  background-color: #fdfbfb;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
@@ -33,7 +36,7 @@
   .imagenes {
     display: flex;
     flex-direction: row;
-    height: 800px;
+    height: 400px;
 
   }
   .selecionables {
@@ -42,7 +45,7 @@
     flex-direction: column;
     align-items: center;
     width: 200px;
-    height: 700px;
+    height: 500px;
   }
   .selecionables img {
     width: 75px; /* Ajusta el tamaño según tus necesidades */
