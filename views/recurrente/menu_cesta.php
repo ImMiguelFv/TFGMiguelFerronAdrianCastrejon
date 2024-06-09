@@ -75,8 +75,9 @@ if(isset($_SESSION["cart_item"])){
 ?>
 </div>
 
-		<a href='/TFGMIGUELFERRONADRIANCASTREJON/views/pages/cesta.php' class="checkout-btn">Checkout - <strong><?php echo "$ ".number_format($total_price, 2); ?></strong></a>
-	</div> <!-- cd-cart -->
+<a href='/TFGMIGUELFERRONADRIANCASTREJON/views/pages/cesta.php' class="checkout-btn" id="checkout-btn">Checkout - <strong><?php echo "$ ".number_format($total_price, 2); ?></strong></a>
+
+	<!-- cd-cart -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="/TFGMIGUELFERRONADRIANCASTREJON/views/javascript/cesta.js"></script> <!-- Gem jQuery -->
 

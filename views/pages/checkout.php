@@ -15,7 +15,7 @@ require_once '../../controler/checkoutcontroler.php';
 <body>
     <!-- Encabezado -->
     <div id="header">
-    <?php include '../recurrente/header.php'; ?>
+    <?php include '../recurrente/header2.php'; ?>
     </div>
 
     <!-- Contenido principal -->
@@ -102,5 +102,6 @@ if(isset($_SESSION["cart_item"])){
 ?>
 </div>
     </div>
+    
 </body>
 </html>

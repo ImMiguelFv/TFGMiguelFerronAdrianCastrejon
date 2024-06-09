@@ -1,88 +1,109 @@
+/* Reset de Estilos */
 * {
 	margin: 0;
-	font-family: Arial, sans-serif;
 	padding: 0;
+	box-sizing: border-box; /* Evitar que los bordes afecten el tamaño total */
 }
 
+/* Estilos Generales */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f7f7f7; /* Color de fondo general */
+}
 
-
+/* Contenedor del Grid de Productos */
 #product-grid {
-	margin: 40px;
+	margin: 40px auto; /* Centrar horizontalmente */
+	max-width: 1200px; /* Limitar el ancho máximo */
 }
-#shopping-cart{
-	margin-top: 140px;
+
+/* Contenedor del Carrito de Compras */
+#shopping-cart {
+	margin: 120px  30px 30px 30px;
+	padding: 20px 60px;
 }
+
+/* Tabla del Carrito de Compras */
 #shopping-cart table {
 	width: 100%;
-	background-color: #F0F0F0;
+	background-color: #ffffff;
+	border-collapse: collapse; /* Agrupamos los bordes de las celdas */
 }
 
 #shopping-cart table td {
-	background-color: #FFFFFF;
+	border: 1px solid #dddddd; /* Borde de las celdas */
+	padding: 10px; /* Espaciado interno */
 }
 
+/* Encabezado de Texto */
 .txt-heading {
-	color: #211a1a;
-	border-bottom: 1px solid #E0E0E0;
-	overflow: auto;
+	color: #333333;
+	border-bottom: 1px solid #dddddd;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	text-align: center; /* Centrar el texto */
 }
 
+/* Botón Vaciar Carrito */
 #btnEmpty {
-	background-color: #ffffff;
-	border: #d00000 1px solid;
-	padding: 5px 10px;
-	color: #d00000;
+	background-color: #4caf50; /* Color verde */
+	border: none;
+	padding: 10px 20px;
+	color: #ffffff;
 	float: right;
 	text-decoration: none;
 	border-radius: 3px;
 	margin: 10px 0px;
+	cursor: pointer;
 }
 
+/* Botón de Acción */
 .btnAddAction {
-    padding: 5px 10px;
-    margin-left: 5px;
-    background-color: #efefef;
-    border: #E0E0E0 1px solid;
-    color: #211a1a;
-    float: right;
-    text-decoration: none;
-    border-radius: 3px;
-    cursor: pointer;
+	padding: 10px 20px;
+	background-color: #5f9ea0; /* Azul claro */
+	border: none;
+	color: #ffffff;
+	float: right;
+	text-decoration: none;
+	border-radius: 3px;
+	margin-top: 10px;
+	margin-right: 10px; /* Espacio entre botones */
+	cursor: pointer;
 }
 
-#product-grid .txt-heading {
-	margin-bottom: 18px;
+.btnAddAction:hover,
+#btnEmpty:hover {
+	background-color: #4caf50; /* Cambio de color al pasar el mouse */
 }
 
+/* Estilos de los Productos */
 .product-item {
 	float: left;
 	background: #ffffff;
-	margin: 30px 30px 0px 0px;
-	border: #E0E0E0 1px solid;
+	margin: 30px;
+	border: 1px solid #dddddd;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1); /* Sombra suave */
 }
 
 .product-image {
-	width: 250px;
-    height: 250px;
-
-	background-color: #FFF;
-}
-.image{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+	width: 100%; /* Imagen al 100% del contenedor */
+	height: auto; /* Proporcional al ancho */
 }
 
+/* Limpiar Flotantes */
 .clear-float {
 	clear: both;
 }
 
+/* Estilo de la Caja de Entrada */
 .demo-input-box {
-	border-radius: 2px;
-	border: #CCC 1px solid;
-	padding: 2px 1px;
+	border-radius: 3px;
+	border: 1px solid #cccccc;
+	padding: 5px;
+	width: 100%;
 }
 
+/* Tabla del Carrito */
 .tbl-cart {
 	font-size: 0.9em;
 }
@@ -91,40 +112,78 @@
 	font-weight: normal;
 }
 
+/* Título del Producto */
 .product-title {
-	margin-bottom: 20px;
+	margin: 20px 0;
+	text-align: center; /* Centrar el texto */
 }
 
+/* Precio del Producto */
 .product-price {
-	float:left;
+	float: left;
+	margin-top: 20px; /* Espacio entre título y precio */
 }
 
+/* Acción del Carrito */
 .cart-action {
 	float: right;
+	margin-top: 20px; /* Espacio entre título y acciones */
 }
 
+/* Cantidad del Producto */
 .product-quantity {
-    padding: 5px 10px;
-    border-radius: 3px;
-    border: #E0E0E0 1px solid;
+	padding: 5px;
+	border-radius: 3px;
+	border: 1px solid #cccccc;
 }
 
+/* Pie del Producto */
 .product-tile-footer {
-    padding: 15px 15px 0px 15px;
-    overflow: auto;
+	padding: 15px;
+	overflow: auto;
+	text-align: center; /* Centrar el texto */
 }
 
+/* Imagen del Producto en el Carrito */
 .cart-item-image {
 	width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: #E0E0E0 1px solid;
-    padding: 5px;
-    vertical-align: middle;
-    margin-right: 15px;
+	height: 30px;
+	border-radius: 50%;
+	border: 1px solid #cccccc;
+	padding: 5px;
+	vertical-align: middle;
+	margin-right: 15px;
 }
+
+/* Mensaje de Sin Registros */
 .no-records {
 	text-align: center;
 	clear: both;
 	margin: 38px 0px;
+}
+/* Estilo para el Botón Grande */
+.boton-grande {
+    display: inline-block;
+    background-color: #4caf50; /* Color verde */
+    color: #ffffff; /* Texto blanco */
+    padding: 15px 30px; /* Espaciado interno */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Transición suave */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+}
+.boton-grande a{
+	text-decoration: none;
+	color: #ffffff;
+}
+.boton-grande:hover {
+    background-color: #45a049; /* Cambio de color al pasar el mouse */
+    color: #ffffff; /* Texto blanco */
 }

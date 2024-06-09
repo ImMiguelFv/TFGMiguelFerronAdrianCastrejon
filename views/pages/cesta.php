@@ -14,7 +14,7 @@ require_once '../../controler/cestacontroler.php';
 <body class='cuerpo'>
 <!-- Incluyendo el header -->
 <div id="header">
-    <?php include '../recurrente/header.php'; ?>
+    <?php include '../recurrente/header2.php'; ?>
 </div>
 
 <div id="shopping-cart">
@@ -54,6 +54,5 @@ require_once '../../controler/cestacontroler.php';
 </div>
 
 <button class="boton-grande"><a href="checkout.php">Finalizar Pedido!</a></button>
-
 </body>
 </html>
