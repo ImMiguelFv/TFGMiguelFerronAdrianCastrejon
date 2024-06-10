@@ -8,7 +8,7 @@ body {
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     flex-direction: column;
   }
   a {
@@ -24,41 +24,26 @@ body {
     color: #ff5050;
   }
 
-  .container {
-    position: relative;
-    background-color: #fafafe;
-    border-radius: 10px;
-    margin: 40px;
-    padding: 25px 20px 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    width: 320px;
-    box-sizing: border-box;
-  }
-  .container:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 60%;
-    background-color: #fafafe;
-    border-radius: 10px;
-    z-index: 2;
-  }
   
   .card {
     position: relative;
     z-index: 2;
-    margin-top:180px ;
+  margin-bottom: 30px;
     padding: 15px;
     box-shadow: 0 2px 12px -3px #f8f7f7;
     background-color: #c6e0fa;
     border-radius: 15px;
+    
   }
   
   .card_title {
     font-size: 35px;
     margin: 0;
+  }
+  .contenedor{
+    justify-content: center;
+    flex-direction: row;
+    margin-top:220px ;
   }
   
  

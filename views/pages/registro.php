@@ -43,6 +43,9 @@ require_once("../../modelo/DB.php");
         <div class="input">
             <input type="password" class="input_field" id="password_field" name='contraseña' required />
             <label class="input_label">Contraseña</label>
+            <span class="input_eye" id="input_eye">
+                <img  id="eye_icon" src='../assets/icons/ojoCerrado.svg' alt='Icono de ojo' width='25' height='25'>
+            </span>
         </div>
         <div class="input">
             <input type="password" class="input_field" id="password_field_check" name='verificar_contraseña' required />
@@ -54,5 +57,6 @@ require_once("../../modelo/DB.php");
         <p>¿Ya estás registrado? <a href="login.php">Inicia Sesión</a></p>
     </div>
 </div>
+<script src="../javascript/login.js"></script>
 </body>
 </html>

@@ -48,11 +48,12 @@ require_once '../../controler/cestacontroler.php';
         </tr>
         </tbody>
         </table>
+        <button class="boton-grande"><a href="checkout.php">Finalizar Pedido!</a></button>
     <?php } else { ?>
         <div class="no-records"><?php echo $mensajeCarroVacio; ?></div>
     <?php } ?>
 </div>
 
-<button class="boton-grande"><a href="checkout.php">Finalizar Pedido!</a></button>
+
 </body>
 </html>
