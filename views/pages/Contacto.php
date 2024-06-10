@@ -48,7 +48,7 @@
             <ul>
                 <li><a href="https://facebook.com/3dax" target="_blank">Facebook</a></li>
                 <li><a href="https://twitter.com/3dax" target="_blank">Twitter</a></li>
-                <li><a href="https://instagram.com/3dax" target="_blank">Instagram</a></li>
+                <li><a href="https://www.instagram.com/3dax.official/" target="_blank">Instagram</a></li>
             </ul>
         </div>
     
