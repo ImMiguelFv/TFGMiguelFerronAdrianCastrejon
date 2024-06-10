@@ -42,13 +42,9 @@ require_once("../../modelo/DB.php");
         </div>
         <div class="input">
             <input type="password" class="input_field" id="password_field" name='contraseña' required />
-<<<<<<< HEAD
-            <label class="input_label">Contraseña</label>
-            <span class="input_eye" id="input_eye">
-=======
+        
             <label class="input_label">Contraseña</label> <span class="input_eye" id="input_eye">
->>>>>>> bc34b735706fd585f9944d7aa484ec7a9a9b11e6
-                <img  id="eye_icon" src='../assets/icons/ojoCerrado.svg' alt='Icono de ojo' width='25' height='25'>
+             <img  id="eye_icon" src='../assets/icons/ojoCerrado.svg' alt='Icono de ojo' width='25' height='25'>
             </span>
         </div>
         <div class="input">
