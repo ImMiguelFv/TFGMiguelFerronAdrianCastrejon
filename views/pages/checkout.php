@@ -1,5 +1,7 @@
 <?php
 require_once '../../controler/checkoutcontroler.php';
+$correo = $_SESSION['correo'];
+$nombre = DB::obtenerNombre($correo);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -11,6 +13,7 @@ require_once '../../controler/checkoutcontroler.php';
     <link rel="stylesheet" href="../styles/estiloscomunes.css">
     
     <script src="../javascript/checkout.js"></script>
+    
 </head>
 <body>
     <!-- Encabezado -->
@@ -22,34 +25,37 @@ require_once '../../controler/checkoutcontroler.php';
     <div class="contenido">
         <!-- Columna izquierda con formulario de pago -->
         <div class="columna">
-            <h2>Formulario de Pago</h2>
+            <h1>Formulario de Pago</h1>
             <form id="contactForm" action="#" method="POST">
-    <label for="metodo-pago">Seleccione un método de pago:</label>
-    <select name="metodo-pago" id="metodo-pago">
-        <option value="visa">Visa</option>
-        <option value="paypal">Paypal</option>
-        <option value="mastercard">Mastercard</option>
-    </select>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required value="<?php echo $correo; ?>">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required value="<?php echo $nombre; ?>">
-    <label for="apellido">Apellido:</label>
-    <input type="text" id="apellido" name="apellido" required value="<?php echo $apellido; ?>">
-    <label for="direccion">Dirección:</label>
-    <input type="text" id="direccion" name="direccion" required value="<?php echo $direccion; ?>">
-    <label for="region">Región:</label>
-    <input type="text" id="region" name="region" required value="<?php echo $region; ?>">
-    <label for="codigo-postal">Código Postal:</label>
-    <input type="text" id="codigo-postal" name="codigo-postal" required value="<?php echo $codigo_postal; ?>">
-    <label for="ciudad">Ciudad:</label>
-    <input type="text" id="ciudad" name="ciudad" required value="<?php echo $ciudad; ?>">
-    <label for="telefono">Teléfono:</label>
-    <input type="tel" id="telefono" name="telefono" required value="<?php echo $telefono; ?>">
-    <button type="submit">Finalizar Pedido</button>
-</form>
-
-        </div>
+                    <input id="botonCompra" type="submit" value="Comprar" disabled>
+                <h3 for="metodo-pago">Seleccione un método de pago:</h3>
+                <select name="metodo-pago" id="metodo-pago">
+                    <option value="visa">Visa</option>
+                    <option value="paypal">Paypal</option>
+                    <option value="mastercard">Mastercard</option>
+                </select>
+                <?php
+                $direcciones = $db_handle->ejecutarConsulta("SELECT * FROM direcciones WHERE correo_usuario = '$correo'");
+                if (!empty($direcciones)) { ?>
+                    <h3>Tus Direcciones</h3>
+                    <?php foreach ($direcciones as $direccion) { ?>
+                        <div class="direccion">
+                        <input type="radio" name="direccion" value="<?php echo htmlspecialchars($direccion['id_direccion']); ?>" onclick="validarSeleccion()">
+                            <h3><?php echo $direccion['direccion']; ?></h3>
+                            <p><?php echo $direccion['ciudad']; ?></p>
+                            <p><?php echo $direccion['codigo_postal']; ?></p>
+                            <p><?php echo $direccion['pais']; ?></p>
+                        </div>
+                    <?php }
+                    } else { ?>
+                        <p>No tienes direcciones asignadas,  <?php echo htmlspecialchars($nombre); ?></p>
+                        <button><a href="perfil.php">Crear direccion</a></button>
+                    <?php } ?>
+                </div>
+            </form>
+            <div id="product-grid">
+	
+        </div><!-- Fin de la columna 1 -->
 
         <!-- Columna derecha con objetos en el carrito -->
         <div class="columna">
@@ -82,6 +88,7 @@ if(isset($_SESSION["cart_item"])){
                 <?php
                 $total_quantity += $item["cantidad"];
                 $total_price += ($item["precio"]*$item["cantidad"]);
+                $_SESSION['precio-total'] = $total_price;
         }
         ?>
 

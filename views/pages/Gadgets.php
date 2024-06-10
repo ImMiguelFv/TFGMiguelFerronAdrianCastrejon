@@ -25,7 +25,6 @@ $form_action = "gadgets.php";
 
 
 <div id="product-grid">
-	<div class="txt-heading">Productos</div>
 	<?php
 	$product_array = $db_handle->ejecutarConsulta("SELECT * FROM producto WHERE `codigo` LIKE 'g%' ORDER BY id ASC");
 	if (!empty($product_array)) { 

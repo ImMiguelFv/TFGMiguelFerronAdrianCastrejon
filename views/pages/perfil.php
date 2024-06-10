@@ -1,4 +1,11 @@
-<?php include '../../controler/verificarsesion.php'; ?>
+<?php include '../../controler/verificarsesion.php'; 
+include __DIR__ . '/../../modelo/DB.php';
+$correo = $_SESSION['correo'];
+$nombre = DB::obtenerNombre($correo);
+$error = isset($_SESSION['error']) ? $_SESSION['error'] : '';
+$error1 = isset($_SESSION['error1']) ? $_SESSION['error1'] : '';
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +26,8 @@
 <div class="contenedor">
     
 <div class="card">
-<h1 class="card_title">Iniciar Sesión</h1>
+    <p>Bienvenido,  <?php echo htmlspecialchars($nombre); ?></p>
+<h1 class="card_title">Cambiar contraseña</h1>
     <form action="../../controler/cambiarcontrasena.php" class="card_form" method="post">
         <div class="input">
             <input type="password" class="input_field" id="password_field" name='password' required />
@@ -34,6 +42,9 @@
         </div>
         <input type="submit" value="Cambiar">
     </form>
+    <?php if($error1): ?>
+        <p class="error"><?php echo $error1; ?></p>
+    <?php endif; ?>
 </div>
 
 <div class="card ">
@@ -58,6 +69,9 @@
             <input type="submit" value="Agregar Dirección">
             <!--<input type="submit" value="Cambiar"> -->
     </form>
+    <?php if($error): ?>
+        <p class="error"><?php echo $error; ?></p>
+    <?php endif; ?>
 </div>
 </div>
 

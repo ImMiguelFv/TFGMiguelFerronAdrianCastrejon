@@ -20,9 +20,35 @@ a {
 
 /* Estilos para las columnas */
 .columna {
+    display: flex;
     flex: 1;
     padding: 20px;
     border-right: 2px solid #E0E0E0;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center; /* Centra verticalmente los elementos dentro de la columna */
+}
+
+#botonCompra {
+    margin: auto; /* Agrega margen automático a izquierda y derecha para centrar horizontalmente */
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+#botonCompra:hover{
+    background-color: #245c24;
+}
+#botonCompra:disabled {
+    background-color: gray; /* Cambia el color de fondo a gris cuando el botón está deshabilitado */
+    /* Otros estilos opcionales */
+    color: white; /* Cambia el color del texto a blanco */
+    cursor: not-allowed; /* Cambia el cursor a "no permitido" */
 }
 
 /* Estilos para los formularios */
@@ -62,6 +88,7 @@ button[type="submit"] {
     width: 50%;
     float: right;
     padding: 20px;
+    
 }
 
 #shopping-cart table {
@@ -100,4 +127,36 @@ button[type="submit"] {
     padding: 5px;
     vertical-align: middle;
     margin-right: 15px;
+}
+
+.direccion {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px auto;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.direccion:hover {
+    transform: scale(1.05);
+}
+
+.direccion h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.direccion p {
+    margin: 5px 0;
+    color: #666;
+}
+
+#contenedor-direcciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

@@ -1,49 +1,38 @@
 <?php
-session_start(); // Iniciar la sesión
+session_start();
 require_once("../../modelo/DB.php");
 $db_handle = new DB();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_SESSION['correo'])) {
+        $correo = $_SESSION['correo'];
+        $id_direccion = $_POST['direccion'];
+        $metodo_pago = $_POST['metodo-pago'];
+        $precio_total = $_SESSION['precio-total']; // Este es un ejemplo, deberías calcular el precio total según tus necesidades
+        $estado = 'pendiente'; // Estado inicial del pedido
 
-// Inicializar variables del usuario con valores por defecto
-$nombre = "";
-$apellido = "";
-$correo = "";
-$direccion = "";
-$region = "";
-$codigo_postal = "";
-$ciudad = "";
-$telefono = "";
+        // Insertar el pedido en la base de datos
+    
+        // Intentar cambiar la contraseña
+        $cambiado = DB::agregarPedido($correo, $id_direccion, $precio_total, $estado) ;
+           
+            // Insertar los productos del carrito en la tabla detalle_pedido
+            if (isset($_SESSION['cart_item'])) {
+                foreach ($_SESSION['cart_item'] as $item) {
+                    $cod_producto = $item['codigo'];
+                    $cantidad = $item['cantidad'];
+                    $precio_unitario = $item['precio'];
 
-// Verificar si hay una sesión iniciada y obtener los datos del usuario
-if (isset($_SESSION['usuario'])) {
-    $id = $_SESSION['id'];
-    $usuario_info = $db_handle->ejecutarConsulta("SELECT * FROM usuario WHERE id = '$id'");
+                    // Insertar el detalle del pedido en la tabla detalle_pedido
+                    $db_handle->agregarDetallePedido($cambiado, $cod_producto, $cantidad, $precio_unitario);
+                    unset($_SESSION['cart_item']);
+                }
+            }
 
-    if (isset($usuario_info) && is_array($usuario_info) && count($usuario_info) > 0) {
-        $nombre = $usuario_info[0]["nombre"];
-        $apellido = $usuario_info[0]["apellidos"];
-        $correo = $usuario_info[0]["correo"];
-        $direccion = $usuario_info[0]["direccion"];
-        $region = $usuario_info[0]["region"];
-        $codigo_postal = $usuario_info[0]["codigo_postal"];
-        $ciudad = $usuario_info[0]["ciudad"];
-        $telefono = $usuario_info[0]["telefono"];
+            $_SESSION['error'] = $cambiado;
+            header("Location: ../../views/pages/cesta.php");
+            exit();
+        
+
     }
-}
-
-// Lógica del carrito de compras
-$mensajeCarroVacio = "";
-$cart_items = [];
-$total_quantity = 0;
-$total_price = 0;
-
-if (isset($_SESSION["cart_item"])) {
-    $cart_items = $_SESSION["cart_item"];
-    foreach ($cart_items as $item) {
-        $item_price = $item["cantidad"] * $item["precio"];
-        $total_quantity += $item["cantidad"];
-        $total_price += $item_price;
-    }
-} else {
-    $mensajeCarroVacio = "El carro está vacío";
 }
 ?>

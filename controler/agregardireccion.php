@@ -1,7 +1,8 @@
 <?php
 include __DIR__ . '/verificarsesion.php';
 include __DIR__ . '/../modelo/DB.php';
-
+// Inicializar la variable de sesión de error
+$_SESSION['error'] = ""; 
 
 
 if (!isset($_SESSION['correo'])) {
@@ -11,43 +12,23 @@ if (!isset($_SESSION['correo'])) {
 $correo = $_SESSION['correo']; // Asumiendo que el ID de usuario está almacenado en la sesión
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $new_password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
-    //$new_direccion = $_POST['direccion'];
+    $direccion = $_POST['direccion'];
+    $ciudad = $_POST['ciudad'];
+    $codigo_postal = $_POST['codigo_postal'];
+    $pais = $_POST['pais'];
 
-    // Validar la contraseña
-    if ($new_password !== $confirm_password) {
-        die("Las contraseñas no coinciden.");
+    
+    // Intentar registrar al usuario
+    $agregado = DB::agregardireccion($correo, $direccion, $ciudad, $codigo_postal, $pais);
+    if ($agregado === true) {
+        header("Location: ../views/pages/perfil.php");
+        exit();
+    } else {
+        // Establecer el mensaje de error específico en la variable de sesión $_SESSION['error']
+        $_SESSION['error'] = $agregado;
+        header("Location: ../views/pages/perfil.php");
+        exit();
     }
-
-    if (!preg_match('/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/', $new_password)) {
-        die("La contraseña debe tener al menos 8 caracteres, una mayúscula y un número.");
-    }
-
-    // Actualizar la contraseña
-    if (!empty($new_password)) {
-        $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
-        $consulta_password = "UPDATE Usuario SET contraseña = '$hashed_password' WHERE correo = $correo";
-        
-        DB::conectar();
-        if (DB::$conexion->ejecutarConsulta($consulta_password) === TRUE) {
-            echo "Contraseña actualizada correctamente.";
-        } else {
-            echo "Error al actualizar la contraseña: " . DB::$conexion->error;
-        }
-    }
-
-    /* Validar y actualizar la dirección
-    if (!empty($new_direccion)) {
-        $consulta_direccion = "UPDATE Usuario SET direccion = '$new_direccion' WHERE correo = $correo";
-        
-        if (DB::$conexion->query($consulta_direccion) === TRUE) {
-            echo "Dirección actualizada correctamente.";
-        } else {
-            echo "Error al actualizar la dirección: " . DB::$conexion->error;
-        }
-    }
-        */
 
     DB::$conexion->close();
 }
