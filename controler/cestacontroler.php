@@ -2,6 +2,8 @@
 // Verificar si una sesión ya está iniciada
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+    require_once("../../modelo/DB.php");
+    $db_handle = new DB();
 }
 // Verificar si hay una sesión iniciada
 if (isset($_SESSION['usuario'])) {

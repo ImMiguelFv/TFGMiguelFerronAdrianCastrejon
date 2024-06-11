@@ -1,5 +1,8 @@
 <?php
 require_once '../../controler/cestacontroler.php';
+
+$correo = $_SESSION['correo'];
+$nombre = DB::obtenerNombre($correo);
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,6 +55,45 @@ require_once '../../controler/cestacontroler.php';
     <?php } else { ?>
         <div class="no-records"><?php echo $mensajeCarroVacio; ?></div>
     <?php } ?>
+</div>
+
+<div class="pedidos">
+    <h1><?php echo htmlspecialchars($nombre); ?> estos son tus pedidos: </h1>
+    <?php
+    // Obtener todos los pedidos del usuario
+    $pedidos = $db_handle->ejecutarConsulta("SELECT * FROM pedido WHERE correo_usuario = '$correo'");
+    if (!empty($pedidos)) {
+        // Mostrar los pedidos
+        foreach ($pedidos as $pedido) {
+            echo '<div class="card">' ;
+            // Mostrar información del pedido
+            echo "<p>ID del Pedido: " . htmlspecialchars($pedido['id']) . "</p>";
+            echo "<p>Precio Total: $" . htmlspecialchars($pedido['precio_total']) . "</p>";
+            
+            // Obtener los productos asociados al pedido
+            $id_pedido = $pedido['id'];
+            $detalle_pedidos = $db_handle->ejecutarConsulta("SELECT p.nombre AS nombre_producto, dp.cantidad, dp.precio_unitario, pd.precio_total
+                                                                FROM detalle_pedido AS dp
+                                                                JOIN producto AS p ON dp.cod_producto = p.codigo
+                                                                JOIN pedido AS pd ON dp.id_pedido = pd.id
+                                                                WHERE dp.id_pedido = $id_pedido;");
+
+            // Mostrar los productos asociados al pedido
+            if (!empty($detalle_pedidos)) {
+                echo "<ul>";
+                foreach ($detalle_pedidos as $detalle_pedido) {
+                    echo "<li>" . htmlspecialchars($detalle_pedido['nombre_producto']) . " ". htmlspecialchars($detalle_pedido['cantidad']) ."</li>";
+                }
+                echo "</ul>";
+            } else {
+                echo "<p>No se encontraron productos para este pedido.</p>";
+            }
+            echo '</div>';
+        }
+    } else {
+        echo "<p>No se encontraron pedidos para este usuario.</p>";
+    }
+    ?>
 </div>
 
 
