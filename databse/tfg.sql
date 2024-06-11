@@ -16,11 +16,20 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+-- Crear user 
+GRANT ALL PRIVILEGES ON *.* TO `root2`@`%` IDENTIFIED BY PASSWORD '1234' WITH GRANT OPTION;
 
+GRANT ALL PRIVILEGES ON `root2\_%`.* TO `root2`@`%`;
+
+-- En caso de no funcionar 
+-- GRANT ALL PRIVILEGES ON *.* TO `root2`@`%` IDENTIFIED BY PASSWORD '*94BDCEBE19083CE2A1F959FD02F964C7AF4CFC29' WITH GRANT OPTION;
+-- GRANT ALL PRIVILEGES ON `root2\_%`.* TO `root2`@`%`;
 --
 -- Base de datos: `tfg`
 --
+CREATE DATABASE If NOT EXISTS tfg
 
+USE tfg;
 -- --------------------------------------------------------
 
 --
