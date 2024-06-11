@@ -74,7 +74,9 @@ $error1 = isset($_SESSION['error1']) ? $_SESSION['error1'] : '';
     <?php endif; ?>
 </div>
 </div>
-
+<div>
+<?php include '../recurrente/menu_cesta.php'; ?>
+</div>
 <script src="../javascript/login.js"></script>
 </body>
 </html>
