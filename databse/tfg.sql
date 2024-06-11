@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-06-2024 a las 19:24:55
+-- Tiempo de generación: 11-06-2024 a las 02:18:56
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -86,10 +86,27 @@ INSERT INTO `color` (`id`, `nombre`, `hex`, `disponible`) VALUES
 CREATE TABLE `detalle_pedido` (
   `id_detalle` int(11) NOT NULL,
   `id_pedido` int(11) DEFAULT NULL,
-  `id_producto` int(11) DEFAULT NULL,
+  `cod_producto` varchar(250) DEFAULT NULL,
   `cantidad` int(11) NOT NULL,
   `precio_unitario` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `detalle_pedido`
+--
+
+INSERT INTO `detalle_pedido` (`id_detalle`, `id_pedido`, `cod_producto`, `cantidad`, `precio_unitario`) VALUES
+(7, 33, 'CM1', 5, 50.00),
+(8, 34, 'CM1', 5, 50.00),
+(9, 34, 'CP1', 1, 32.00),
+(10, 34, 'CCK1', 1, 30.00),
+(11, 35, 'CM1', 5, 50.00),
+(12, 35, 'CP1', 1, 32.00),
+(13, 35, 'CCK1', 1, 30.00),
+(14, 36, 'CM1', 1, 50.00),
+(15, 37, 'CY1', 1, 31.00),
+(16, 38, 'CEX1', 1, 35.00),
+(17, 38, 'CD1', 2, 33.00);
 
 -- --------------------------------------------------------
 
@@ -99,13 +116,24 @@ CREATE TABLE `detalle_pedido` (
 
 CREATE TABLE `direcciones` (
   `id_direccion` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
+  `correo_usuario` varchar(250) NOT NULL,
   `direccion` varchar(255) NOT NULL,
   `ciudad` varchar(100) NOT NULL,
-  `estado` varchar(100) NOT NULL,
   `codigo_postal` varchar(20) NOT NULL,
   `pais` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `direcciones`
+--
+
+INSERT INTO `direcciones` (`id_direccion`, `correo_usuario`, `direccion`, `ciudad`, `codigo_postal`, `pais`) VALUES
+(2, 'usuario_prueba@example.com', 'Calle Armas', 'Madrid', '28048', 'Madrid'),
+(3, 'usuario_prueba3@example.com', 'calle armas', 'Madrid', '28048', 'España'),
+(11, 'usuario_prueba3@example.com', 'asd', 'asd', 'asd', 'asd'),
+(13, 'usuario_prueba3@example.com', 'asdf', 'asdf', 'asdf', 'asdf'),
+(14, 'usuario_prueba3@example.com', 'asdfg', 'asdfg', 'asdfg', 'asdfg'),
+(16, 'AmorEterno@gmail.com', 'Calle Cruz Verde', 'Madrid', '28049', 'España');
 
 -- --------------------------------------------------------
 
@@ -178,11 +206,33 @@ INSERT INTO `imagenes` (`id`, `producto_codigo`, `ruta_imagen`) VALUES
 
 CREATE TABLE `pedido` (
   `id` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
+  `correo_usuario` varchar(250) NOT NULL,
+  `id_direccion` int(11) NOT NULL,
   `fecha` datetime NOT NULL DEFAULT current_timestamp(),
   `precio_total` decimal(10,2) NOT NULL,
   `estado` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pedido`
+--
+
+INSERT INTO `pedido` (`id`, `correo_usuario`, `id_direccion`, `fecha`, `precio_total`, `estado`) VALUES
+(8, 'usuario_prueba3@example.com', 3, '2024-06-10 23:58:48', 100.00, 'pendiente'),
+(13, 'usuario_prueba3@example.com', 11, '2024-06-11 00:07:41', 100.00, 'pendiente'),
+(15, 'usuario_prueba3@example.com', 3, '2024-06-11 00:11:30', 500.00, 'pendiente'),
+(17, 'usuario_prueba3@example.com', 3, '2024-06-11 00:46:53', 250.00, 'pendiente'),
+(23, 'usuario_prueba3@example.com', 3, '2024-06-11 00:57:10', 250.00, 'pendiente'),
+(24, 'usuario_prueba3@example.com', 3, '2024-06-11 00:57:35', 250.00, 'pendiente'),
+(25, 'usuario_prueba3@example.com', 3, '2024-06-11 00:59:58', 250.00, 'pendiente'),
+(26, 'usuario_prueba3@example.com', 3, '2024-06-11 01:00:10', 250.00, 'pendiente'),
+(32, 'usuario_prueba3@example.com', 3, '2024-06-11 01:08:59', 250.00, 'pendiente'),
+(33, 'usuario_prueba3@example.com', 3, '2024-06-11 01:09:07', 250.00, 'pendiente'),
+(34, 'usuario_prueba3@example.com', 11, '2024-06-11 01:09:56', 312.00, 'pendiente'),
+(35, 'usuario_prueba3@example.com', 3, '2024-06-11 01:12:10', 312.00, 'pendiente'),
+(36, 'usuario_prueba3@example.com', 3, '2024-06-11 01:22:44', 50.00, 'pendiente'),
+(37, 'usuario_prueba3@example.com', 3, '2024-06-11 01:30:53', 31.00, 'pendiente'),
+(38, 'AmorEterno@gmail.com', 16, '2024-06-11 02:03:23', 101.00, 'pendiente');
 
 -- --------------------------------------------------------
 
@@ -238,9 +288,10 @@ INSERT INTO `usuario` (`id`, `correo`, `contraseña`, `telefono`, `nombre`, `ape
 (1, 'usuario_prueba@example.com', '1234', '659997641', 'Nombre Prueba', 'Apellidos Prueba'),
 (2, 'usuario@correo.com', '$2y$10$xt2IeG8cBHjC2KCATumqquQ1YRqwYQesaTKxkQTHRO/6zqOUVOblO', NULL, 'Usuario', 'Usuario'),
 (3, 'prueba@c.c', '1234', NULL, 'Usuario', 'Usuario'),
-(4, 'usuario_prueba3@example.com', '$2y$10$y0kJFGilE.riPfQL9UK0b.uO6DYHpaql6UYQ4/4JPm9EQc/PC/lca', NULL, 'Usuario3', 'Usuario3'),
+(4, 'usuario_prueba3@example.com', '$2y$10$tDd7brAMczu263o7gcYITOrgvysuZ20YGts6JpoGu8Zsz6G.OG46u', NULL, 'Usuario3', 'Usuario3'),
 (5, 'usuario_prueba4@example.com', '$2y$10$qjexZcfM6JgzrhAyKnrzFulf2eoxgoEJT.RDpYMhOQKRmoXeNjiKG', NULL, 'asd', '1'),
-(6, 'usuario_prueba5@example.com', '$2y$10$rTK2DfW.bKAaDqaYgjFnKu9py.Ip2pPQsYV1wK6Z2wpF/E9A0PtC.', NULL, 'asd', 'Usuario');
+(6, 'usuario_prueba5@example.com', '$2y$10$rTK2DfW.bKAaDqaYgjFnKu9py.Ip2pPQsYV1wK6Z2wpF/E9A0PtC.', NULL, 'asd', 'Usuario'),
+(7, 'AmorEterno@gmail.com', '$2y$10$J2SfCLzgpI9VQONihvn94eK1vXEAfza88xWLt8XmOmnGPSqVhTGZm', NULL, 'AmorEterno', 'AmorEterno');
 
 --
 -- Índices para tablas volcadas
@@ -264,15 +315,15 @@ ALTER TABLE `color`
 --
 ALTER TABLE `detalle_pedido`
   ADD PRIMARY KEY (`id_detalle`),
-  ADD KEY `fk_producto` (`id_producto`),
-  ADD KEY `fk_pedido` (`id_pedido`);
+  ADD KEY `fk_pedido` (`id_pedido`),
+  ADD KEY `fk_producto` (`cod_producto`);
 
 --
 -- Indices de la tabla `direcciones`
 --
 ALTER TABLE `direcciones`
   ADD PRIMARY KEY (`id_direccion`),
-  ADD KEY `fk_usuario_dir` (`id_usuario`);
+  ADD KEY `fk_usuario_correo` (`correo_usuario`);
 
 --
 -- Indices de la tabla `imagenes`
@@ -286,7 +337,8 @@ ALTER TABLE `imagenes`
 --
 ALTER TABLE `pedido`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_usuario` (`id_usuario`);
+  ADD KEY `fk_direccion` (`id_direccion`),
+  ADD KEY `fk_correo_usuario` (`correo_usuario`);
 
 --
 -- Indices de la tabla `producto`
@@ -299,7 +351,8 @@ ALTER TABLE `producto`
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `correo` (`correo`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -321,13 +374,13 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT de la tabla `detalle_pedido`
 --
 ALTER TABLE `detalle_pedido`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `direcciones`
 --
 ALTER TABLE `direcciones`
-  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
@@ -339,7 +392,7 @@ ALTER TABLE `imagenes`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -351,7 +404,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
@@ -368,13 +421,13 @@ ALTER TABLE `caracteristicas_producto`
 --
 ALTER TABLE `detalle_pedido`
   ADD CONSTRAINT `fk_pedido` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id`),
-  ADD CONSTRAINT `fk_producto` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`);
+  ADD CONSTRAINT `fk_producto` FOREIGN KEY (`cod_producto`) REFERENCES `producto` (`codigo`);
 
 --
 -- Filtros para la tabla `direcciones`
 --
 ALTER TABLE `direcciones`
-  ADD CONSTRAINT `fk_usuario_dir` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
+  ADD CONSTRAINT `fk_usuario_correo` FOREIGN KEY (`correo_usuario`) REFERENCES `usuario` (`correo`);
 
 --
 -- Filtros para la tabla `imagenes`
@@ -386,7 +439,8 @@ ALTER TABLE `imagenes`
 -- Filtros para la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_correo_usuario` FOREIGN KEY (`correo_usuario`) REFERENCES `usuario` (`correo`),
+  ADD CONSTRAINT `fk_direccion` FOREIGN KEY (`id_direccion`) REFERENCES `direcciones` (`id_direccion`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
